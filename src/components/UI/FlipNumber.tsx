@@ -22,7 +22,7 @@ export default function FlipNumber({
   useEffect(() => {
     const interval = setInterval(() => {
       setNumber((prev) => {
-        let next = prev + step;
+        const next = prev + step;
         return next > max ? start : next;
       });
       setRotation((prev) => prev + 360); // rotate 360 each time

@@ -807,7 +807,7 @@ const Hero = () => {
                     key={index}
                     className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition p-6"
                   >
-                    <img
+                    <Image
                       src={program.image}
                       alt={program.title}
                       className="w-full h-40 object-cover rounded-xl mb-4"
@@ -869,7 +869,7 @@ const Hero = () => {
                   <h3 className="text-xl font-jost font-bold " style={{ color: '#1E1E1E' }}>Expert Facilitators</h3>
                 </div>
                 <p className=" leading-relaxed font-montserrat" style={{ color: ' #757575' }}>
-                  Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.
+                  Body text for whatever you&apos;d like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.
                 </p>
               </div>
             </div>
@@ -891,7 +891,7 @@ const Hero = () => {
                   <h3 className="text-xl font-jost font-bold "  style={{ color: '#1E1E1E' }}>Vast Online Community</h3>
                 </div>
                 <p className=" leading-relaxed font-montserrat" style={{ color: ' #757575' }}>
-                  Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.
+                  Body text for whatever you&apos;d like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.
                 </p>
               </div>
             </div>
@@ -904,7 +904,7 @@ const Hero = () => {
                   <h3 className="text-xl font-jost font-bold "  style={{ color: '#1E1E1E' }}>12+ Online Courses</h3>
                 </div>
                 <p className=" leading-relaxed font-montserrat" style={{ color: ' #757575' }}>
-                  Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.
+                  Body text for whatever you&apos;d like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.
                 </p>
               </div>
              <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
@@ -944,7 +944,7 @@ const Hero = () => {
           >
             <CardContent className="p-0">
               <p className="text-[var(--muted-foreground)] mb-4 font-jost text-sm">
-                "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story."
+                "Body text for whatever you&apos;d like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story."
               </p>
               <div className="flex items-center gap-3">
                 <Avatar>
@@ -972,7 +972,7 @@ const Hero = () => {
           >
             <CardContent className="p-0">
               <p className="text-[var(--muted-foreground)] mb-4 text-sm font-jost">
-                "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story."
+                "Body text for whatever you&apos;d like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story."
               </p>
               <div className="flex items-center gap-3">
                 <Avatar className="w-8 h-8">
@@ -1096,10 +1096,10 @@ const Hero = () => {
 
               <AccordionItem value="item-7" className="bg-gray-50 border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                  Can I get a refund if I don't like a course?
+                  Can I get a refund if I don&apos;t like a course?
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 pt-2">
-                  We offer a 30-day money-back guarantee if you're not satisfied with your course purchase.
+                  We offer a 30-day money-back guarantee if you&apos;re not satisfied with your course purchase.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -1136,8 +1136,8 @@ const Hero = () => {
                     How to Stay Consistent with Learning (Even on Busy Days)
                   </h3>
                   <p className="text-gray-600 mb-4 text-sm">
-                    Life gets busy — but your learning goals don't have to suffer because of it.With the right strategy,
-                    staying consistent can become second nature, not a struggle.but your learning goals don't have to
+                    Life gets busy — but your learning goals don&apos;t have to suffer because of it.With the right strategy,
+                    staying consistent can become second nature, not a struggle.but your learning goals don&apos;t have to
                     suffer because of it. With the right strategy, staying consistent can become second nat...
                   </p>
                   <Link href="#" className="text-orange-500 hover:text-orange-600 font-medium">
@@ -1157,9 +1157,9 @@ const Hero = () => {
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-3">How to Choose the Right Course for Your Career Goals</h3>
                   <p className="text-gray-600 mb-4 text-sm">
-                    Picking a course shouldn't feel like spinning a wheel and hoping for the best. Here's how to align
-                    your learning path with your future goals — with zero confusion. course shouldn't feel like spinning
-                    a wheel and hoping for the best. course shouldn't feel like spinning a wheel and hoping for the
+                    Picking a course shouldn&apos;t feel like spinning a wheel and hoping for the best. Here&apos;s how to align
+                    your learning path with your future goals — with zero confusion. course shouldnt feel like spinning
+                    a wheel and hoping for the best. course shouldnt feel like spinning a wheel and hoping for the
                     best.
                   </p>
                   <Link href="#" className="text-orange-500 hover:text-orange-600 font-medium">
@@ -1183,8 +1183,8 @@ const Hero = () => {
                     How to Stay Consistent with Learning (Even on Busy Days)
                   </h3>
                   <p className="text-gray-600 mb-4 text-sm">
-                    Life gets busy — but your learning goals don't have to suffer because of it.With the right strategy,
-                    staying consistent can become second nature, not a struggle.but your learning goals don't have to
+                    Life gets busy — but your learning goals don&apos;t have to suffer because of it.With the right strategy,
+                    staying consistent can become second nature, not a struggle.but your learning goals don&apos;t have to
                     suffer because of it. With the right strategy, staying consistent can become second nat...
                   </p>
                   <Link href="#" className="text-orange-500 hover:text-orange-600 font-medium">
@@ -1204,9 +1204,9 @@ const Hero = () => {
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-3">How to Choose the Right Course for Your Career Goals</h3>
                   <p className="text-gray-600 mb-4 text-sm">
-                    Picking a course shouldn't feel like spinning a wheel and hoping for the best. Here's how to align
-                    your learning path with your future goals — with zero confusion. course shouldn't feel like spinning
-                    a wheel and hoping for the best. course shouldn't feel like spinning a wheel and hoping for the
+                    Picking a course shouldn&apos;t feel like spinning a wheel and hoping for the best. Here&apos;s how to align
+                    your learning path with your future goals — with zero confusion. course shouldn&apos;t feel like spinning
+                    a wheel and hoping for the best. course shouldn&apos;t feel like spinning a wheel and hoping for the
                     best.
                   </p>
                   <Link href="#" className="text-orange-500 hover:text-orange-600 font-medium">
@@ -1225,12 +1225,14 @@ const Hero = () => {
   <div className="relative w-full max-w-[1296px] h-auto bg-[#1E3A8A] rounded-[16px] flex flex-col items-center justify-center gap-[49px] mx-auto py-16 px-6">
     
     {/* Vector Image Positioned */}
-    <img
+  <Image
   src="/images/vector.png"
   alt="Decorative Vector"
-  className="absolute right-0 bottom-0 max-w-[90%] max-h-[100%] w-auto h-auto opacity-80 pointer-events-none object-contain rounded-[16px]  "
+  width={500}        // Adjust as needed
+  height={500}
+  className="absolute right-0 bottom-0 max-w-[90%] max-h-[100%] w-auto h-auto opacity-80 pointer-events-none object-contain rounded-[16px]"
   style={{ transform: "rotate(0deg)" }}
-/>
+/> 
 
 
     {/* Heading */}
