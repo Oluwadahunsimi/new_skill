@@ -18,17 +18,15 @@ import collaborateIcon from '@iconify/icons-carbon/collaborate';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/UI/avatar";  
 import {
   Bookmark,
-  BookOpen,
+ 
   Clock,
   UserCheck,
   ExternalLink, 
   Folder, 
-  ChevronLeft,
-  ChevronRight, 
-  Users,
+  
   Globe,
   Briefcase,
-  Menu,
+ 
   X,  
   Instagram,
   Youtube,
@@ -36,18 +34,24 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import {  useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 
 const Hero = () => {
   const texts = ["Career path", "Employability", "Global talent"];
   const [currentText, setCurrentText] = useState(texts[0]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    console.log(texts);
+  }, [texts]);
+ 
 
 
  // ✅ Add state to track the active tab
-  const [activeTab, setActiveTab] = useState<"programs" | "courses">("courses");
+ const [activeTab, setActiveTab] = useState<"programs" | "courses">("courses");
+
 
   // ✅ Function to handle scrolling and toggle button background
   const handleScroll = (sectionId: string, tab: "programs" | "courses") => {
@@ -55,6 +59,11 @@ const Hero = () => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
 
+const [hasMounted, setHasMounted] = useState(false);
+
+useEffect(() => {
+  setHasMounted(true);
+}, []);
 
   useEffect(() => {
     let index = 0;
@@ -97,7 +106,7 @@ const Hero = () => {
                 alt="REASTUR"
                 width={80}
                 height={26}
-                className="object-contain cursor-pointer"    
+                className="object-contain cursor-pointer" 
               />
             </div>
 
@@ -614,224 +623,218 @@ const Hero = () => {
         </section>
       </div>
 
-    {/* Courses Section */}
-  <section className="py-20 bg-blue-50">
-        <div className="container mx-auto px-4">
-          {/* Heading + Toggle Buttons */}
-          <div className="flex items-end justify-between mb-16">
-            <h2 className="font-jost font-bold text-[40px] leading-[120%] text-[#14183E]">
-              {activeTab === "courses"
-                ? "Courses You Picked Interest In"
-                : "Interested In Our Programs?"}
-            </h2>
+    {/* Courses & Programs Section */}
+<section className="py-20 bg-blue-50">
+  <div className="container mx-auto px-4">
+    {/* Heading + Toggle Buttons */}
+    <div className="flex items-end justify-between mb-16">
+      <h2 className="font-jost font-bold text-[40px] leading-[120%] text-[#14183E]">
+        {activeTab === "courses"
+          ? "Courses You Picked Interest In"
+          : "Interested In Our Programs?"}
+      </h2>
 
-            {/* Toggle Buttons */}
+      {/* Toggle Buttons */}
+      <div
+        className="flex gap-1 bg-[#DBEAFE] rounded-[24px] p-2 items-center"
+        style={{ width: "320px", height: "72px" }}
+      >
+        <button
+          onClick={() => setActiveTab("programs")}
+          className={`w-[156px] h-[56px] rounded-[32px] px-8 py-4 text-[20px] font-inter font-medium text-center leading-[24px] transition ${
+            activeTab === "programs"
+              ? "bg-[#1E40AF] text-white"
+              : "text-[#1E3B8A] hover:bg-blue-100"
+          }`}
+        >
+          Programs
+        </button>
+        <button
+          onClick={() => setActiveTab("courses")}
+          className={`w-[144px] h-[56px] rounded-[32px] px-8 py-4 text-[20px] font-inter font-medium text-center leading-[24px] transition ${
+            activeTab === "courses"
+              ? "bg-[#1E40AF] text-white"
+              : "text-[#1E3B8A] hover:bg-blue-100"
+          }`}
+        >
+          Courses
+        </button>
+      </div>
+    </div>
+
+    {/* =================== SLIDER CONTENT =================== */}
+    <div className="transition-all duration-500 ease-in-out">
+      {activeTab === "courses" ? (
+        // ---------- COURSES GRID ----------
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {[
+            {
+              title: "Virtual Assistant Class",
+              description:
+                "Use Figma to get a job in UI Design, User Interface, User Experience design.",
+              lessons: "40 Lessons",
+              duration: "12h 25mins",
+              price: "₦100,000",
+              image: "/images/explore.jpg",
+            },
+            {
+              title: "Web Development Class",
+              description:
+                "Use Figma to get a job in UI Design, User Interface, User Experience design.",
+              lessons: "40 Lessons",
+              duration: "12h 25mins",
+              price: "₦100,000",
+              image: "/images/software.jpg",
+            },
+            {
+              title: "Data Analysis Class",
+              description:
+                "Use Figma to get a job in UI Design, User Interface, User Experience design.",
+              lessons: "40 Lessons",
+              duration: "12h 25mins",
+              price: "₦100,000",
+              image: "/images/data_analysis.jpg",
+            },
+            {
+              title: "Virtual Assistant Class 2",
+              description:
+                "Use Figma to get a job in UI Design, User Interface, User Experience design.",
+              lessons: "40 Lessons",
+              duration: "12h 25mins",
+              price: "₦100,000",
+              image: "/images/two.jpg",
+            },
+            {
+              title: "AI/ML Intermediate",
+              description:
+                "Use Figma to get a job in UI Design, User Interface, User Experience design.",
+              lessons: "40 Lessons",
+              duration: "12h 25mins",
+              price: "₦100,000",
+              image: "/images/ai.png",
+            },
+            {
+              title: "Project Management",
+              description:
+                "Use Figma to get a job in UI Design, User Interface, User Experience design.",
+              lessons: "40 Lessons",
+              duration: "12h 25mins",
+              price: "₦100,000",
+              image: "/images/projectt.jpg",
+            },
+          ].map((course, index) => (
             <div
-              className="flex gap-1 bg-[#DBEAFE] rounded-[24px] p-2 items-center"
-              style={{ width: "320px", height: "72px" }}
+              key={index}
+              className="overflow-hidden hover:shadow-lg transition-shadow bg-white rounded-[16px]"
             >
-              <button
-                onClick={() => setActiveTab("programs")}
-                className={`w-[156px] h-[56px] rounded-[32px] px-8 py-4 text-[20px] font-inter font-medium text-center leading-[24px] transition 
-                ${
-                  activeTab === "programs"
-                    ? "bg-[#1E40AF] text-white"
-                    : "text-[#1E3B8A] hover:bg-blue-100"
-                }`}
-              >
-                Programs
-              </button>
-
-              <button
-                onClick={() => setActiveTab("courses")}
-                className={`w-[144px] h-[56px] rounded-[32px] px-8 py-4 text-[20px] font-inter font-medium text-center leading-[24px] transition 
-                ${
-                  activeTab === "courses"
-                    ? "bg-[#1E40AF] text-white"
-                    : "text-[#1E3B8A] hover:bg-blue-100"
-                }`}
-              >
-                Courses
+              <div className="relative">
+                <Image
+                  src={course.image}
+                  alt={course.title}
+                  width={402}
+                  height={237}
+                  className="w-full h-48 object-cover rounded-[16px]"
+                />
+                <div className="absolute bottom-4 left-4 bg-white text-[#52525B] flex items-center gap-2 px-3 py-1 rounded-full shadow-md">
+                  <Clock className="h-4 w-4 text-[#52525B]" />
+                  <span className="text-sm font-medium">Coming Soon</span>
+                </div>
+                <Button
+                  size="sm"
+                  className="absolute top-4 right-4 bg-white text-gray-900 hover:bg-gray-100"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                </Button>
+              </div>
+              <div className="p-6">
+                <h3 className="font-jost font-bold text-[28px] text-[#101828] mb-2">
+                  {course.title}
+                </h3>
+                <p className="font-montserrat text-[14px] text-[#667085] mb-4">
+                  {course.description}
+                </p>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="flex items-center gap-2 bg-[#F8FAFC] rounded-full px-4 h-10 w-[133px] hover:bg-zinc-300">
+                    <Bookmark className="h-4 w-4 text-[#52525B]" />
+                    <span className="text-sm text-[#52525B] font-medium">
+                      {course.lessons}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-[#F8FAFC] rounded-full px-4 h-10 w-[133px] hover:bg-zinc-300">
+                    <Clock className="h-4 w-4 text-[#52525B]" />
+                    <span className="text-sm text-[#52525B]">
+                      {course.duration}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="text-blue-900 font-jost font-bold text-[20px]">
+                    {course.price}
+                  </div>
+                  <button className="bg-blue-900 hover:bg-blue-600 text-white font-inter text-[16px] px-6 py-3 rounded-full transition-all">
+                    Enroll now
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        // ---------- PROGRAMS GRID ----------
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            {
+              title: "Tech Tribe Bootcamp",
+              description: "Learn essential tech skills with hands-on live projects.",
+              duration: "3 Months",
+              projects: "5 Projects",
+              image: "/placeholder.svg?height=200&width=300",
+            },
+            {
+              title: "Future Clan Bootcamp",
+              description: "Get ready for the future with real-world experience.",
+              duration: "3 Months",
+              projects: "5 Projects",
+              image: "/placeholder.svg?height=200&width=300",
+            },
+            {
+              title: "Ladies in Tech Bootcamp",
+              description: "A program designed for women aspiring to enter tech.",
+              duration: "3 Months",
+              projects: "5 Projects",
+              image: "/placeholder.svg?height=200&width=300",
+            },
+          ].map((program, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition p-6"
+            >
+              <Image
+                src={program.image}
+                alt={program.title}
+                className="w-full h-40 object-cover rounded-xl mb-4"
+              />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                {program.title}
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                {program.description}
+              </p>
+              <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                <span>📅 {program.duration}</span>
+                <span>📂 {program.projects}</span>
+              </div>
+              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full">
+                Join Waitlist
               </button>
             </div>
-          </div>
-
-          {/* =================== SLIDER CONTENT =================== */}
-          <div className="transition-all duration-500 ease-in-out">
-            {activeTab === "courses" ? (
-              /* ---------- COURSES GRID ---------- */
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                {[
-                  {
-                    title: "Virtual Assistant Class..",
-                    description:
-                      "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-                    lessons: "40 Lessons",
-                    duration: "12h 25mins",
-                    price: "₦100,000",
-                    image: "/images/explore.jpg",
-                  },
-                  {
-                    title: "Web Development Class",
-                    description:
-                      "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-                    lessons: "40 Lessons",
-                    duration: "12h 25mins",
-                    price: "₦100,000",
-                    image: "/images/software.jpg",
-                  },
-                  {
-                    title: "Data Analysis Class..",
-                    description:
-                      "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-                    lessons: "40 Lessons",
-                    duration: "12h 25mins",
-                    price: "₦100,000",
-                    image: "/images/data_analysis.jpg",
-                  },
-                   {
-                    title: "Virtual Assistant Class..",
-                    description:
-                      "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-                    lessons: "40 Lessons",
-                    duration: "12h 25mins",
-                    price: "₦100,000",
-                    image: "/images/two.jpg",
-                  },
-                  {
-                    title: "AI/ML Intermediate..",
-                    description:
-                      "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-                    lessons: "40 Lessons",
-                    duration: "12h 25mins",
-                    price: "₦100,000",
-                    image: "/images/ai.png",
-                  },
-                  {
-                    title: "Project Management..",
-                    description:
-                      "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-                    lessons: "40 Lessons",
-                    duration: "12h 25mins",
-                    price: "₦100,000",
-                    image: "/images/projectt.jpg",
-                  },
-                ].map((course, index) => (
-                  <div
-                    key={index}
-                    className="overflow-hidden hover:shadow-lg transition-shadow bg-white rounded-[16px]"
-                  >
-                    <div className="relative">
-                      <Image
-                        src={course.image}
-                        alt={course.title}
-                        width={402}
-                        height={237}
-                        className="w-full h-48 object-cover rounded-[16px]"
-                      />
-                      {/* ✅ Coming Soon Badge */}
-                      <div className="absolute bottom-4 left-4 bg-white text-[#52525B] flex items-center gap-2 px-3 py-1 rounded-full shadow-md">
-                        <Clock className="h-4 w-4 text-[#52525B]" />
-                        <span className="text-sm font-medium">Coming Soon</span>
-                      </div>
-                      <Button
-                        size="sm"
-                        className="absolute top-4 right-4 bg-white text-gray-900 hover:bg-gray-100"
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                      </Button>
-                    </div>
-                    <div className="p-6">
-                      <h3 className="font-jost font-bold text-[28px] text-[#101828] mb-2">
-                        {course.title}
-                      </h3>
-                      <p className="font-montserrat text-[14px] text-[#667085] mb-4">
-                        {course.description}
-                      </p>
-                      <div className="flex items-center gap-4 mb-4">
-                        <button className="flex items-center gap-2 bg-[#F8FAFC] rounded-full px-4 h-10 w-[133px]  hover:bg-zinc-300">
-                          <Bookmark className="h-4 w-4 text-[#52525B]" />
-                          <span className="text-sm text-[#52525B] font-medium">
-                            {course.lessons}
-                          </span>
-                        </button>
-                        <button className="flex items-center gap-2 bg-[#F8FAFC] rounded-full px-4 h-10 w-[133px]  hover:bg-zinc-300">
-                          <Clock className="h-4 w-4 text-[#52525B]" />
-                          <span className="text-sm text-[#52525B]">
-                            {course.duration}
-                          </span>
-                        </button>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <div className="text-blue-900 font-jost font-bold text-[20px]">
-                          {course.price}
-                        </div>
-                        <button className="bg-blue-900 hover:bg-blue-600 text-white font-inter text-[16px] px-6 py-3 rounded-full transition-all">
-                          Enroll now
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              /* ---------- PROGRAMS GRID ---------- */
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[
-                  {
-                    title: "Tech Tribe Bootcamp",
-                    description:
-                      "Learn essential tech skills with hands-on live projects.",
-                    duration: "3 Months",
-                    projects: "5 Projects",
-                    image: "/placeholder.svg?height=200&width=300",
-                  },
-                  {
-                    title: "Future Clan Bootcamp",
-                    description:
-                      "Get ready for the future with real-world experience.",
-                    duration: "3 Months",
-                    projects: "5 Projects",
-                    image: "/placeholder.svg?height=200&width=300",
-                  },
-                  {
-                    title: "Ladies in Tech Bootcamp",
-                    description:
-                      "A program designed for women aspiring to enter tech.",
-                    duration: "3 Months",
-                    projects: "5 Projects",
-                    image: "/placeholder.svg?height=200&width=300",
-                  },
-                ].map((program, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition p-6"
-                  >
-                    <Image
-                      src={program.image}
-                      alt={program.title}
-                      className="w-full h-40 object-cover rounded-xl mb-4"
-                    />
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      {program.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm mb-4">
-                      {program.description}
-                    </p>
-                    <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-                      <span>📅 {program.duration}</span>
-                      <span>📂 {program.projects}</span>
-                    </div>
-                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full">
-                      Join Waitlist
-                    </button>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          ))}
         </div>
-      </section>
+      )}
+    </div>
+  </div>
+</section>
+
 
 
   
