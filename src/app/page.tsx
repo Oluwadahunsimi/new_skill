@@ -1,250 +1,227 @@
- "use client";
+"use client"; 
 
 
 import { Button } from "@/components/UI/button"; 
-import { Input } from "@/components/UI/input"; 
+import { Input } from "@/components/UI/input";  
 import {
   Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
+  AccordionContent, 
+  AccordionItem, 
+  AccordionTrigger,  
 } 
-from "@/components/UI/accordion";
-import OverlayPopup from "@/components/UI/OverlayPopup";
+from "@/components/UI/accordion";  
+import OverlayPopup from "@/components/UI/OverlayPopup"; 
 import FlipNumber from "@/components/UI/FlipNumber";
-import { Card, CardContent } from "@/components/UI/card";
-import { Icon } from '@iconify/react'; 
-import collaborateIcon from '@iconify/icons-carbon/collaborate'; 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/UI/avatar";  
-import {
-  Bookmark,
- 
-  Clock,
-  UserCheck,
+import { Card, CardContent } from "@/components/UI/card"; 
+import { Icon } from '@iconify/react';  
+import collaborateIcon from '@iconify/icons-carbon/collaborate';  
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/UI/avatar";   
+import {  
+  Bookmark, 
+  Clock, 
+  UserCheck, 
   ExternalLink, 
-  Folder, 
-  
-  Globe,
-  Briefcase,
- 
-  X,  
+  Folder,
+  Globe, 
+  Briefcase, 
+  X,
+  Menu,  
   Instagram,
   Youtube,
-  Linkedin,
-} from "lucide-react";
+  Linkedin, 
+}   
+from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 
 const Hero = () => {
-  const texts = ["Career path", "Employability", "Global talent"];
+  const texts = ["Career path", "Employability", " Talent"];
   const [currentText, setCurrentText] = useState(texts[0]);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [email, setEmail] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars   
+  const [email, setEmail] = useState(""); 
 
   useEffect(() => {
     console.log(texts);
   }, [texts]);
  
-
-
  // ✅ Add state to track the active tab
  const [activeTab, setActiveTab] = useState<"programs" | "courses">("courses");
 
-
   // ✅ Function to handle scrolling and toggle button background
-  const handleScroll = (sectionId: string, tab: "programs" | "courses") => {
+  const handleScroll = (sectionId: string, tab: "programs" | "courses") => {   
     setActiveTab(tab);
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" }); 
   };
+const [menuOpen, setMenuOpen] = useState(false);
+const navItems = ["For Individuals", "For Corporates", "Institution", "About"];
 
 const [hasMounted, setHasMounted] = useState(false);
 
 useEffect(() => {
   setHasMounted(true);
-}, []);
+}, []); 
 
   useEffect(() => {
     let index = 0;
-    const interval = setInterval(() => {
-      index = (index + 1) % texts.length;
-      setCurrentText(texts[index]);
+    const interval = setInterval(() => {  
+      index = (index + 1) % texts.length;  
+      setCurrentText(texts[index]); 
     }, 2500);
     return () => clearInterval(interval);
   }, []);
-
+ 
   return (
      
    <>
       <OverlayPopup />
-      ...
-   
 
-    <div className="bg-white" suppressHydrationWarning={true}>
+
+<div className="bg-white" suppressHydrationWarning={true}>
       {/* Static Limited Offer Banner */}
-      <div
-       className="fixed top-0 left-0 w-full text-center text-sm text-white py-2 px-4 z-[9999]"
-        style={{
-          background: "linear-gradient(45deg, #2E3C8C 0%, #F97416 100%)",
-        }}
-      >
-        <span className="mr-2 inline-block rounded-full border border-white/30 bg-white/20 px-2 py-1 text-xs">
-          Limited offer 
-        </span>
-        Join early! And get to learn the course of your choice at a 30% discount!
-      </div> 
+<div
+  className="fixed top-0 left-0 w-full text-center text-sm text-white py-2 px-4 z-50"
+  style={{
+    background: "linear-gradient(45deg, #2E3C8C 0%, #F97416 100%)",
+  }}
+>
+  <span className="mr-2 inline-block rounded-full border border-white/30 bg-white/20 px-2 py-1 text-xs">
+    Limited offer
+  </span>
+  Join early! And get to learn the course of your choice at a 30% discount!
+</div>
 
       <div className="min-h-screen bg-white" suppressHydrationWarning={true}>
         {/* Navigation Bar */}
-        <nav className="fixed top-8 left-0 w-full z-50 bg-white shadow-md border-b border-gray-100">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-            {/* Logo */}
-            <div className="flex items-center">
-              <Image
-                src="/images/f9e24541ae5109a0f551f1baa27fdd1f52fec7e1.png"
-                alt="REASTUR"
-                width={80}
-                height={26}
-                className="object-contain cursor-pointer" 
-              />
-            </div>
+<nav className="fixed top-[40px] left-0 w-full z-40 bg-white shadow-md border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+        
+        {/* Logo */}
+        <div className="flex items-center flex-shrink-0">
+          <Image
+            src="/images/f9e24541ae5109a0f551f1baa27fdd1f52fec7e1.png"
+            alt="REASTUR"
+            width={80}
+            height={26}
+            className="object-contain cursor-pointer flex-shrink-0"
+          />
+        </div>
 
-
-            {/* Desktop Nav Links */}
-            <div className="hidden lg:flex items-center space-x-6">
-              {["For Individuals", "For Corporates", "Institution", "About"].map((item, i) => (
-                <Link
-                  href="#"
-                  key={i}
-                  className="text-blue-900 font-inter font-semibold text-base hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md"
-                >
-                  {item}
-                </Link>
-              ))}
-              {/* Courses dropdown */}
-              <button
-                className="text-blue-900 font-inter font-semibold text-base hover:text-blue-600 transition-colors duration-200 flex items-center px-3 py-2 rounded-md"
-              >
-                Courses
-                <svg
-                  className="w-5 h-5 ml-1 shrink-0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke="#1E3A8A"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-              <Link
-                href="#"
-                className="text-blue-900 font-inter font-semibold text-base hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md"
-              >
-                Contact Us
-              </Link>
-            </div>
-
-            {/* Auth Buttons (Desktop) */}
-            <div className="hidden lg:flex items-center space-x-4">
-           <button 
-  className="bg-white border-2 border-orange-600 text-orange-600 px-6 py-2 rounded-full font-medium transition-all duration-300 ease-in-out hover:border-[4px] hover:bg-orange-50"
-  onClick={() => console.log('Open overlay: Login')}
->
-  Login
-</button>
-
-
-              <button
-                className="bg-blue-900 text-white font-inter font-medium text-base px-6 py-3 rounded-full hover:bg-blue-700 transition-colors duration-200"
-                onClick={() => console.log("Open overlay: Reg")}
-              >
-                Get Started
-              </button>
-            </div>
-
-            {/* Mobile Toggle Button */}
-            <button
-              className="lg:hidden text-blue-900 focus:outline-none"
-              
+        {/* Desktop Nav Links */}
+        <div className="hidden lg:flex items-center flex-1 justify-center space-x-4 whitespace-nowrap ml-6">
+          {navItems.map((item, i) => (
+            <Link
+              href="#"
+              key={i}
+              className="text-blue-900 font-inter font-semibold text-base hover:text-blue-600 transition-colors duration-200 px-2 py-2 rounded-md"
             >
-            
-            </button>
-          </div>
-
-          {/* Mobile Menu */}
-          <div
-            className={`lg:hidden fixed top-0 left-0 w-full h-screen bg-white z-40 transform transition-transform duration-300 ease-in-out "translate-x-0" : "translate-x-full"
-            }`}
+              {item}
+            </Link>
+          ))}
+          <button className="text-blue-900 font-inter font-semibold text-base hover:text-blue-600 transition-colors duration-200 flex items-center px-2 py-2 rounded-md">
+            Courses
+            <svg
+              className="w-5 h-5 ml-1 shrink-0 text-black"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 9L12 15L18 9"
+                stroke="#1E3A8A"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <Link
+            href="#"
+            className="text-blue-900 font-inter font-semibold text-base hover:text-blue-600 transition-colors duration-200 px-2 py-2 rounded-md"
           >
-            <div className="flex justify-end p-4">
-              <button
-                className="text-blue-900 focus:outline-none"
-               
-              >
-                <X className="w-8 h-8" />
-              </button>
-            </div>
-            <div className="flex flex-col items-center space-y-6 mt-12">
-              {["For Individuals", "For Corporates", "Institution", "About"].map((item, i) => (
-                <Link
-                  href="#"
-                  key={i}
-                  className="text-blue-900 font-inter font-semibold text-lg hover:text-blue-600 transition-colors duration-200"
-                  
-                >
-                  {item}
-                </Link>
-              ))}
-              <button
-                className="text-blue-900 font-inter font-semibold text-lg hover:text-blue-600 transition-colors duration-200 flex items-center"
-               
-              >
-                Courses
-                <svg
-                  className="w-5 h-5 ml-1 shrink-0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke="#1E3A8A"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-              <Link
-                href="#"
-                className="text-blue-900 font-inter font-semibold text-lg hover:text-blue-600 transition-colors duration-200"
-               
-              >
-                Contact Us
-              </Link>
-              <button
-                className="bg-white text-orange-600 border border-orange-500 font-inter font-medium text-lg px-8 py-3 rounded-full hover:bg-orange-50 transition-colors duration-200"
-                
-              >
-                Login
-              </button>
-              <button
-                className="bg-blue-900 text-white font-inter font-medium text-lg px-8 py-3 rounded-full hover:bg-blue-700 transition-colors duration-200"
-               
-             
-              >
-                Get Started
-              </button>
-            </div>
-          </div>
-        </nav>
+            Contact Us
+          </Link>
+        </div>
 
+        {/* Auth Buttons */}
+        <div className="hidden lg:flex items-center space-x-3 flex-shrink-0">
+          <button className="bg-white border-2 border-orange-600 text-orange-600 px-5 py-2 rounded-full font-medium transition-all duration-300 ease-in-out hover:border-[3px] hover:bg-orange-50">
+            Login
+          </button>
+          <button className="bg-blue-900 text-white font-inter font-medium text-base px-5 py-2 rounded-full hover:bg-blue-700 transition-colors duration-200">
+            Get Started
+          </button>
+        </div>
+
+        {/* Mobile Toggle Button */}
+        <button
+          className="lg:hidden text-blue-900 focus:outline-none"
+          onClick={() => setMenuOpen(true)}
+        >
+          <Menu className="w-8 h-8" />
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden fixed top-0 right-0 w-full sm:w-2/3 md:w-1/2 h-screen bg-white z-50 transform transition-transform duration-300 ease-in-out ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Cancel Button */}
+        <button
+          className="absolute top-4 right-4 text-orange-600 focus:outline-none"
+          onClick={() => setMenuOpen(false)}
+        >
+          <X className="w-8 h-8" />
+        </button>
+
+        {/* Mobile Links */}
+        <div className="flex flex-col items-center space-y-6 mt-16">
+          {navItems.map((item, i) => (
+            <Link
+              href="#"
+              key={i}
+              className="text-blue-900 font-inter font-semibold text-lg hover:text-blue-600 transition-colors duration-200"
+              onClick={() => setMenuOpen(false)}
+            >
+              {item}
+            </Link>
+          ))}
+          <button className="text-blue-900 font-inter font-semibold text-lg hover:text-blue-600 transition-colors duration-200 flex items-center">
+            Courses
+            <svg
+              className="w-5 h-5 ml-1 shrink-0"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 9L12 15L18 9"
+                stroke="#1E3A8A"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <Link
+            href="#"
+            className="text-blue-900 font-inter font-semibold text-lg hover:text-blue-600 transition-colors duration-200"
+            onClick={() => setMenuOpen(false)}
+          >
+            Contact Us
+          </Link>
+          <button className="bg-white text-orange-600 border border-orange-500 font-inter font-medium text-lg px-8 py-3 rounded-full hover:bg-orange-50 transition-colors duration-200">
+            Login
+          </button>
+          <button className="bg-blue-900 text-white font-inter font-medium text-lg px-8 py-3 rounded-full hover:bg-blue-700 transition-colors duration-200">
+            Get Started
+          </button>
+        </div>
+      </div>
+    </nav>     
         {/* Hero Section */}
         {/* Hero Section */}
 <section
@@ -496,7 +473,7 @@ useEffect(() => {
                      <div className="absolute top-[89px] left-[68.56px] w-[366px] h-[432px] rounded-full overflow-hidden">
                       <Image
                         src="/images/student.png"
-                        alt="Student with thumbs up"
+                        alt="Student with thumbs up" 
                         width={366}
                         height={432}
                         className="w-full h-full object-cover"
