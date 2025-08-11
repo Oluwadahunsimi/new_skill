@@ -1,77 +1,73 @@
-"use client"; 
 
+"use client";
 
-import { Button } from "@/components/UI/button"; 
-import { Input } from "@/components/UI/input";  
+import { Button } from "@/components/UI/button";
 import {
   Accordion,
-  AccordionContent, 
-  AccordionItem, 
-  AccordionTrigger,  
-} 
-from "@/components/UI/accordion";  
-import OverlayPopup from "@/components/UI/OverlayPopup"; 
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/UI/accordion";
+import OverlayPopup from "@/components/UI/OverlayPopup";
 import FlipNumber from "@/components/UI/FlipNumber";
-import { Card, CardContent } from "@/components/UI/card"; 
-import { Icon } from '@iconify/react';  
-import collaborateIcon from '@iconify/icons-carbon/collaborate';  
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/UI/avatar";   
-import {  
-  Bookmark, 
-  Clock, 
-  UserCheck, 
-  ExternalLink, 
+import { Card, CardContent } from "@/components/UI/card";
+import { Icon } from "@iconify/react";
+import collaborateIcon from "@iconify/icons-carbon/collaborate";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/UI/avatar";
+import {
+  Bookmark,
+  Clock,
+  UserCheck,
+  ExternalLink,
   Folder,
-  Globe, 
-  Briefcase, 
+  Globe,
+  Briefcase,
   X,
-  Menu,  
+  Menu,
   Instagram,
   Youtube,
-  Linkedin, 
-}   
-from "lucide-react";
+  Linkedin,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useEffect, useMemo } from "react";
 
 const Hero = () => {
-  const texts = ["Career path", "Employability", " Talent"];
+  // ✅ Memoize to prevent recreating array on every render
+  const texts = useMemo(
+    () => ["Career path", "Employability", "Talent"],
+    []
+  );
   const [currentText, setCurrentText] = useState(texts[0]);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars   
-  const [email, setEmail] = useState(""); 
 
-  useEffect(() => {
-    console.log(texts);
-  }, [texts]);
- 
- // ✅ Add state to track the active tab
- const [activeTab, setActiveTab] = useState<"programs" | "courses">("courses");
+  // ✅ Track email (kept here if needed later)
+  const [email, setEmail] = useState("");
 
-  // ✅ Function to handle scrolling and toggle button background
-  const handleScroll = (sectionId: string, tab: "programs" | "courses") => {   
+  // ✅ State for tab switching
+  const [activeTab, setActiveTab] = useState<"programs" | "courses">("courses");
+
+  // ✅ Scroll handler (remove if unused)
+  const handleScroll = (sectionId: string, tab: "programs" | "courses") => {
     setActiveTab(tab);
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" }); 
+    document
+      .getElementById(sectionId)
+      ?.scrollIntoView({ behavior: "smooth" });
   };
-const [menuOpen, setMenuOpen] = useState(false);
-const navItems = ["For Individuals", "For Corporates", "Institution", "About"];
 
-const [hasMounted, setHasMounted] = useState(false);
+  // ✅ Menu state
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navItems = ["For Individuals", "For Corporates", "Institution", "About"];
 
-useEffect(() => {
-  setHasMounted(true);
-}, []); 
-
+  // ✅ Text rotation effect
   useEffect(() => {
     let index = 0;
-    const interval = setInterval(() => {  
-      index = (index + 1) % texts.length;  
-      setCurrentText(texts[index]); 
+    const interval = setInterval(() => {
+      index = (index + 1) % texts.length;
+      setCurrentText(texts[index]);
     }, 2500);
     return () => clearInterval(interval);
-  }, []);
- 
+  }, [texts]);
+
   return (
      
    <>
@@ -924,7 +920,7 @@ useEffect(() => {
           >
             <CardContent className="p-0">
               <p className="text-[var(--muted-foreground)] mb-4 font-jost text-sm">
-                "Body text for whatever you&apos;d like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story."
+                &quot;Body text for whatever you&apos;d like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.&quot;
               </p>
               <div className="flex items-center gap-3">
                 <Avatar>
@@ -952,7 +948,7 @@ useEffect(() => {
           >
             <CardContent className="p-0">
               <p className="text-[var(--muted-foreground)] mb-4 text-sm font-jost">
-                "Body text for whatever you&apos;d like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story."
+                &quot;Body text for whatever you&apos;d like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.&quot;
               </p>
               <div className="flex items-center gap-3">
                 <Avatar className="w-8 h-8">
