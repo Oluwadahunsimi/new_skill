@@ -3,21 +3,24 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function OverlayPopup() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     // Delay popup slightly to ensure it loads after page hydration
     const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 300); 
+      setIsVisible(true)
+    }, 300)
 
-    return () => clearTimeout(timer);
-  }, []);
+    return () => clearTimeout(timer)
+  }, [])
 
-  if (!isVisible) return null;
+  if (!isVisible) return null
+
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999]">
+    // In OverlayPopup root div
+<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[99999]">
+
       {/* Popup container */}
       <div
         className="relative bg-white rounded-lg shadow-lg flex"
@@ -35,7 +38,7 @@ export default function OverlayPopup() {
         <div className="relative" style={{ width: "500px", height: "100%" }}>
           {/* Rectangular Background */}
           <Image
-            src="/images/Rectangle 4467.png"
+            src="/images/rectangle-4467.png"
             alt="Background Shape"
             width={631}
             height={513}
