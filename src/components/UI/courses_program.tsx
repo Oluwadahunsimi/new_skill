@@ -5,11 +5,34 @@ import Image from "next/image"
 import { Button } from "@/components/UI/button"
 import { Clock, Bookmark, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react"
 
+// =====================
+// TYPE DEFINITIONS
+// =====================
+interface Course {
+  title: string
+  description: string
+  lessons: string
+  duration: string
+  price: string
+  image: string
+}
+
+interface Program {
+  title: string
+  description: string
+  duration: string
+  projects: string
+  image: string
+}
+
+// =====================
+// MAIN COMPONENT
+// =====================
 export default function CoursesProgramsSection() {
   const [activeTab, setActiveTab] = useState<"courses" | "programs">("courses")
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  const coursesData = [
+  const coursesData: Course[] = [
     {
       title: "Virtual Assistant Class",
       description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
@@ -60,7 +83,7 @@ export default function CoursesProgramsSection() {
     },
   ]
 
-  const programsData = [
+  const programsData: Program[] = [
     {
       title: "Tech Tribe Bootcamp",
       description: "Learn essential tech skills with hands-on live projects.",
@@ -95,7 +118,6 @@ export default function CoursesProgramsSection() {
     setCurrentSlide((prev) => (prev - 1 + maxSlides) % maxSlides)
   }
 
-  // Reset slide when switching tabs
   const handleTabChange = (tab: "courses" | "programs") => {
     setActiveTab(tab)
     setCurrentSlide(0)
@@ -104,13 +126,12 @@ export default function CoursesProgramsSection() {
   return (
     <section className="py-20 bg-blue-50">
       <div className="container mx-auto px-4">
-        {/* Heading + Toggle Buttons */}
+        {/* Heading + Toggle */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
           <h2 className="font-bold text-2xl md:text-3xl lg:text-[40px] leading-[120%] text-[#14183E]">
             {activeTab === "courses" ? "Courses You Picked Interest In" : "Interested In Our Programs?"}
           </h2>
 
-          {/* Toggle Buttons */}
           <div className="flex gap-1 bg-[#DBEAFE] rounded-[24px] p-2 items-center w-full max-w-[320px] h-[72px] mx-auto lg:mx-0">
             <button
               onClick={() => handleTabChange("programs")}
@@ -131,12 +152,11 @@ export default function CoursesProgramsSection() {
           </div>
         </div>
 
-        {/* Content Container */}
+        {/* Content */}
         <div className="transition-all duration-500 ease-in-out">
           {/* Mobile Slider */}
           <div className="block md:hidden">
             <div className="relative">
-              {/* Slider Container */}
               <div className="overflow-hidden rounded-2xl">
                 <div
                   className="flex transition-transform duration-300 ease-in-out"
@@ -144,13 +164,17 @@ export default function CoursesProgramsSection() {
                 >
                   {currentData.map((item, index) => (
                     <div key={index} className="w-full flex-shrink-0 px-2">
-                      {activeTab === "courses" ? <CourseCard course={item} /> : <ProgramCard program={item} />}
+                      {activeTab === "courses" ? (
+                        <CourseCard course={item as Course} />
+                      ) : (
+                        <ProgramCard program={item as Program} />
+                      )}
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Navigation Arrows */}
+              {/* Arrows */}
               <button
                 onClick={prevSlide}
                 className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all z-10"
@@ -166,7 +190,7 @@ export default function CoursesProgramsSection() {
                 <ChevronRight className="h-5 w-5" />
               </button>
 
-              {/* Slide Indicators */}
+              {/* Indicators */}
               <div className="flex justify-center mt-6 gap-2">
                 {currentData.map((_, index) => (
                   <button
@@ -181,7 +205,7 @@ export default function CoursesProgramsSection() {
             </div>
           </div>
 
-          {/* Desktop/Tablet Grid */}
+          {/* Desktop Grid */}
           <div className="hidden md:block">
             {activeTab === "courses" ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
@@ -203,7 +227,10 @@ export default function CoursesProgramsSection() {
   )
 }
 
-function CourseCard({ course }: { course: any }) {
+// =====================
+// COURSE CARD
+// =====================
+function CourseCard({ course }: { course: Course }) {
   return (
     <div className="overflow-hidden hover:shadow-lg transition-shadow bg-white rounded-[16px]">
       <div className="relative">
@@ -237,18 +264,19 @@ function CourseCard({ course }: { course: any }) {
         </div>
         <div className="flex items-center justify-between">
           <div className="text-blue-900 font-bold text-lg lg:text-[20px]">{course.price}</div>
-          <button className="bg-white border-2 border-blue-600 hover:bg-blue-900 text-black text-sm lg:text-[20px] px-4 lg:px-6 py-3 rounded-full transition-all">
-  Enroll now
-</button>
-
-         
+          <button className="bg-white border-2 border-blue-600 hover:bg-blue-900 text-black hover:text-white text-sm lg:text-[20px] px-4 lg:px-6 py-3 rounded-full transition-all">
+            Enroll now
+          </button>
         </div>
       </div>
     </div>
   )
 }
 
-function ProgramCard({ program }: { program: any }) {
+// =====================
+// PROGRAM CARD
+// =====================
+function ProgramCard({ program }: { program: Program }) {
   return (
     <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition p-6">
       <Image
@@ -264,7 +292,9 @@ function ProgramCard({ program }: { program: any }) {
         <span>📅 {program.duration}</span>
         <span>📂 {program.projects}</span>
       </div>
-      <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full">Join Waitlist</button>
+      <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full">
+        Join Waitlist
+      </button>
     </div>
   )
 }
