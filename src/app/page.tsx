@@ -37,51 +37,50 @@ export default function HomePage() {
     <>
       
 
-      <div className="min-h-screen relative">
-        {/* Navigation Header */}
-        <Navigation />
+     <div className="min-h-screen relative">
+      {/* Navigation Header */}
+      <Navigation />
 
-        {/* Hero Section */}
-        <div
-          className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/images/herro.jpg')",
-          }}
-        >
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black/50" />
+      {/* Hero Section */}
+      <div
+        className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/images/herro.png')",
+        }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/50" />
 
-          {/* Content */}
-          <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              Up your skills to advance your{" "}
-              <span className="text-blue-500 relative">
-                Employability
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-500 rounded-full" />
-              </span>
-            </h1>
-             
-            <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            </p>
+        {/* Content */}
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            Up your skills to advance your{" "}
+            <span className="text-blue-500 relative">
+              Employability
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-500 rounded-full" />
+            </span>
+          </h1>
 
-            {/* Search Bar */}
-            <div className="relative max-w-2xl mx-auto">
-              <Input
-                type="text"
-                placeholder="What do you want to learn?"
-                className="h-14 pl-6 pr-16 text-lg bg-white/95 backdrop-blur-sm border-0 rounded-full shadow-lg focus:ring-2 focus:ring-blue-500 w-full"
-              />
-              <Button
-                size="lg"
-                className="absolute right-1 top-1 h-12 w-12 bg-blue-600 hover:bg-blue-700 rounded-full shadow-lg p-0"
-              >
-                 
-                <Search className="w-5 h-5" />
-              </Button>
-            </div>
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          </p>
+
+          {/* Search Bar */}
+          <div className="relative max-w-2xl mx-auto">
+            <Input
+              type="text"
+              placeholder="What do you want to learn?"
+              className="h-12 sm:h-14 pl-4 sm:pl-6 pr-14 sm:pr-16 text-base sm:text-lg bg-white/95 backdrop-blur-sm border-0 rounded-full shadow-lg focus:ring-2 focus:ring-blue-500 w-full"
+            />
+            <Button
+              size="lg"
+              className="absolute right-1 top-1 h-10 w-10 sm:h-12 sm:w-12 bg-blue-600 hover:bg-blue-700 rounded-full shadow-lg p-0"
+            >
+              <Search className="w-4 h-4 sm:w-5 sm:h-5" />
+            </Button>
           </div>
         </div>
+      </div>
 
         {/* Organizations Section */}
         <section className="py-16 bg-white overflow-hidden relative">

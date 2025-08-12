@@ -90,6 +90,23 @@ body {
   display: inline-block;
 }
 
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  display: flex;
+  white-space: nowrap;
+  animation: scroll 20s linear infinite;
+}
+
+.animate-scroll::after {
+  content: "";
+  display: inline-flex;
+}
+
+
 @keyframes rotate {
   0% {
     transform: translateY(20px) rotateX(180deg);
@@ -149,11 +166,10 @@ body {
   animation-play-state: paused;
 }
 
-/* Fallback for mobile: static grid */
 @media (max-width: 768px) {
   .animate-scroll {
-    animation: none;
-    flex-wrap: wrap;
-    justify-content: center;
+    animation: scroll 10s linear infinite; /* Keep scrolling */
+    flex-wrap: nowrap; /* ✅ force single line */
+    justify-content: flex-start;
   }
 }
