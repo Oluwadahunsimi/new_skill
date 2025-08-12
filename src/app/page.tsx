@@ -1,4 +1,8 @@
-"use client";
+import { Navigation } from "@/components/UI/navigation"
+import { Button } from "@/components/UI/button"
+import { Input } from "@/components/UI/input"
+import FlipNumber from "@/components/UI/FlipNumber";
+import { Search } from "lucide-react"
 import {
   Accordion,
   AccordionContent,
@@ -6,11 +10,9 @@ import {
   AccordionTrigger,
 } from "@/components/UI/accordion";
 import Image from "next/image";  // <-- add this import
-import { Search } from "lucide-react";
+// import { Search } from "lucide-react";
 import { Card, CardContent } from "@/components/UI/card";
-import { Button } from "@/components/UI/button";
-import { Input } from "@/components/UI/input";
-import { Navigation } from "@/components/UI/navigation";
+
 import OverlayPopup from "@/components/UI/OverlayPopup";
 import Link from "next/link";
 import CoursesProgramsSection from "@/components/UI/courses_program"
@@ -32,12 +34,19 @@ import {
   Linkedin,
 } from "lucide-react";
 
-export default function HomePage() {
-  return (
-    <>
-      
+export default function Home() {
+   const logos = [
+    { src: "/images/global.png", alt: "Africa Missions Global" },
+    { src: "/images/rccg.png", alt: "RCCG" },
+    { src: "/images/incubator.png", alt: "DAF" },
+    { src: "/images/champions.png", alt: "Champions" },
+    { src: "/images/global.png", alt: "Tech Company" },
+  ];
 
-     <div className="min-h-screen relative">
+  // Duplicate logos for seamless loop
+  const doubledLogos = [...logos, ...logos];
+  return (
+    <div className="min-h-screen relative">
       {/* Navigation Header */}
       <Navigation />
 
@@ -45,7 +54,7 @@ export default function HomePage() {
       <div
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/images/herro.png')",
+          backgroundImage: "url('/images/herro.jpg')",
         }}
       >
         {/* Dark overlay */}
@@ -81,304 +90,486 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+ <section className="py-8 sm:py-12 md:py-16 bg-white overflow-hidden relative">
+        <div className="container mx-auto px-4 relative">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-normal text-[#14183E] leading-tight text-center mb-8 sm:mb-12 md:mb-20">
+            Organizations we've worked with
+          </h2>
 
-        {/* Organizations Section */}
-        <section className="py-16 bg-white overflow-hidden relative">
-          <div className="container mx-auto px-4 relative">
-            <h2 className="w-fit whitespace-nowrap mx-auto text-[40px] font-jost italic font-normal text-[#14183E] leading-[1.2] text-center">
-              Organizations we’ve worked with
-            </h2>
-            <div className="h-[80px]" />
-            <div className="relative">
-              <div className="flex animate-scroll">
-                <div className="flex items-center justify-center min-w-max">
-                  <div className="flex items-center space-x-16 px-8">
-                    <div className="h-16 w-32 flex items-center justify-center">
-                      <Image
-                        src="/images/global.png"
-                        alt="Africa Missions Global"
-                        width={188}
-                        height={250}
-                      />
-                    </div>
-                    <div className="h-16 w-32 flex items-center justify-center">
-                      <Image
-                        src="/images/rccg.png"
-                        alt="Incubator"
-                        width={185}
-                        height={80}
-                      />
-                    </div>
-                    <div className="h-16 w-32 flex items-center justify-center">
-                      <Image src="/images/daf.png" alt="CERT" width={64} height={64} />
-                    </div>
-                    <div className="h-16 w-32 flex items-center justify-center">
-                      <Image
-                        src="/images/incubator.png"
-                        alt="Incubator Alt"
-                        width={160}
-                        height={64}
-                      />
-                    </div>
-                    <div className="h-16 w-32 flex items-center justify-center">
-                      <Image
-                        src="/images/champions.png"
-                        alt="Tech"
-                        width={64}
-                        height={64}
-                      />
-                    </div>
-                    <div className="h-16 w-32 flex items-center justify-center">
-                      <Image
-                        src="/images/global.png"
-                        alt="CERT Duplicate"
-                        width={417}
-                        height={80}
-                      />
-                    </div>
-                    <div className="h-16 w-32 flex items-center justify-center">
-                      <Image
-                        src="/images/rccg.png"
-                        alt="Incubator Alt 2"
-                        width={160}
-                        height={64}
-                      />
-                    </div>
-                    <div className="h-16 w-32 flex items-center justify-center">
-                      <Image src="/images/daf.png" alt="Logo" width={64} height={64} />
-                    </div>
+          <div className="relative">
+            <div className="flex animate-scroll">
+              {/* First set of logos */}
+              <div className="flex items-center justify-center min-w-max">
+                <div className="flex items-center space-x-8 sm:space-x-12 md:space-x-16 px-4 sm:px-6 md:px-8">
+                  <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/images/global.png"
+                      alt="Africa Missions Global"
+                      width={138}
+                      height={84}
+                      className="max-w-full max-h-full object-contain transition-all duration-300"
+                    />
+                  </div>
+                  <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/images/rccg.png"
+                      alt="RCCG"
+                      width={128}
+                      height={64}
+                      className="max-w-full max-h-full object-contain transition-all duration-300"
+                    />
+                  </div>
+                  <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/images/incubator.png"
+                      alt="DAF"
+                      width={128}
+                      height={64}
+                      className="max-w-full max-h-full object-contain transition-all duration-300"
+                    />
+                  </div>
+                  <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/images/rccg.png"
+                      alt="Incubator"
+                      width={128}
+                      height={64}
+                      className="max-w-full max-h-full object-contain transition-all duration-300"
+                    />
+                  </div>
+                  <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/images/champions.png"
+                      alt="Champions"
+                      width={128}
+                      height={64}
+                      className="max-w-full max-h-full object-contain transition-all duration-300"
+                    />
+                  </div>
+                  <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/images/global.png"
+                      alt="Tech Company"
+                      width={128}
+                      height={64}
+                      className="max-w-full max-h-full object-contain transition-all duration-300"
+                    />
                   </div>
                 </div>
+              </div>
 
-                <div className="flex items-center justify-center min-w-max">
-                  <div className="flex items-center space-x-16 px-8">
-                    <div className="h-16 w-32 flex items-center justify-center">
-                      <Image
-                        src="/images/global.png"
-                        alt="Africa Missions Global"
-                        width={817}
-                        height={250}
-                      />
-                    </div>
-                    <div className="h-16 w-32 flex items-center justify-center">
-                      <Image src="/images/rccg.png" alt="Logo" width={64} height={64} />
-                    </div>
-                    <div className="h-16 w-32 flex items-center justify-center">
-                      <Image src="/images/incubator.png" alt="CERT" width={64} height={64} />
-                    </div>
-                    <div className="h-16 w-32 flex items-center justify-center">
-                      <Image
-                        src="/images/champions.png"
-                        alt="Incubator"
-                        width={160}
-                        height={64}
-                      />
-                    </div>
-                    <div className="h-16 w-32 flex items-center justify-center">
-                      <Image
-                        src="/images/global.png"
-                        alt="Tech"
-                        width={417}
-                        height={80}
-                      />
-                    </div>
-                    <div className="h-16 w-32 flex items-center justify-center">
-                      <Image src="/images/rccg.png" alt="CERT Duplicate" width={64} height={64} />
-                    </div>
-                    <div className="h-16 w-32 flex items-center justify-center">
-                      <Image
-                        src="/images/daf.png"
-                        alt="Incubator Alt 2"
-                        width={160}
-                        height={64}
-                        className="object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                      />
-                    </div>
-                    <div className="h-16 w-32 flex items-center justify-center">
-                      <Image src="/images/incubator.png" alt="Logo" width={64} height={64} />
-                    </div>
+              {/* Duplicate set for continuous scroll */}
+              <div className="flex items-center justify-center min-w-max">
+                <div className="flex items-center space-x-8 sm:space-x-12 md:space-x-16 px-4 sm:px-6 md:px-8">
+                  <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/images/global.png"
+                      alt="Africa Missions Global"
+                      width={138}
+                      height={84}
+                      className="max-w-full max-h-full object-contain transition-all duration-300"
+                    />
+                  </div>
+                  <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/images/rccg.png"
+                      alt="RCCG"
+                      width={128}
+                      height={64}
+                      className="max-w-full max-h-full object-contain transition-all duration-300"
+                    />
+                  </div>
+                  <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/images/incubator.png"
+                      alt="DAF"
+                      width={128}
+                      height={64}
+                      className="max-w-full max-h-full object-contain transition-all duration-300"
+                    />
+                  </div>
+                  <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/images/rccg.png"
+                      alt="Incubator"
+                      width={128}
+                      height={64}
+                      className="max-w-full max-h-full object-contain transition-all duration-300"
+                    />
+                  </div>
+                  <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/images/champions.png"
+                      alt="Champions"
+                      width={128}
+                      height={64}
+                      className="max-w-full max-h-full object-contain transition-all duration-300"
+                    />
+                  </div>
+                  <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/images/global.png"
+                      alt="Tech Company"
+                      width={128}
+                      height={64}
+                      className="max-w-full max-h-full object-contain transition-all duration-300"
+                    />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-         <style jsx>{`
-                @keyframes scroll {
-                  100% {
-                    transform: translateX(-50%);
-                  }
-                }
-                .animate-scroll {
-                  animation: scroll 30s linear infinite;
-                }
-                .animate-scroll:hover {
-                  animation-play-state: paused;
-                }
-              `}</style>
-        
-              {/* Why Choose Skillup Section */}
-              <section className="py-20 bg-white">
-                <div className="container mx-auto px-4">
-                  <div className="grid lg:grid-cols-2 gap-16 items-center">
-                    <div className="relative">
-                      <div className="absolute top-0 left-0 w-full h-full"></div>
-        
-                      <div className="relative">
-                        <div className="relative w-[495px] h-[495px] mx-auto">
-                          <div className="relative mx-auto w-[495.72px] h-[495.72px] rounded-[688.5px] border-[0.76px] border-[#0D4EFF] overflow-hidden">
-                            <div className="absolute top-[21px] left-[22.56px] w-[495px] h-[495px] rounded-[688.5px] border-[0.76px] border-[#0D4EFF] bg-[#0D4EFF]" />
-                             <div className="absolute top-[89px] left-[68.56px] w-[366px] h-[432px] rounded-full overflow-hidden">
-                              <Image
-                                src="/images/student.png"
-                                alt="Student with thumbs up" 
-                                width={366}
-                                height={432}
-                                className="w-full h-full object-cover"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <div className="absolute top-[8.87px] left-[11px] w-[42px] h-[42px] rounded-full border-[0.76px] border-[#0D4EFF] bg-[#0D4EFF]"></div> 
-                        <div className="absolute top-[29.87px] left-[555px] w-[42px] h-[42px] rounded-full border-[0.76px] border-[#0D4EFF] bg-[#0D4EFF]"></div>
-                        <div className="absolute top-[435.87px] left-[32px] w-[42px] h-[42px] rounded-full border-[0.76px] border-[#0D4EFF] bg-[#0D4EFF]"></div>
-                        <div className="absolute top-[0.87px] left-[450px] w-[42px] h-[42px] rounded-full border-[0.76px] border-orange-200    overflow-hidden"></div>
-                      </div>
-                    </div>
-        
-                    <div>
-                      <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                        Why Choose Skillup?
-                      </h2>
-                      <p className="text-lg text-gray-600 mb-8">
-                        Our AI writing assistant is designed to help you effortlessly
-                        craft compelling grant proposals for your success.
-                      </p>
-        
-                      <div className="space-y-6">
-                        <div className="group bg-[#F0F3FF] p-6 rounded-lg hover:bg-[#F0F3FF] transition-all duration-300 cursor-pointer">
-                          <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                              <Image
-                                src="/images/flight.jpg"
-                                alt="OpenAI"
-                                width={24}
-                                height={24}
-                                className="transition-all w-12 h-12 duration-300 group-hover:scale-110"
-                              />
-                            </div>
-                            <div>
-                              <h3 className="text-xl font-semibold mb-2 text-gray-900 group-hover:text-black">
-                                AI-Powered Precision
-                              </h3>
-                              <p className="text-gray-600 group-hover:text-gray-800">
-                                Our platform leverages cutting-edge artificial intelligence to refine and enhance your grant writing process.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-        
-                        <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Icon icon={collaborateIcon} className="w-6 h-6 text-red-600" />
-                          </div>
-                          <div>
-                            <h3 className="text-xl font-semibold mb-2">
-                              Collaboration Simplified
-                            </h3>
-                            <p className="text-gray-600">
-                              Work seamlessly with team members, ensuring that everyone
-                              contributes to crafting successful grant proposals.
-                            </p>
-                          </div>
-                        </div>
-        
-                        <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Briefcase className="w-6 h-6 text-green-600" />
-                          </div>
-                          <div>
-                            <h3 className="text-xl font-semibold mb-2">
-                              Comprehensive Toolkit
-                            </h3>
-                            <p className="text-gray-600">
-                              We offer more than just a platform; we provide a
-                              comprehensive toolkit for grant success
-                            </p>
-                          </div>
-                        </div>
-                      </div>
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+            <div className="relative order-2 lg:order-1">
+              <div className="relative max-w-md mx-auto lg:max-w-none">
+                <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[495px] lg:h-[495px] mx-auto">
+                  <div className="relative mx-auto w-full h-full rounded-full border border-[#0D4EFF] overflow-hidden">
+                    <div className="absolute top-4 left-4 sm:top-5 sm:left-5 md:top-6 md:left-6 w-full h-full rounded-full border border-[#0D4EFF] bg-[#0D4EFF]" />
+                    <div className="absolute top-16 left-12 sm:top-20 sm:left-16 md:top-24 md:left-20 lg:top-[89px] lg:left-[68px] w-48 h-56 sm:w-56 sm:h-64 md:w-64 md:h-72 lg:w-[366px] lg:h-[432px] rounded-full overflow-hidden">
+                      <Image
+                        src="/images/student.png"
+                        alt="Student with thumbs up"
+                        width={366}
+                        height={432}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
                 </div>
-              </section>
+                {/* Decorative circles - hidden on mobile for cleaner look */}
+                <div className="hidden sm:block absolute top-2 left-2 w-8 h-8 md:w-10 md:h-10 rounded-full border border-[#0D4EFF] bg-[#0D4EFF]"></div>
+                <div className="hidden sm:block absolute top-6 right-2 md:right-4 w-8 h-8 md:w-10 md:h-10 rounded-full border border-[#0D4EFF] bg-[#0D4EFF]"></div>
+                <div className="hidden sm:block absolute bottom-12 left-6 w-8 h-8 md:w-10 md:h-10 rounded-full border border-[#0D4EFF] bg-[#0D4EFF]"></div>
+                <div className="hidden sm:block absolute top-0 right-8 md:right-12 w-8 h-8 md:w-10 md:h-10 rounded-full border border-orange-200 overflow-hidden"></div>
+              </div>
+            </div>
 
+            <div className="order-1 lg:order-2">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
+                Why Choose Skillup?
+              </h2>
+              <p className="text-base sm:text-lg text-gray-600 mb-6 md:mb-8">
+                Our AI writing assistant is designed to help you effortlessly craft compelling grant proposals for your
+                success.
+              </p>
 
- <div className="relative w-full h-[400px] md:h-[500px] lg:h-[651px]">
-      <section className="relative w-full h-full overflow-hidden">
-        {/* Main background image */}
-        <Image
-          src="/images/Become.jpg"
-          alt="Group of professionals walking together"
-          fill
-          className="object-cover object-top z-0"
-          priority
-        />
+              <div className="space-y-4 md:space-y-6">
+                <div className="group bg-[#F0F3FF] p-4 md:p-6 rounded-lg hover:bg-[#E6EDFF] transition-all duration-300 cursor-pointer">
+                  <div className="flex items-start gap-3 md:gap-4">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Image
+                        src="/images/flight.jpg"
+                        alt="AI Icon"
+                        width={48}
+                        height={48}
+                        className="transition-all duration-300 group-hover:scale-110 rounded-lg"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 group-hover:text-black">
+                        AI-Powered Precision
+                      </h3>
+                      <p className="text-sm md:text-base text-gray-600 group-hover:text-gray-800">
+                        Our platform leverages cutting-edge artificial intelligence to refine and enhance your grant
+                        writing process.
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-[#1018284D] z-10" />
+                <div className="flex items-start gap-3 md:gap-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg
+                      className="w-5 h-5 md:w-6 md:h-6 text-red-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-semibold mb-2">Collaboration Simplified</h3>
+                    <p className="text-sm md:text-base text-gray-600">
+                      Work seamlessly with team members, ensuring that everyone contributes to crafting successful grant
+                      proposals.
+                    </p>
+                  </div>
+                </div>
 
-        {/* Main heading */}
-        <div className="absolute inset-0 z-30 flex items-start justify-center pt-8 md:pt-16 lg:pt-[143px] px-4">
-          <h1 className="w-full max-w-[1200px] text-2xl md:text-4xl lg:text-[56px] leading-tight lg:leading-[1.2] text-center font-jost font-bold text-white">
-            Online Professional Certificate In Different Tech Skills
-          </h1>
-        </div>
-
-        {/* Bottom section with content and CTA */}
-        <div className="absolute bottom-0 left-0 w-full h-[200px] md:h-[240px] lg:h-[282px] z-20">
-          {/* Bottom overlay */}
-          <div className="absolute inset-0 bg-[#000000]/50 z-10" />
-
-          {/* Bottom background image */}
-          <Image
-            src="/images/ec3824486a67fdb44f3d77c256717dc00f453974.png"
-            alt="Students collaborating and studying together"
-            fill
-            className="object-cover opacity-60 z-0"
-          />
-
-          {/* Content container */}
-          <div className="absolute inset-0 z-30 flex flex-col lg:flex-row items-center justify-between px-4 md:px-8 lg:px-[82px] py-6 lg:py-[105px] gap-4 lg:gap-8">
-            {/* Description text */}
-            <p className="flex-1 max-w-[926px] font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed text-white text-center lg:text-left">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in vborum.
-            </p>
-
-            {/* CTA Button */}
-            <button className="flex-shrink-0 w-full max-w-[221px] h-12 lg:h-[56px] bg-white border-2 border-[#1E3A8A] rounded-[32px] px-6 lg:px-8 py-3 lg:py-4 text-[#1E3A8A] text-sm lg:text-base font-semibold font-montserrat text-center transition-opacity duration-300 ease-in hover:opacity-80">
-              Explore Courses
-            </button>
-          </div>
-        </div>
-
-        {/* Career advancement card */}
-        <div className="absolute top-1/2 left-4 md:left-8 lg:left-[78px] -translate-y-1/2 w-[calc(100%-2rem)] max-w-[362px] md:w-[362px] bg-white px-4 md:px-6 py-3 md:py-4 rounded-[4px] shadow-md z-40 flex flex-col justify-center space-y-1">
-          <div className="text-[#2E323A] text-center font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed">
-            Advance Your Career
-          </div>
-          <div className="text-[#1E1E1E] text-center font-jost font-bold text-xl md:text-2xl lg:text-[28px] leading-tight">
-            Become A Global Talent
+                <div className="flex items-start gap-3 md:gap-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Briefcase className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-semibold mb-2">Comprehensive Toolkit</h3>
+                    <p className="text-sm md:text-base text-gray-600">
+                      We offer more than just a platform; we provide a comprehensive toolkit for grant success
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-    </div>
-              
-       <CoursesProgramsSection />
+  <div className="relative w-full h-[400px] md:h-[500px] lg:h-[651px]">
+       <section className="relative w-full h-full overflow-hidden">
+         {/* Main background image */}
+         <Image
+           src="/images/Become.jpg"
+           alt="Group of professionals walking together"
+           fill
+           className="object-cover object-top z-0"
+           priority
+         />
+ 
+         {/* Dark overlay */}
+         <div className="absolute inset-0 bg-[#1018284D] z-10" />
+ 
+         {/* Main heading */}
+         <div className="absolute inset-0 z-30 flex items-start justify-center pt-8 md:pt-16 lg:pt-[143px] px-4">
+           <h1 className="w-full max-w-[1200px] text-2xl md:text-4xl lg:text-[56px] leading-tight lg:leading-[1.2] text-center font-jost font-bold text-white">
+             Online Professional Certificate In Different Tech Skills
+           </h1>
+         </div>
+ 
+         {/* Bottom section with content and CTA */}
+         <div className="absolute bottom-0 left-0 w-full h-[200px] md:h-[240px] lg:h-[282px] z-20">
+           {/* Bottom overlay */}
+           <div className="absolute inset-0 bg-[#000000]/50 z-10" />
+ 
+           {/* Bottom background image */}
+           <Image
+             src="/images/ec3824486a67fdb44f3d77c256717dc00f453974.png"
+             alt="Students collaborating and studying together"
+             fill
+             className="object-cover opacity-60 z-0"
+           />
+ 
+           {/* Content container */}
+           <div className="absolute inset-0 z-30 flex flex-col lg:flex-row items-center justify-between px-4 md:px-8 lg:px-[82px] py-6 lg:py-[105px] gap-4 lg:gap-8">
+             {/* Description text */}
+             <p className="flex-1 max-w-[926px] font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed text-white text-center lg:text-left">
+               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+               ea commodo consequat. Duis aute irure dolor in reprehenderit in vborum.
+             </p>
+ 
+             {/* CTA Button */}
+             <button className="flex-shrink-0 w-full max-w-[221px] h-12 lg:h-[56px] bg-white border-2 border-[#1E3A8A] rounded-[32px] px-6 lg:px-8 py-3 lg:py-4 text-[#1E3A8A] text-sm lg:text-base font-semibold font-montserrat text-center transition-opacity duration-300 ease-in hover:opacity-80">
+               Explore Courses
+             </button>
+           </div>
+         </div>
+ 
+         {/* Career advancement card */}
+         <div className="absolute top-1/2 left-4 md:left-8 lg:left-[78px] -translate-y-1/2 w-[calc(100%-2rem)] max-w-[362px] md:w-[362px] bg-white px-4 md:px-6 py-3 md:py-4 rounded-[4px] shadow-md z-40 flex flex-col justify-center space-y-1">
+           <div className="text-[#2E323A] text-center font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed">
+             Advance Your Career
+           </div>
+           <div className="text-[#1E1E1E] text-center font-jost font-bold text-xl md:text-2xl lg:text-[28px] leading-tight">
+             Become A Global Talent
+           </div>
+         </div>
+       </section>
+     </div>     
+ <CoursesProgramsSection />
 
+  {/* Why We Are Good At What We Do Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-jost font-bold mb-4" style={{ color: ' #14183E' }}>
+              Why We Are Good At What We Do
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus met, cetur adipiscing elit.
+              Urna, tortor tempus.
+            </p>
+          </div>
+
+          {/* Features Grid */}
+          <div className="w-416 h-669 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* First Vertical Container: Collaboration Image + Library Image + Expert Facilitators */}
+            <div className="flex flex-col gap-6">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
+                <Image
+                  src="/images/two.jpg"
+                  alt=" Two professionals collaborating at desk "
+                  width={418}
+                  height={380}
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+             
+              <div className="bg-blue-200 rounded-2xl p-8 flex flex-col justify-center">
+                <div className="flex items-center mb-4">
+                  <UserCheck className="w-8 h-8 text-blue-900 mr-3" />
+                  <h3 className="text-xl font-jost font-bold " style={{ color: '#1E1E1E' }}>Expert Facilitators</h3>
+                </div>
+                <p className=" leading-relaxed font-montserrat" style={{ color: ' #757575' }}>
+                  Body text for whatever you&apos;d like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.
+                </p>
+              </div>
+            </div>
+
+            {/* Second Vertical Container: Vast Online Community (Image above Text) */}
+            <div className="flex flex-col gap-6 bg-blue-200 rounded-2xl p-8">
+              <div className="flex-shrink-0">
+                <Image
+                  src="/images/abj.png"
+                  alt="Community illustration"
+                  width={374}
+                  height={344}
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center mb-4">
+                  <Globe className="w-8 h-8 text-blue-900 mr-3" />
+                  <h3 className="text-xl font-jost font-bold "  style={{ color: '#1E1E1E' }}>Vast Online Community</h3>
+                </div>
+                <p className=" leading-relaxed font-montserrat" style={{ color: ' #757575' }}>
+                  Body text for whatever you&apos;d like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.
+                </p>
+              </div>
+            </div>
+
+            {/* Third Vertical Container: 12+ Online Courses + Image */}  
+            <div className="flex flex-col gap-6">
+              <div className="bg-blue-200 rounded-2xl p-8 flex flex-col justify-center">
+                <div className="flex items-center mb-4">
+                  <Folder className="w-8 h-8 text-blue-900 mr-3" />
+                  <h3 className="text-xl font-jost font-bold "  style={{ color: '#1E1E1E' }}>12+ Online Courses</h3>
+                </div>
+                <p className=" leading-relaxed font-montserrat" style={{ color: ' #757575' }}>
+                  Body text for whatever you&apos;d like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.
+                </p>
+              </div>
+             <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
+                <Image
+                  src="/images/book.jpg"
+                  alt="Library with curved bookshelves"
+                  width={400}
+                  height={300}
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+   {/* Testimonials Section */}
+<section className="py-20 bg-[#EFF6FF]">
+  <div className="container mx-auto px-4">
+    {/* Section Header */}
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Alumnis Are Saying</h2>
+      <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus, met, cotur adipiscing elit.
+        Urna, tortor tempus.
+      </p>
+    </div>
+
+    {/* Auto-Scrolling Card Section 1 (4 Cards) */}
+    <div className="overflow-hidden py-8">
+      <div className="flex gap-6 animate-scroll">
+        {[...[1, 2, 3, 4], ...[1, 2, 3, 4]].map((i, index) => (
+          <Card
+            key={`${i}-${index}`}
+            className="p-6 bg-white border-b-0 border-blue-600 shadow-[0_1px_3px_#0C0C0D0D] flex-shrink-0 w-[280px] md:w-[300px]"
+          >
+            <CardContent className="p-0">
+              <p className="text-[var(--muted-foreground)] mb-4 font-jost text-sm">
+                &quot;Body text for whatever you&apos;d like to say. 
+              </p>
+              <div className="flex items-center gap-3">
+                <Avatar>
+                  <AvatarImage src="/images/pic.png?height=40&width=40" alt="Caroline Moren" />
+                  <AvatarFallback>CM</AvatarFallback>
+                </Avatar>
+                <div>
+                  <div className="font-semibold font-jost">Caroline Moren</div>
+                  <div className="text-sm text-[var(--muted-foreground)] font-jost">Data Analyst</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+
+    {/* Auto-Scrolling Card Section 2 (5 Cards) */}
+    <div className="overflow-hidden py-8">
+      <div className="flex gap-6 animate-scroll">
+        {[...[1, 2, 3, 4, 5], ...[1, 2, 3, 4, 5]].map((i, index) => (
+          <Card
+            key={`${i}-${index}`}
+            className="p-6 bg-white border-b-0 border-blue-600 shadow-[0_1px_3px_#0C0C0D0D] flex-shrink-0 w-[240px] md:w-[260px]"
+          >
+            <CardContent className="p-0">
+              <p className="text-[var(--muted-foreground)] mb-4 text-sm font-jost">
+                &quot;Body text for whatever you&apos;d like to say. 
+              </p>
+              <div className="flex items-center gap-3">
+                <Avatar className="w-8 h-8">
+                  <AvatarImage src="/images/pic.png?height=32&width=32" alt="Caroline Moren" />
+                  <AvatarFallback>CM</AvatarFallback>
+                </Avatar>
+                <div>
+                  <div className="font-semibold text-sm font-jost">Caroline Moren</div>
+                  <div className="text-xs text-[var(--muted-foreground)] font-jost">Data Analyst</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+       </div>
+    </div>
+
+    {/* Stats Section */}
+   
+       
+ <div className="bg-white border border-[#EEF0FD] shadow-[0_1px_3px_#0C0C0D0D] rounded-lg px-6 py-10 mt-10">
+  <div className="text-center text-sm text-gray-600 max-w-2xl mx-auto mb-8">
+    We provide <span className="font-semibold">professional tutoring</span> that helps you{" "}
+    <span className="font-semibold">break into tech</span> and make a mark in your industry.
+  </div>
+
+  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+    <div>
+      <FlipNumber start={1000} max={100000} step={10000} suffix="+" />
+      <div className="text-gray-600 text-sm">Students Reached</div>
+    </div>
+    <div>
+      <FlipNumber start={1000} max={50000} step={10000} suffix="+" />
+      <div className="text-gray-600 text-sm">Graduates</div>
+    </div>
+    <div>
+      <FlipNumber start={1000} max={30000} step={10000} suffix="+" />
+      <div className="text-gray-600 text-sm">Tutors</div>
+    </div>
+  </div>
+
+
+</div>
+
+</section>
   {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -575,6 +766,48 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+
+<section className="relative w-full max-w-[1454px] h-auto mx-auto mt-5 mb-5 px-4">
+  {/* Background Frame */}
+  <div className="relative w-full max-w-[1296px] h-auto bg-[#1E3A8A] rounded-[16px] flex flex-col items-center justify-center gap-[49px] mx-auto py-16 px-6">
+    
+    {/* Vector Image Positioned */}
+  <Image
+  src="/images/vector.png"
+  alt="Decorative Vector"
+  width={500}        // Adjust as needed
+  height={700}
+  className="absolute right-0 bottom-0 max-w-[100%] max-h-[100%] w-auto h-auto opacity-80 pointer-events-none object-contain rounded-[16px]"
+  style={{ transform: "rotate(0deg)" }}
+/> 
+
+
+    {/* Heading */}
+    <h2 className="text-white text-[40px] font-jost font-bold text-center z-10">
+      Stay Updated with us
+    </h2>
+    
+    {/* Paragraph */}
+    <p className="text-[#F4F4F4] text-center font-montserrat text-[18px] max-w-[725px] leading-[140%] z-10">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus.
+      Met, cotur adipiscing elit. Urna, tortor tempus.
+    </p>
+
+    {/* Input and Button */}
+    <div className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-[620px] mt-6 z-10">
+      <input
+        type="email"
+        placeholder="you@example.com"
+        className="w-full sm:w-[434px] h-[48px] px-4 rounded-full border border-[#D9D9D9] bg-white text-gray-500 focus:outline-none"
+      />
+      <button className="bg-[#1F2227] text-white font-inter text-[16px] font-medium rounded-full px-6 py-3 hover:bg-black transition w-full sm:w-[174px]">
+        Explore Courses 
+      </button> 
+    </div>
+  </div>
+</section>
+
       {/* Footer */}
                           <footer className="py-16" style={{ backgroundColor: "#DBEAFE" }}>
                             <div className="container mx-auto px-4">
@@ -679,12 +912,12 @@ export default function HomePage() {
                                       Colors
                                     </Link>
                                     
-                                  </div>
+                                  </div> 
                                 </div>
                               </div>
                             </div>
                           </footer>
-      </div>
-    </>
-  );
+   
+    </div>
+  )
 }
