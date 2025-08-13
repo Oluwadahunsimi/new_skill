@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { Navigation } from "@/components/UI/navigation"
 import { Button } from "@/components/UI/button"
 import { Input } from "@/components/UI/input"
@@ -15,6 +18,7 @@ import { Card, CardContent } from "@/components/UI/card";
 
 import OverlayPopup from "@/components/UI/OverlayPopup";
 import Link from "next/link";
+
 import CoursesProgramsSection from "@/components/UI/courses_program"
 import { Icon } from "@iconify/react";
 import collaborateIcon from "@iconify/icons-carbon/collaborate";
@@ -43,13 +47,83 @@ export default function Home() {
     { src: "/images/global.png", alt: "Tech Company" },
   ];
 
+ const texts = ["Career Path", "Employability", "Talent"];
+  const [index, setIndex] = useState<number>(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev: number) => (prev + 1) % texts.length);
+    }, 2000); // changes every 2s
+
+    return () => clearInterval(interval);
+  }, [texts.length]);
+
   // Duplicate logos for seamless loop
   const doubledLogos = [...logos, ...logos];
+const testimonials = [
+    {
+      id: 1,
+      text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
+      author: "Caroline Moren",
+      role: "Data Analyst",
+      avatar: "/placeholder.svg?height=40&width=40",
+    },
+    {
+      id: 2,
+      text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
+      author: "Caroline Moren",
+      role: "Data Analyst",
+      avatar: "/placeholder.svg?height=40&width=40",
+    },
+    {
+      id: 3,
+      text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
+      author: "Caroline Moren",
+      role: "Data Analyst",
+      avatar: "/placeholder.svg?height=40&width=40",
+    },
+    {
+      id: 4,
+      text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
+      author: "Caroline Moren",
+      role: "Data Analyst",
+      avatar: "/placeholder.svg?height=40&width=40",
+    },
+    {
+      id: 5,
+      text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
+      author: "Caroline Moren",
+      role: "Data Analyst",
+      avatar: "/placeholder.svg?height=40&width=40",
+    },
+    {
+      id: 6,
+      text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
+      author: "Caroline Moren",
+      role: "Data Analyst",
+      avatar: "/placeholder.svg?height=40&width=40",
+    },
+    {
+      id: 7,
+      text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
+      author: "Caroline Moren",
+      role: "Data Analyst",
+      avatar: "/placeholder.svg?height=40&width=40",
+    },
+    {
+      id: 8,
+      text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
+      author: "Caroline Moren",
+      role: "Data Analyst",
+      avatar: "/placeholder.svg?height=40&width=40",
+    },
+  ]
+
   return (
     <div className="min-h-screen relative">
       {/* Navigation Header */}
       <Navigation />
-
+      <OverlayPopup/>
       {/* Hero Section */}
       <div
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
@@ -64,10 +138,10 @@ export default function Home() {
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Up your skills to advance your{" "}
-            <span className="text-blue-500 relative">
-              Employability
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-500 rounded-full" />
-            </span>
+            <span className="text-blue-500 relative transition-all duration-500 ease-in-out">
+      {texts[index]}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-500 rounded-full animate-pulse" />
+    </span>
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto">
@@ -323,67 +397,71 @@ export default function Home() {
           </div>
         </div>
       </section>
-  <div className="relative w-full h-[400px] md:h-[500px] lg:h-[651px]">
-       <section className="relative w-full h-full overflow-hidden">
-         {/* Main background image */}
-         <Image
-           src="/images/Become.jpg"
-           alt="Group of professionals walking together"
-           fill
-           className="object-cover object-top z-0"
-           priority
-         />
- 
-         {/* Dark overlay */}
-         <div className="absolute inset-0 bg-[#1018284D] z-10" />
- 
-         {/* Main heading */}
-         <div className="absolute inset-0 z-30 flex items-start justify-center pt-8 md:pt-16 lg:pt-[143px] px-4">
-           <h1 className="w-full max-w-[1200px] text-2xl md:text-4xl lg:text-[56px] leading-tight lg:leading-[1.2] text-center font-jost font-bold text-white">
-             Online Professional Certificate In Different Tech Skills
-           </h1>
-         </div>
- 
-         {/* Bottom section with content and CTA */}
-         <div className="absolute bottom-0 left-0 w-full h-[200px] md:h-[240px] lg:h-[282px] z-20">
-           {/* Bottom overlay */}
-           <div className="absolute inset-0 bg-[#000000]/50 z-10" />
- 
-           {/* Bottom background image */}
-           <Image
-             src="/images/ec3824486a67fdb44f3d77c256717dc00f453974.png"
-             alt="Students collaborating and studying together"
-             fill
-             className="object-cover opacity-60 z-0"
-           />
- 
-           {/* Content container */}
-           <div className="absolute inset-0 z-30 flex flex-col lg:flex-row items-center justify-between px-4 md:px-8 lg:px-[82px] py-6 lg:py-[105px] gap-4 lg:gap-8">
-             {/* Description text */}
-             <p className="flex-1 max-w-[926px] font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed text-white text-center lg:text-left">
-               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-               ea commodo consequat. Duis aute irure dolor in reprehenderit in vborum.
-             </p>
- 
-             {/* CTA Button */}
-             <button className="flex-shrink-0 w-full max-w-[221px] h-12 lg:h-[56px] bg-white border-2 border-[#1E3A8A] rounded-[32px] px-6 lg:px-8 py-3 lg:py-4 text-[#1E3A8A] text-sm lg:text-base font-semibold font-montserrat text-center transition-opacity duration-300 ease-in hover:opacity-80">
-               Explore Courses
-             </button>
-           </div>
-         </div>
- 
-         {/* Career advancement card */}
-         <div className="absolute top-1/2 left-4 md:left-8 lg:left-[78px] -translate-y-1/2 w-[calc(100%-2rem)] max-w-[362px] md:w-[362px] bg-white px-4 md:px-6 py-3 md:py-4 rounded-[4px] shadow-md z-40 flex flex-col justify-center space-y-1">
-           <div className="text-[#2E323A] text-center font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed">
-             Advance Your Career
-           </div>
-           <div className="text-[#1E1E1E] text-center font-jost font-bold text-xl md:text-2xl lg:text-[28px] leading-tight">
-             Become A Global Talent
-           </div>
-         </div>
-       </section>
-     </div>     
+<div className="relative w-full h-[400px] md:h-[500px] lg:h-[651px] bg-white">
+  <section className="relative w-full h-full overflow-hidden">
+    {/* Main background image */}
+    <Image
+      src="/images/Become.jpg"
+      alt="Group of professionals walking together"
+      fill
+      className="object-cover object-top z-0"
+      priority
+    />
+
+    {/* Dark overlay */}
+    <div className="absolute inset-0 bg-[#1018284D] z-10" />
+
+    {/* Main heading */}
+    <div className="absolute inset-0 z-30 flex items-start justify-center pt-8 md:pt-16 lg:pt-[143px] px-4">
+      <h1 className="w-full max-w-[1200px] text-2xl md:text-4xl lg:text-[56px] leading-tight lg:leading-[1.2] text-center font-jost font-bold text-white">
+        Online Professional Certificate In Different Tech Skills
+      </h1>
+    </div>
+
+    {/* Bottom section with content and CTA */}
+    <div className="absolute bottom-0 left-0 w-full h-[200px] md:h-[240px] lg:h-[282px] z-20">
+      {/* Bottom overlay */}
+      <div className="absolute inset-0 bg-[#000000]/50 z-10" />
+
+      {/* Bottom background image */}
+      <Image
+        src="/images/ec3824486a67fdb44f3d77c256717dc00f453974.png"
+        alt="Students collaborating and studying together"
+        fill
+        className="object-cover opacity-60 z-0"
+      />
+
+      {/* Content container */}
+      <div className="absolute inset-0 z-30 flex flex-col lg:flex-row items-center justify-between px-4 md:px-8 lg:px-[82px] py-6 lg:py-[105px] gap-4 lg:gap-8">
+        {/* Description text */}
+        <p className="flex-1 max-w-[926px] font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed text-white text-center lg:text-left">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+          ea commodo consequat. Duis aute irure dolor in reprehenderit in vborum.
+        </p>
+
+        {/* CTA Button */}
+        <button className="flex-shrink-0 w-full max-w-[221px] h-12 lg:h-[56px] bg-white border-2 border-[#1E3A8A] rounded-[32px] px-6 lg:px-8 py-3 lg:py-4 text-[#1E3A8A] text-sm lg:text-base font-semibold font-montserrat text-center transition-opacity duration-300 ease-in hover:opacity-80">
+          Explore Courses
+        </button>
+      </div>
+    </div>
+
+    {/* Career advancement card */}
+   
+  <div className="hidden lg:block absolute top-[331px] left-[78px] bg-white z-20 w-[362px] h-[95px] p-4 rounded shadow-md">
+  <div className="text-[#2E323A] text-center font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed">
+    Advance Your Career
+  </div>
+  <div className="text-[#1E1E1E] text-center font-jost font-bold text-xl md:text-2xl lg:text-[28px] leading-tight">
+    Become A Global Talent
+  </div>
+</div>
+
+
+  </section>
+</div>
+
  <CoursesProgramsSection />
 
   {/* Why We Are Good At What We Do Section */}
@@ -475,36 +553,36 @@ export default function Home() {
 
    {/* Testimonials Section */}
 <section className="py-20 bg-[#EFF6FF]">
-  <div className="container mx-auto px-4">
-    {/* Section Header */}
+  <div className="max-w-7xl mx-auto px-4">
+    {/* Header Section */}
     <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Alumnis Are Saying</h2>
-      <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+      <h2 className="text-3xl md:text-4xl font-bold text-[#14183E] mb-4">
+        What Our Alumnis Are Saying
+      </h2>
+      <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus, met, cotur adipiscing elit.
         Urna, tortor tempus.
       </p>
     </div>
 
-    {/* Auto-Scrolling Card Section 1 (4 Cards) */}
+    {/* Testimonials Layer 1 (Scroll Left) */}
     <div className="overflow-hidden py-8">
-      <div className="flex gap-6 animate-scroll">
-        {[...[1, 2, 3, 4], ...[1, 2, 3, 4]].map((i, index) => (
+      <div className="flex gap-6 animate-scroll-left">
+        {[...testimonials, ...testimonials].map((t, index) => (
           <Card
-            key={`${i}-${index}`}
-            className="p-6 bg-white border-b-0 border-blue-600 shadow-[0_1px_3px_#0C0C0D0D] flex-shrink-0 w-[280px] md:w-[300px]"
+            key={`layer1-${index}`}
+            className="bg-white border border-blue-400 hover:shadow-md transition-shadow flex-shrink-0 w-[280px] md:w-[300px]"
           >
-            <CardContent className="p-0">
-              <p className="text-[var(--muted-foreground)] mb-4 font-jost text-sm">
-                &quot;Body text for whatever you&apos;d like to say. 
-              </p>
+            <CardContent className="p-6">
+              <p className="text-gray-700 text-sm mb-6 leading-relaxed">"{t.text}"</p>
               <div className="flex items-center gap-3">
-                <Avatar>
-                  <AvatarImage src="/images/pic.png?height=40&width=40" alt="Caroline Moren" />
+                <Avatar className="h-10 w-10">
+                  <AvatarImage src={t.avatar || "/placeholder.svg"} alt={t.author} />
                   <AvatarFallback>CM</AvatarFallback>
                 </Avatar>
                 <div>
-                  <div className="font-semibold font-jost">Caroline Moren</div>
-                  <div className="text-sm text-[var(--muted-foreground)] font-jost">Data Analyst</div>
+                  <p className="font-semibold text-gray-900 text-sm">{t.author}</p>
+                  <p className="text-gray-500 text-xs">{t.role}</p>
                 </div>
               </div>
             </CardContent>
@@ -513,63 +591,71 @@ export default function Home() {
       </div>
     </div>
 
-    {/* Auto-Scrolling Card Section 2 (5 Cards) */}
+    {/* Testimonials Layer 2 (Scroll Right) */}
     <div className="overflow-hidden py-8">
-      <div className="flex gap-6 animate-scroll">
-        {[...[1, 2, 3, 4, 5], ...[1, 2, 3, 4, 5]].map((i, index) => (
+      <div className="flex gap-6 animate-scroll-right">
+        {[...testimonials, ...testimonials].map((t, index) => (
           <Card
-            key={`${i}-${index}`}
-            className="p-6 bg-white border-b-0 border-blue-600 shadow-[0_1px_3px_#0C0C0D0D] flex-shrink-0 w-[240px] md:w-[260px]"
+            key={`layer2-${index}`}
+            className="bg-white border border-blue-400  border-b-0 hover:shadow-md transition-shadow flex-shrink-0 w-[260px] md:w-[280px]"
           >
-            <CardContent className="p-0">
-              <p className="text-[var(--muted-foreground)] mb-4 text-sm font-jost">
-                &quot;Body text for whatever you&apos;d like to say. 
-              </p>
+            <CardContent className="p-6">
+              <p className="text-gray-700 text-sm mb-6 leading-relaxed">"{t.text}"</p>
               <div className="flex items-center gap-3">
-                <Avatar className="w-8 h-8">
-                  <AvatarImage src="/images/pic.png?height=32&width=32" alt="Caroline Moren" />
+                <Avatar className="h-8 w-8">
+                  <AvatarImage src={t.avatar || "/placeholder.svg"} alt={t.author} />
                   <AvatarFallback>CM</AvatarFallback>
                 </Avatar>
                 <div>
-                  <div className="font-semibold text-sm font-jost">Caroline Moren</div>
-                  <div className="text-xs text-[var(--muted-foreground)] font-jost">Data Analyst</div>
+                  <p className="font-semibold text-gray-900 text-sm">{t.author}</p>
+                  <p className="text-gray-500 text-xs">{t.role}</p>
                 </div>
               </div>
             </CardContent>
           </Card>
         ))}
       </div>
-       </div>
     </div>
 
     {/* Stats Section */}
-   
-       
- <div className="bg-white border border-[#EEF0FD] shadow-[0_1px_3px_#0C0C0D0D] rounded-lg px-6 py-10 mt-10">
-  <div className="text-center text-sm text-gray-600 max-w-2xl mx-auto mb-8">
-    We provide <span className="font-semibold">professional tutoring</span> that helps you{" "}
-    <span className="font-semibold">break into tech</span> and make a mark in your industry.
+    <div className="bg-blue-50 rounded-lg p-8 shadow-sm">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div className="space-y-2">
+          <p className="text-gray-700">
+            We provide <span className="font-bold text-gray-900">professional tutoring</span> that can help you
+          </p>
+          <p className="text-gray-700">
+            break into <span className="font-bold text-gray-900">tech</span> and make a pact in your industry
+          </p>
+        </div>
+
+        <div className="flex justify-center lg:justify-end">
+          <div className="flex items-center gap-8 md:gap-12">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-[#14183E] mb-1">
+                <FlipNumber value={1000} />+
+              </div>
+              <div className="text-gray-600 text-sm">Students Reached</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-[#14183E] mb-1">
+                <FlipNumber value={1000} />+
+              </div>
+              <div className="text-gray-600 text-sm">Graduates</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-[#14183E] mb-1">
+                <FlipNumber value={1} />+
+              </div>
+              <div className="text-gray-600 text-sm">Tutors</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-    <div>
-      <FlipNumber start={1000} max={100000} step={10000} suffix="+" />
-      <div className="text-gray-600 text-sm">Students Reached</div>
-    </div>
-    <div>
-      <FlipNumber start={1000} max={50000} step={10000} suffix="+" />
-      <div className="text-gray-600 text-sm">Graduates</div>
-    </div>
-    <div>
-      <FlipNumber start={1000} max={30000} step={10000} suffix="+" />
-      <div className="text-gray-600 text-sm">Tutors</div>
-    </div>
-  </div>
-
-
-</div>
-
 </section>
+
   {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -690,7 +776,7 @@ export default function Home() {
                   </p>
                   <Link href="#" className="text-blue-700 hover:text-blue-900 font-medium">
                     Read post »
-                  </Link>
+                  </Link> 
                 </CardContent>
               </Card>
 
@@ -805,8 +891,18 @@ export default function Home() {
         Explore Courses 
       </button> 
     </div>
+    
   </div>
+  
 </section>
+{/* Chatbot Icon */}
+<div className="fixed bottom-6 right-6 w-28 h-28 rounded-[40px] overflow-hidden z-50">
+  <img
+    className="w-20 h-20 left-[20px] top-[20px] absolute"
+    src="images/chat.png"
+    alt="Chatbot"
+  />
+</div>
 
       {/* Footer */}
                           <footer className="py-16" style={{ backgroundColor: "#DBEAFE" }}>
