@@ -1,30 +1,47 @@
-"use client"
-import { useEffect, useState } from "react"
+"use client";
+import { useState, useEffect } from "react";
 
 interface FlipNumberProps {
-  value: number
-  duration?: number // animation time in ms
+  start: number;
+  max: number;
+  step?: number;
+  suffix?: string;
+  speed?: number;
 }
 
-export default function FlipNumber({ value, duration = 1000 }: FlipNumberProps) {
-  const [displayValue, setDisplayValue] = useState(0)
+export default function FlipNumber({
+  start,
+  max,
+  step = 10000,
+  suffix = "",
+  speed = 2000,
+}: FlipNumberProps) {
+  const [number, setNumber] = useState(start);
+  const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
-    let start = displayValue
-    let end = value
-    let startTime: number | null = null
+    const interval = setInterval(() => {
+      setNumber((prev) => {
+        const next = prev + step;
+        return next > max ? start : next;
+      });
+      setRotation((prev) => prev + 360); // rotate 360 each time
+    }, speed);
 
-    const step = (timestamp: number) => {
-      if (!startTime) startTime = timestamp
-      const progress = Math.min((timestamp - startTime) / duration, 1)
-      setDisplayValue(Math.floor(progress * (end - start) + start))
-      if (progress < 1) requestAnimationFrame(step)
-    }
-
-    requestAnimationFrame(step)
-  }, [value])
+    return () => clearInterval(interval);
+  }, [start, max, step, speed]);
 
   return (
-    <span className="flip-number">{displayValue.toLocaleString()}</span>
-  )
+    <div
+      className="inline-block text-5xl font-bold text-blue-900 transition-transform duration-700"
+      style={{
+        display: "inline-block",
+        transform: `rotateX(${rotation}deg)`,
+        transformOrigin: "center",
+      }}
+    >
+      {number >= 1000 ? (number / 1000).toFixed(0) + "K" : number}
+      {suffix}
+    </div>
+  );
 }
