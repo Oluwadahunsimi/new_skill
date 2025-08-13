@@ -1,0 +1,467 @@
+"use client"
+
+import { Monitor,Video, Link , CheckCircle, Star, ChevronDown, ChevronUp, Clock, Users, Award, Globe } from "lucide-react"
+import Image from "next/image"
+import { useState } from "react"
+
+export default function BootcampPage() {
+  const [expandedModules, setExpandedModules] = useState<{ [key: string]: boolean }>({})
+
+  const toggleModule = (moduleId: string) => {
+    setExpandedModules((prev) => ({
+      ...prev,
+      [moduleId]: !prev[moduleId],
+    }))
+  }
+
+  const courseModules = [
+    {
+      id: "html-css",
+      title: "HTML and CSS Fundamentals",
+      duration: "2 weeks",
+      lessons: [
+        "HTML Structure and Semantics",
+        "CSS Styling and Layout",
+        "Responsive Design Principles",
+        "CSS Grid and Flexbox",
+      ],
+    },
+    {
+      id: "javascript",
+      title: "JavaScript Programming",
+      duration: "3 weeks",
+      lessons: ["JavaScript Basics and Syntax", "DOM Manipulation", "Event Handling", "Asynchronous Programming"],
+    },
+    {
+      id: "react",
+      title: "React Development",
+      duration: "4 weeks",
+      lessons: ["React Components and JSX", "State Management with Hooks", "React Router", "API Integration"],
+    },
+    {
+      id: "python",
+      title: "Python Backend Development",
+      duration: "3 weeks",
+      lessons: ["Python Fundamentals", "Flask/Django Framework", "Database Integration", "API Development"],
+    },
+    {
+      id: "projects",
+      title: "Capstone Projects",
+      duration: "4 weeks",
+      lessons: ["Portfolio Website", "Full-Stack Web Application", "Team Collaboration Project", "Final Presentation"],
+    },
+  ]
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="border-b border-gray-200 px-6 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <h1 className="text-2xl font-bold text-gray-900">Tech Tribe Bootcamp</h1>
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+              ))}
+              <span className="text-sm text-gray-600 ml-2">(4.8)</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-4 text-sm text-gray-600">
+            <span className="flex items-center gap-1">
+              <Users className="w-4 h-4" />
+              Favorites
+            </span>
+            <span className="flex items-center gap-1">
+              <Globe className="w-4 h-4" />
+              Share
+            </span>
+          </div>
+        </div>
+      </header>
+
+      <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-8">
+            {/* Hero Image */}
+            <div className="relative rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/images/bootcamp-hero.png"
+                alt="Tech Tribe Bootcamp - Students working on laptops"
+                width={800}
+                height={400}
+                className="w-full h-auto"
+              />
+            </div>
+
+            {/* About Section */}
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">About Tech Tribe</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Tech Tribe Bootcamp is an intensive program designed to fast-track your journey in technology. Our
+                comprehensive curriculum covers full-stack web development, from frontend technologies like React to
+                backend development with Python. We combine theoretical knowledge with hands-on projects to ensure
+                you're job-ready upon completion.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                With over 5 years of experience in tech education, we've helped thousands of students transition into
+                successful tech careers. Our industry-experienced instructors and project-based learning approach ensure
+                you gain practical skills that employers value.
+              </p>
+            </section>
+
+            {/* What Will You Gain */}
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">What Will You Gain?</h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-gray-700 mt-1 flex-shrink-0" />
+                  <span className="text-gray-700">Practical web design, professional web standards and clean code</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-gray-700 mt-1 flex-shrink-0" />
+                  <span className="text-gray-700">Real-world projects to build your portfolio and showcase</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-gray-700 mt-1 flex-shrink-0" />
+                  <span className="text-gray-700">Industry connections and networking opportunities</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-gray-700 mt-1 flex-shrink-0" />
+                  <span className="text-gray-700">In-depth support from mentors and a vibrant alumni network</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-gray-700 mt-1 flex-shrink-0" />
+                  <span className="text-gray-700">Career guidance and job placement assistance</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-gray-700 mt-1 flex-shrink-0" />
+                  <span className="text-gray-700">Lifetime access to course materials and updates</span>
+                </div>
+              </div>
+            </section>
+
+            {/* Course Curriculum */}
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Course Curriculum</h2>
+              <div className="bg-gray-50 rounded-lg p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-lg font-semibold text-gray-900">All Courses</h3>
+                  <span className="text-sm text-gray-600">{courseModules.length} modules</span>
+                </div>
+
+                <div className="space-y-4">
+                  {courseModules.map((module, index) => (
+                    <div key={module.id} className="border border-gray-200 rounded-lg bg-white">
+                      <button
+                        onClick={() => toggleModule(module.id)}
+                        className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors duration-200"
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                            {String(index + 1).padStart(2, "0")}
+                          </div>
+                          <div>
+                            <h4 className="font-medium text-gray-900">{module.title}</h4>
+                            <p className="text-sm text-gray-600">{module.duration}</p>
+                          </div>
+                        </div>
+                        {expandedModules[module.id] ? (
+                          <ChevronUp className="w-5 h-5 text-gray-400" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5 text-gray-400" />
+                        )}
+                      </button>
+
+                      {expandedModules[module.id] && (
+                        <div className="px-4 pb-4">
+                          <div className="pl-12">
+                            <ul className="space-y-2">
+                              {module.lessons.map((lesson, lessonIndex) => (
+                                <li key={lessonIndex} className="flex items-center gap-3 text-sm text-gray-700">
+                                  <div className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0"></div>
+                                  {lesson}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Related Programs */}
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Related Programs</h2>
+              <div className="grid md:grid-cols-3 gap-6">
+                {/* New AI Tech Bootcamp */}
+                <div className="bg-gradient-to-br from-teal-600 to-teal-800 rounded-lg overflow-hidden shadow-lg">
+                  <div className="p-6 text-white">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                        <Monitor className="w-4 h-4" />
+                      </div>
+                      <span className="text-xs font-medium bg-white/20 px-2 py-1 rounded">AI Tech</span>
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">New AI Tech Bootcamp</h3>
+                    <div className="space-y-2 text-sm mb-6">
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-4 h-4" />
+                        <span>Live Classes</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Users className="w-4 h-4" />
+                        <span>6 Months</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-2xl font-bold">$100,000</span>
+                    </div>
+                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
+                      Get Started
+                    </button>
+                  </div>
+                </div>
+
+                {/* Future Chat Bootcamp */}
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden shadow-lg">
+                  <div className="p-6 text-white">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                        <Globe className="w-4 h-4" />
+                      </div>
+                      <span className="text-xs font-medium bg-white/20 px-2 py-1 rounded">Chat Tech</span>
+                    </div>
+                    <div className="flex items-center gap-4 mb-4">
+                      <Image
+                        src="/placeholder.svg?height=60&width=60"
+                        alt="Instructor"
+                        width={60}
+                        height={60}
+                        className="rounded-full border-2 border-white/20"
+                      />
+
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">Future Chan Bootcamp</h3>
+                    <div className="space-y-2 text-sm mb-6">
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-4 h-4" />
+                        <span>Live Classes</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Users className="w-4 h-4" />
+                        <span>6 Months</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-2xl font-bold">$100,000</span>
+                    </div>
+                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
+                      Get Started
+                    </button>
+                  </div>
+                </div>
+
+                {/* LadiesInTech Bootcamp */}
+                <div className="bg-gradient-to-br from-pink-500 to-pink-700 rounded-lg overflow-hidden shadow-lg">
+                  <div className="p-6 text-white">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                        <Award className="w-4 h-4" />
+                      </div>
+                      <span className="text-xs font-medium bg-white/20 px-2 py-1 rounded">Ladies Only</span>
+                    </div>
+                    <div className="flex items-center gap-4 mb-4">
+                      <Image
+                        src="/placeholder.svg?height=60&width=60"
+                        alt="Female Instructor"
+                        width={60}
+                        height={60}
+                        className="rounded-full border-2 border-white/20"
+                      />
+                      <div className="text-right">
+                        <div className="text-lg font-bold">CAREER</div>
+                        <div className="text-lg font-bold">REALITY</div>
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">LadiesInTech Bootcamp</h3>
+                    <div className="space-y-2 text-sm mb-6">
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-4 h-4" />
+                        <span>Live Classes</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Users className="w-4 h-4" />
+                        <span>6 Months</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-2xl font-bold">$100,000</span>
+                    </div>
+                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
+                      Get Started
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-6">
+            {/* Enrollment Card */}
+            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm sticky top-6">
+              <button className="w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-200 mb-6">
+                Enroll now
+              </button>
+
+              <div className="space-y-4 text-sm">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-gray-700 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">100% online with hybrid options</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Clock className="w-5 h-5 text-gray-700 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">3 months</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Video className="w-5 h-5 text-gray-700 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Video lessons, Project & live classes</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Link className="w-5 h-5 text-gray-700 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Limited Access</span>
+                </div>                
+                <div className="flex items-start gap-3">
+                  <Award className="w-5 h-5 text-gray-700 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Certificate upon completion</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Users className="w-5 h-5 text-gray-700 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">100 Total Enrolled</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Instructor */}
+            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+              <h3 className="font-semibold text-gray-900 mb-4">Instructor</h3>
+              <div className="flex items-center gap-3 mb-3">
+                <Image
+                  src="/placeholder.svg?height=50&width=50"
+                  alt="Instructor"
+                  width={50}
+                  height={50}
+                  className="rounded-full"
+                />
+                <div>
+                  <p className="font-medium text-gray-900">The Incubator Hub</p>
+                  <p className="text-sm text-gray-600">incubatorhub@gmail.com</p>
+                </div>
+              </div>
+              <p className="text-sm text-gray-700">
+                10+ years experience in web development with expertise in React, Python, and modern web technologies.
+              </p>
+            </div>
+
+            {/* Program Schedule */}
+            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+              <h3 className="font-semibold text-gray-900 mb-4">Program Schedule</h3>
+              <div className="space-y-3 text-sm">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">100% online with hybrid options</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Video lessons, Projects & live classes</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Lifetime access</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Certificate upon completion</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Requirements */}
+            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+              <h3 className="font-semibold text-gray-900 mb-4">Requirements</h3>
+              <div className="space-y-3 text-sm">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">A laptop with stable internet connection</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Basic computer literacy</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Prior knowledge in the chosen course area </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Commitment to attend class or re-watch.</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Willingness to complete assignments and practical projects.</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Access to computer and stable internet</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Tags */}
+            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+              <h3 className="font-semibold text-gray-900 mb-4">Tags</h3>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Online Class</span>
+                <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full">Beginner</span>
+                <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full">Certificate</span>
+                <span className="px-3 py-1 bg-purple-100 text-purple-700 text-sm rounded-full">Full-Stack</span>
+              </div>
+            </div>
+
+            {/* Audience */}
+            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+              <h3 className="font-semibold text-gray-900 mb-4">Audience</h3>
+              <div className="space-y-3 text-sm">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Aspiring web developers looking to switch to tech</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Students seeking practical coding skills</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Anyone who wants to learn web development</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Professionals looking to upskill</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Anyone who wants to become a planning</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+ 
