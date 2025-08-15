@@ -9,6 +9,7 @@ import Image from "next/image"
 export function NavbarWithDropdown() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null)
 
   const toggleDropdown = (dropdown: string) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown)
@@ -16,6 +17,10 @@ export function NavbarWithDropdown() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
+  }
+
+  const toggleMobileDropdown = (menu: string) => {
+    setActiveMobileDropdown(activeMobileDropdown === menu ? null : menu)
   }
 
   return (
@@ -98,26 +103,62 @@ export function NavbarWithDropdown() {
         {/* Mobile Menu */}
         <div
           className={`md:hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen ? "max-h-96 opacity-100 visible" : "max-h-0 opacity-0 invisible overflow-hidden"
+            isMenuOpen
+              ? "max-h-[90vh] opacity-100 visible overflow-y-auto"
+              : "max-h-0 opacity-0 invisible overflow-hidden"
           }`}
         >
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-sm border-t border-gray-200/20">
-            {/* Mobile Navigation Links */}
-            <button className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+            {/* Individuals */}
+            <button
+              onClick={() => toggleMobileDropdown("individuals")}
+              className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
+            >
               <span>Individuals</span>
-              <ChevronDown className="w-4 h-4" />
+              <ChevronDown
+                className={`w-4 h-4 transition-transform ${activeMobileDropdown === "individuals" ? "rotate-180" : ""}`}
+              />
             </button>
-            <button className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors">
+            {activeMobileDropdown === "individuals" && (
+              <div className="pl-4 pr-2 py-3 bg-white border-l border-gray-200">
+                <NavigationDropdown type="individuals" />
+              </div>
+            )}
+
+            {/* Corporates */}
+            <button
+              onClick={() => toggleMobileDropdown("corporates")}
+              className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
+            >
               <span>Corporates</span>
-              <ChevronDown className="w-4 h-4" />
+              <ChevronDown
+                className={`w-4 h-4 transition-transform ${activeMobileDropdown === "corporates" ? "rotate-180" : ""}`}
+              />
             </button>
-            <button className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors">
+            {activeMobileDropdown === "corporates" && (
+              <div className="pl-4 pr-2 py-3 bg-white border-l border-gray-200">
+                <NavigationDropdown type="corporates" />
+              </div>
+            )}
+
+            {/* Company */}
+            <button
+              onClick={() => toggleMobileDropdown("company")}
+              className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
+            >
               <span>Company</span>
-              <ChevronDown className="w-4 h-4" />
+              <ChevronDown
+                className={`w-4 h-4 transition-transform ${activeMobileDropdown === "company" ? "rotate-180" : ""}`}
+              />
             </button>
+            {activeMobileDropdown === "company" && (
+              <div className="pl-4 pr-2 py-3 bg-white border-l border-gray-200">
+                <NavigationDropdown type="company" />
+              </div>
+            )}
 
             {/* Mobile Action Buttons */}
-            <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200/20">
+            <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200">
               <Button
                 variant="outline"
                 className="border-orange-500 text-orange-500 hover:bg-orange-50 bg-transparent w-full"
@@ -128,13 +169,13 @@ export function NavbarWithDropdown() {
             </div>
           </div>
         </div>
+
+        {/* Dropdown Content */}
+        {activeDropdown && <NavigationDropdown type={activeDropdown as "individuals" | "corporates" | "company"} />}
+
+        {/* Overlay to close dropdown when clicking outside */}
+        {activeDropdown && <div className="fixed inset-0 z-30" onClick={() => setActiveDropdown(null)} />}
       </div>
-
-      {/* Dropdown Content */}
-      {activeDropdown && <NavigationDropdown type={activeDropdown as "individuals" | "corporates" | "company"} />}
-
-      {/* Overlay to close dropdown when clicking outside */}
-      {activeDropdown && <div className="fixed inset-0 z-40" onClick={() => setActiveDropdown(null)} />}
     </nav>
   )
 }

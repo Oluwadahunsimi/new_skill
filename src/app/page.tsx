@@ -205,14 +205,14 @@ const testimonials = [
                   </div>
                   <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
                     <Image
-                      src="/images/rccg.png"
+                      src="/images/global.png"
                       alt="Incubator"
                       width={128}
                       height={64}
                       className="max-w-full max-h-full object-contain transition-all duration-300"
                     />
                   </div> 
-                  <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
+                  {/* <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
                     <Image
                       src="/images/champions.png"
                       alt="Champions"
@@ -220,10 +220,10 @@ const testimonials = [
                       height={64}
                       className="max-w-full max-h-full object-contain transition-all duration-300"
                     />
-                  </div>
+                  </div> */}
                   <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
                     <Image
-                      src="/images/global.png"
+                      src="/images/incubator.png"
                       alt="Tech Company"
                       width={128}
                       height={64}
@@ -238,7 +238,7 @@ const testimonials = [
                 <div className="flex items-center space-x-8 sm:space-x-12 md:space-x-16 px-4 sm:px-6 md:px-8">
                   <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
                     <Image
-                      src="/images/global.png"
+                      src="/images/rccg.png"
                       alt="Africa Missions Global"
                       width={138}
                       height={84}
@@ -247,7 +247,7 @@ const testimonials = [
                   </div>
                   <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
                     <Image
-                      src="/images/rccg.png"
+                      src="/images/global.png"
                       alt="RCCG"
                       width={128}
                       height={64}
@@ -272,7 +272,7 @@ const testimonials = [
                       className="max-w-full max-h-full object-contain transition-all duration-300"
                     />
                   </div>
-                  <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
+                  {/* <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
                     <Image
                       src="/images/champions.png"
                       alt="Champions"
@@ -280,7 +280,7 @@ const testimonials = [
                       height={64}
                       className="max-w-full max-h-full object-contain transition-all duration-300"
                     />
-                  </div>
+                  </div> */}
                   <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
                     <Image
                       src="/images/global.png"
@@ -396,6 +396,7 @@ const testimonials = [
           </div>
         </div>
       </section>
+
 <div className="relative w-full h-[400px] md:h-[500px] lg:h-[651px] bg-white">
   <section className="relative w-full h-full overflow-hidden">
     {/* Main background image */}
@@ -417,18 +418,21 @@ const testimonials = [
       </h1>
     </div>
 
-    {/* Bottom section with content and CTA */}
-    <div className="absolute bottom-0 left-0 w-full h-[200px] md:h-[240px] lg:h-[282px] z-20">
-      {/* Bottom overlay */}
-      <div className="absolute inset-0 bg-[#000000]/50 z-10" />
 
-      {/* Bottom background image */}
-      <Image
-        src="/images/ec3824486a67fdb44f3d77c256717dc00f453974.png"
-        alt="Students collaborating and studying together"
-        fill
-        className="object-cover opacity-60 z-0"
-      />
+ <div className="nav-white-bg relative w-full h-[400px] md:h-[500px] lg:h-[651px] mt-20">
+      <section className="relative w-full h-full overflow-hidden">
+        {/* Main background image */}
+        <Image
+          src="/images/Become.jpg"
+          alt="Group of professionals walking together"
+          fill
+          className="object-cover object-top z-0"
+          priority
+        />
+
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-[#1018284D] z-10" />
 
       {/* Content container */}
       <div className="absolute inset-0 z-30 flex flex-col lg:flex-row items-center justify-between px-4 md:px-8 lg:px-[82px] py-6 lg:py-[105px] gap-4 lg:gap-8">
@@ -449,21 +453,52 @@ const testimonials = [
       </div>
     </div>
 
-    {/* Career advancement card */}
-   
-  <div className="hidden lg:block absolute top-[331px] left-[78px] bg-white z-20 w-[362px] h-[95px] p-4 rounded shadow-md">
-  <div className="text-[#2E323A] text-center font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed">
-    Advance Your Career
-  </div>
-  <div className="text-[#1E1E1E] text-center font-jost font-bold text-xl md:text-2xl lg:text-[28px] leading-tight">
-    Become A Global Talent
-  </div>
-</div>
+        {/* Main heading */}
+        <div className="absolute inset-0 z-30 flex items-start justify-center pt-8 md:pt-16 lg:pt-[143px] px-4">
+          <h1 className="w-full max-w-[1200px] text-2xl md:text-4xl lg:text-[56px] leading-tight lg:leading-[1.2] text-center font-jost font-bold text-white">
+            Online Professional Certificate In Different Tech Skills
+          </h1>
+        </div>
 
+        {/* Bottom section with content and CTA */}
+        <div className="absolute bottom-0 left-0 w-full h-[200px] md:h-[240px] lg:h-[282px] z-20">
+          {/* Bottom overlay */}
+          <div className="absolute inset-0 bg-[#000000]/50 z-10" />
 
-  </section>
-</div>
+          {/* Bottom background image */}
+          <Image
+            src="/images/ec3824486a67fdb44f3d77c256717dc00f453974.png"
+            alt="Students collaborating and studying together"
+            fill
+            className="object-cover opacity-60 z-0"
+          />
 
+          {/* Content container */}
+          <div className="absolute inset-0 z-30 flex flex-col lg:flex-row items-center justify-between px-4 md:px-8 lg:px-[82px] py-6 lg:py-[105px] gap-4 lg:gap-8">
+            {/* Description text */}
+            <p className="flex-1 max-w-[926px] font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed text-white text-center lg:text-left">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam.
+            </p>
+
+            {/* CTA Button */}
+            <button className="flex-shrink-0 w-full max-w-[221px] h-12 lg:h-[56px] bg-white border-2 border-[#1E3A8A] rounded-[32px] px-6 lg:px-8 py-3 lg:py-4 text-[#1E3A8A] text-sm lg:text-base font-semibold font-montserrat text-center transition-opacity duration-300 ease-in hover:opacity-80">
+              Explore Courses
+            </button>
+          </div>
+        </div>
+
+        {/* Career advancement card */}
+        <div className="hidden lg:block absolute top-[331px] left-[78px] bg-white z-20 w-[362px] h-[95px] p-4 rounded shadow-lg border border-gray-100">
+          <div className="text-[#2E323A] text-center font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed">
+            Advance Your Career
+          </div>
+          <div className="text-[#1E1E1E] text-center font-jost font-bold text-xl md:text-2xl lg:text-[28px] leading-tight">
+            Become A Global Talent
+          </div>
+        </div>
+      </section>
+    </div>
  <CoursesProgramsSection />
 
   {/* Why We Are Good At What We Do Section */}
@@ -573,7 +608,7 @@ const testimonials = [
         {[...testimonials, ...testimonials].map((t, index) => (
           <Card
             key={`layer1-${index}`}
-            className="bg-white border border-blue-400 hover:shadow-md transition-shadow flex-shrink-0 w-[280px] md:w-[300px]"
+            className="bg-white border border-blue-400 border-b-0  hover:shadow-md transition-shadow flex-shrink-0 w-[280px] md:w-[300px]"
           >
             <CardContent className="p-6">
               <p className="text-gray-700 text-sm mb-6 leading-relaxed">"{t.text}"</p>
@@ -751,8 +786,7 @@ const testimonials = [
               <div>
                 <h2 className="text-4xl font-bold text-gray-900 mb-4">Read. Learn. Grow</h2>
                 <p className="text-lg text-gray-600">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus, met, cotur adipiscing
-                  elit. Urna, tortor tempus.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                 </p>
               </div>
               <Button className="bg-blue-600 hover:bg-blue-700 text-white">Read More Blogg</Button>

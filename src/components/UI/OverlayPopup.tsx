@@ -148,7 +148,7 @@ export default function OverlayPopup() {
               borderRadius: "32px",
             }}
           >
-            Create Account
+            Start Now
           </button>
         </div>
       </div>

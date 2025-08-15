@@ -1,5 +1,5 @@
 import { Button } from "@/components/UI/button"
-import { Download, GraduationCap, Wrench, Globe, Users, Building, Phone, MapPin, Mail, Award } from "lucide-react"
+import { GraduationCap, Wrench, Globe, Users, Building, Phone, MapPin, Mail, Award } from "lucide-react"
 
 interface NavigationDropdownProps {
   type: "individuals" | "corporates" | "company"
@@ -93,7 +93,7 @@ export function NavigationDropdown({ type }: NavigationDropdownProps) {
           cta: {
             title: "Transform your team's capabilities",
             subtitle: "Trusted by 100+ companies across Africa",
-            buttonText: "Get Quote",
+            buttonText: "Apply Now",
           },
         }
 
@@ -141,7 +141,7 @@ export function NavigationDropdown({ type }: NavigationDropdownProps) {
   const content = getDropdownContent()
 
   return (
-    <div className="absolute top-full left-0 w-full bg-white shadow-lg border-t z-50">
+    <div className="absolute top-full left-0 w-full bg-white shadow-lg border-t z-40">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
           {/* Left sections */}
@@ -188,10 +188,7 @@ export function NavigationDropdown({ type }: NavigationDropdownProps) {
               <h4 className="font-semibold text-gray-900 mb-1">{content.cta.title}</h4>
               <p className="text-sm text-gray-600">{content.cta.subtitle}</p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2">
-              {content.cta.buttonText}
-              <Download className="w-4 h-4 ml-2" />
-            </Button>
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2">{content.cta.buttonText}</Button>
           </div>
         </div>
       </div>
