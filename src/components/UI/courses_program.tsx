@@ -35,55 +35,55 @@ interface ProgramCardProps {
 // MAIN COMPONENT
 // =====================
 export default function CoursesProgramsSection() {
-  const [activeTab, setActiveTab] = useState<"courses" | "programs">("courses")
+  const [activeTab, setActiveTab] = useState<"courses" | "programs">("programs")
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const coursesData: Course[] = [
     {
-      title: "Virtual Assistant Class",
-      description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
+      title: "Virtual Assistant Masterclass",
+      description: "Learn how to become a high-earning Virtual Assistant with skills in scheduling, email management, content creation, and AI-powered productivity tools.",
       lessons: "40 Lessons",
       duration: "12h 25mins",
       price: "₦100,000",
       image: "/images/explore.jpg",
     },
     {
-      title: "Web Development Class",
-      description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-      lessons: "40 Lessons",
-      duration: "12h 25mins",
+      title: "AI/ML Intermediate Program",
+      description: "Step into the future of work with intermediate-level Artificial Intelligence and Machine Learning skills.",
+      lessons: "5 Live Projects",
+      duration: "3 months",
       price: "₦100,000",
       image: "/images/software.jpg",
     },
     {
-      title: "Data Analysis Class",
-      description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
+      title:"Project Management Essentials ",
+      description: "Learn Agile, Scrum, and digital collaboration platforms while working on real-world case studies.",
       lessons: "40 Lessons",
       duration: "12h 25mins",
       price: "₦100,000",
       image: "/images/data_analysis.jpg",
     },
     {
-      title: "Virtual Assistant Class 2",
-      description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-      lessons: "40 Lessons",
-      duration: "12h 25mins",
+      title: "Web Development Mastery",
+      description: "Build responsive, user-friendly websites from scratch using HTML, CSS, JavaScript, and modern frameworks.",
+      lessons: "5 Live Projects",
+      duration: "3 Months",
       price: "₦100,000",
       image: "/images/two.jpg",
     },
     {
-      title: "AI/ML Intermediate",
-      description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-      lessons: "40 Lessons",
-      duration: "12h 25mins",
+      title: "Data Analysis & Visualization ",
+      description: "Work with real datasets, build dashboards, and develop problem-solving skills that employers seek worldwide.",
+      lessons: "5 Live Projects",
+      duration: "3 Months",
       price: "₦100,000",
       image: "/images/ai.png",
     },
     {
-      title: "Project Management",
-      description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-      lessons: "40 Lessons",
-      duration: "12h 25mins",
+      title: "Product Design & UX/UI ",
+      description: "Master the art of designing intuitive, user-focused digital products with Figma, design systems, and prototyping tools.",
+      lessons: "5 Live Projects",
+      duration: "3 Months",
       price: "₦100,000",
       image: "/images/projectt.jpg",
     },
@@ -130,6 +130,7 @@ const programsData: Program[] = [
     ],
   },
 ];
+
 
 
   const currentData = activeTab === "courses" ? coursesData : programsData
