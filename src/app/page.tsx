@@ -145,7 +145,8 @@ const testimonials = [
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            Upskill yourself to thrive in Africa&apos;s digital future today.
+
           </p>
 
           {/* Search Bar */}
@@ -328,8 +329,8 @@ const testimonials = [
                 Why Choose Skillup?
               </h2>
               <p className="text-base sm:text-lg text-gray-600 mb-6 md:mb-8">
-                Our AI writing assistant is designed to help you effortlessly craft compelling grant proposals for your
-                success.
+                Our programs are designed to help you gain in-demand digital skills, connect with real job opportunities, and thrive in the global digital economy.
+
               </p>
 
               <div className="space-y-4 md:space-y-6">
@@ -346,11 +347,10 @@ const testimonials = [
                     </div>
                     <div>
                       <h3 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 group-hover:text-black">
-                        AI-Powered Precision
+                        Industry-Relevant Training
                       </h3>
                       <p className="text-sm md:text-base text-gray-600 group-hover:text-gray-800">
-                        Our platform leverages cutting-edge artificial intelligence to refine and enhance your grant
-                        writing process.
+                        Learn from experts with hands-on experience in top industries, giving you the skills global and African employers actually want.
                       </p>
                     </div>
                   </div>
@@ -373,10 +373,9 @@ const testimonials = [
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg md:text-xl font-semibold mb-2">Collaboration Simplified</h3>
+                    <h3 className="text-lg md:text-xl font-semibold mb-2">Career-Focused Support</h3>
                     <p className="text-sm md:text-base text-gray-600">
-                      Work seamlessly with team members, ensuring that everyone contributes to crafting successful grant
-                      proposals.
+                      From CV makeovers to interview prep, we provide personalised support to help you secure roles in tech locally and globally.
                     </p>
                   </div>
                 </div>
@@ -386,9 +385,9 @@ const testimonials = [
                     <Briefcase className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg md:text-xl font-semibold mb-2">Comprehensive Toolkit</h3>
+                    <h3 className="text-lg md:text-xl font-semibold mb-2">Pan-African Network</h3>
                     <p className="text-sm md:text-base text-gray-600">
-                      We offer more than just a platform; we provide a comprehensive toolkit for grant success
+                      Join a vibrant community of learners, mentors, and employers across Africa, creating opportunities to grow your career and make an impact.
                     </p>
                   </div>
                 </div>
@@ -414,7 +413,7 @@ const testimonials = [
     {/* Main heading */}
     <div className="absolute inset-0 z-30 flex items-start justify-center pt-8 md:pt-16 lg:pt-[143px] px-4">
       <h1 className="w-full max-w-[1200px] text-2xl md:text-4xl lg:text-[56px] leading-tight lg:leading-[1.2] text-center font-jost font-bold text-white">
-        Online Professional Certificate In Different Tech Skills
+          Online Professional Certificates in High-Demand Tech Skills
       </h1>
     </div>
 
@@ -435,9 +434,12 @@ const testimonials = [
       <div className="absolute inset-0 z-30 flex flex-col lg:flex-row items-center justify-between px-4 md:px-8 lg:px-[82px] py-6 lg:py-[105px] gap-4 lg:gap-8">
         {/* Description text */}
         <p className="flex-1 max-w-[926px] font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed text-white text-center lg:text-left">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-          ea commodo consequat. Duis aute irure dolor in reprehenderit in vborum.
+          Get the skills that employers in Africa and around the world are 
+          looking for. At SkillUp, our digital skills bootcamps and online tech 
+          training are designed to take you from beginner to job-ready professional. 
+          Learn from industry experts, work on real-world projects, and join a growing 
+          network of tech talent in Africa ready to shape the future.
+
         </p>
 
         {/* CTA Button */}
