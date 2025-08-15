@@ -64,9 +64,9 @@ const testimonials = [
     {
       id: 1,
       text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
-      author: "Caroline Moren",
-      role: "Data Analyst",
-      avatar: "/placeholder.svg?height=40&width=40",
+      author: "Caroline Moren", 
+      role: "Data Analyst", 
+      avatar: "/placeholder.svg?height=40&width=40", 
     },
     {
       id: 2,
@@ -892,7 +892,7 @@ const testimonials = [
 </section>
 {/* Chatbot Icon */}
 <div className="fixed bottom-6 right-6 w-28 h-28 rounded-[40px] overflow-hidden z-50">
-  <img
+  <Image
     className="w-20 h-20 left-[20px] top-[20px] absolute"
     src="images/chat.png"
     alt="Chatbot"

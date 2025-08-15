@@ -10,8 +10,8 @@ export default function FlipNumber({ value, duration = 1000 }: FlipNumberProps) 
   const [displayValue, setDisplayValue] = useState(0)
 
   useEffect(() => {
-    let start = displayValue
-    let end = value
+    const start = displayValue
+    const end = value
     let startTime: number | null = null
 
     const step = (timestamp: number) => {
