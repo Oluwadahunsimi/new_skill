@@ -3,60 +3,55 @@
 import { Play, Monitor, Lightbulb, FileText, CheckCircle, Star } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
+import { NavbarWithDropdown } from "@/components/UI/navigation"
+import Footer from "@/components/UI/Footer"
+import Testimonials from "@/components/UI/Testimonials"
 
 export default function AboutPage() {
   const [activeTab, setActiveTab] = useState("years")
 
   const historyContent = {
     years: {
-      title: "Foundation&Growth",
+      title: "SkillUp Warri",
       description:
-        "Since 1999, our education has been on a mission to democratize access to world-class technology education across Africa. Our impact has 9,700 learners and built partnerships with leading technology companies.",
+        "The Warri Skill-Up Invasion series has become a flagship initiative for empowering young people in Nigeria's South-South region with future-ready skills. Featuring two different editions, participants took part in hands-on, action-based learning programs designed to provide not just technical skills, but also access to valuable resources, entrepreneurial tools, and professional networks.",
       achievements: [
-        "20% Virtual and Hybrid school",
-        "9 months duration",
-        "Video lessons, Project & live classes",
-        "Lifetime access",
-        "Certificate upon completion",
-        "Task Enabled",
+        "Delivered hands-on, action-based learning programs focused on digital skills and entrepreneurship",
+        "Advanced our mission to grow tech talent in Africa",
+        "Equipped participants to innovate, lead, and thrive in a digital-first world",
       ],
       stats: [
-        { number: "900", label: "Students Reached" },
-        { number: "10", label: "Courses Offered" },
+        { number: "384", label: "students enrolled" },
+        { number: "8", label: "Courses Offered" },
       ],
     },
     phc: {
-      title: "Port Harcourt Campus",
+      title: "SkillUp Port Harcourt",
       description:
-        "Our Port Harcourt campus has been serving the Niger Delta region since 2010, providing specialized training in oil & gas technology and marine engineering.",
+        "The SkillUp Port Harcourt brought together aspiring tech professionals and entrepreneurs from across Rivers State for an intensive week of training and empowerment. Participants engaged in hands-on, action-based learning programs designed to deliver practical digital skills, entrepreneurial resources, and access to valuable professional networks.",
       achievements: [
-        "15% Industry partnerships",
-        "12 months duration",
-        "Hands-on lab sessions",
-        "Job placement assistance",
-        "Industry certifications",
-        "Internship programs",
+        "Delivered hands-on, action-based learning programs focused on digital skills and entrepreneurship",
+        "Advanced our mission to grow tech talent in Africa",
+        "Equipped participants to innovate, lead, and thrive in a digital-first world",
       ],
       stats: [
-        { number: "450", label: "Graduating Rate/Year" },
-        { number: "8", label: "Specialized Programs" },
+        { number: "117", label: "Students enrolled" },
+        { number: "6", label: "Courses Offered" },
       ],
     },
     kaduna: {
-      title: "Kaduna Innovation Hub",
+      title: "SkillUp Redemption Camp",
       description:
-        "Established in 2015, our Kaduna hub focuses on agricultural technology and renewable energy solutions for Northern Nigeria.",
+        "The SkillUp Redemption Camp brought together hundreds of aspiring tech professionals for an intensive week of digital skills development. Hosted at the RECTEM Lecture Halls, Redemption Camp, the program created a vibrant learning environment where participants engaged in hands-on training, gained access to vital resources, and built connections with mentors and industry peers.",
       achievements: [
-        "25% Agricultural tech focus",
-        "6 months intensive",
-        "Field work experience",
-        "Community projects",
-        "Solar energy training",
-        "Startup incubation",
+        "Delivered hands-on, action-based learning programs focused on digital skills and entrepreneurship",
+        "Strengthened our mission to grow tech talent in Africa",
+        "Provided participants with access to resources, networks, and mentorship opportunities",
+        "Empowered attendees to innovate, lead, and thrive in a digital-first economy",
       ],
       stats: [
-        { number: "300", label: "Graduating Rate/Year" },
-        { number: "6", label: "Tech Programs" },
+        { number: "327", label: "Students enrolled" },
+        { number: "4", label: "Courses Offered" },
       ],
     },
   } as const
@@ -96,11 +91,12 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <NavbarWithDropdown />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-16 px-6">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-medium mb-4 tracking-wider">ABOUT US</p>
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">Discover how we improve the lives of people.</h1>
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight">Discover how we improve lives through technology and skills.</h1>
         </div>
       </section>
 
@@ -110,14 +106,13 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                First Choice For
+                First Choice for 
                 <br />
-                Tech Ed Anywhere
+                Tech Education Anywhere
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Join our next-generation organization and access streamlined technology tools along with a structured
-                learning environment. We provide comprehensive educational resources to help you in design and develop
-                your next website.
+                Whether you&apos;re starting fresh or advancing your career, SkillUp Global is your trusted partner for world-class tech education. We combine expert-led training, hands-on projects, and career support to shape the next generation of tech talent in Africa. From coding to data analytics, UI/UX design to cybersecurity, our programs are designed for real-world results helping you gain skills that open doors both locally and globally.
+
               </p>
             </div>
 
@@ -142,7 +137,7 @@ export default function AboutPage() {
           {/* Stats Section */}
           <div className="text-center mb-16">
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              We provide professional tutoring that can help you break one limit and make a part in your industry
+              We provide professional tutoring that can help you break into tech and make an impact in your industry.
             </p>
 
             <div className="grid md:grid-cols-3 bg-[#EFF6FF] gap-8 p-4 rounded-lg ">
@@ -167,9 +162,9 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-3xl font-bold text-gray-900 mb-8">
-                Why You Should Start
+                Why You Should Start 
                 <br />
-                Learning With Us?
+                Learning With Us
               </h3>
 
               <div className="space-y-6">
@@ -182,8 +177,7 @@ export default function AboutPage() {
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-2">Promoting Digital Education</h4>
                         <p className="text-gray-600 text-sm">
-                          We embrace technology to enhance learning experiences and prepare students for the digital
-                          future.
+                          Our comprehensive learning programs build both foundational and advanced tech skills equipping you for the modern workplace and positioning you among the most in-demand tech talent in Africa.
                         </p>
                       </div>
                     </div>
@@ -199,8 +193,8 @@ export default function AboutPage() {
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-2">Innovative Tech Workshops</h4>
                         <p className="text-gray-600 text-sm">
-                          Hands-on workshops that teach cutting-edge technologies and practical skills for real-world
-                          applications.
+                          Engage in hands-on, immersive workshops focused on emerging technologies. We foster creativity, problem-solving, and practical application—ensuring you can turn knowledge into career growth.
+
                         </p>
                       </div>
                     </div>
@@ -216,8 +210,7 @@ export default function AboutPage() {
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-2">Online Resource Hub</h4>
                         <p className="text-gray-600 text-sm">
-                          Comprehensive online resources including tutorials, documentation, and community support
-                          available 24/7.
+                          Access a centralized platform filled with tutorials, templates, and industry insights. Whether you&apos;re coding, designing, or strategizing, our resources make continuous learning and upskilling simple and accessible.
                         </p>
                       </div>
                     </div>
@@ -246,9 +239,9 @@ export default function AboutPage() {
               <div className="mb-8 md:flex md:justify-between">
                 <h2 className="text-5xl font-bold text-gray-900 mb-4 mt-22">Our History</h2>
                 <p className="text-gray-600 max-w-2xl">
-                Since 2023, Incubator has been on a mission to democratize access to world-class 
-                technology education across Africa. We've trained over 9,700 learners and 
-                built the continent's most comprehensive tech education network.
+                At SkillUp Global, our mission is to clearly bridge Africa&apos;s digital divide and empower communities with the tools to thrive in a fast-evolving world. As one of Nigeria&apos;s leading digital skills bootcamps and online tech training providers, we&apos;ve impacted nearly 1,000 learners through our flagship programs.
+
+
                 </p>
               </div>
 
@@ -324,46 +317,7 @@ export default function AboutPage() {
             </div>
           </section>
       {/* Testimonials Section */}
-      <section className="py-16 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">What Our Alumnis Are Saying</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-                <div className="mb-4">
-                  <p className="text-gray-700 text-sm leading-relaxed">"{testimonial.quote}"</p>
-                </div>
-
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <Image
-                    src={testimonial.image || "/placeholder.svg"}
-                    alt={testimonial.name}
-                    width={40}
-                    height={40}
-                    className="rounded-full"
-                  />
-                  <div>
-                    <p className="font-medium text-gray-900 text-sm">{testimonial.name}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Testimonials />
 
       {/* CTA Section */}
       <section className="py-20 px-6 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 relative overflow-hidden">
@@ -374,8 +328,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Join Our Growing Community</h2>
           <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
-            Be part of Africa's largest technology education network. Connect with learners, share knowledge, and
-            advance your career with our supportive community.
+            Be part of Africa&apos;s digital transformation. Whether you&apos;re a learner, partner, or supporter, there&apos;s a place for you in our mission. From digital skills bootcamps to online tech training in Nigeria, we are building the next generation of tech talent in Africa. Together, we can empower communities, close the digital divide, and create opportunities for all.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -390,13 +343,14 @@ export default function AboutPage() {
       </section>
 
       {/* Footer Section */}
-      <footer className="py-8 px-6">
+      <section className="py-8 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <button className="px-8 py-4 rounded-lg text-white bg-black font-medium hover:text-gray-300 transition-colors duration-200">
             Explore Courses
           </button>
         </div>
-      </footer>
+      </section>
+      <Footer />
     </div>
   )
 }

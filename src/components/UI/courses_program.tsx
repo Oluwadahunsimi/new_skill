@@ -1,167 +1,164 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { Button } from "@/components/UI/button"
-import { Clock, Bookmark, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react"
+import { useState } from "react";
+import Image from "next/image";
+import { Button } from "@/components/UI/button";
+import {
+  Clock,
+  Bookmark,
+  ExternalLink,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
 // =====================
 // TYPE DEFINITIONS
 // =====================
 interface Course {
-  title: string
-  description: string
-  lessons: string
-  duration: string
-  price: string
-  image: string
+  title: string;
+  description: string;
+  lessons: string;
+  duration: string;
+  price: string;
+  image: string;
 }
 interface Program {
-  title: string
-  description: string
-  duration: string
-  projects: string
-  image: string
-  waitlistCount: number
-  profileImages: string[]
-
+  title: string;
+  description: string;
+  duration: string;
+  projects: string;
+  image: string;
+  waitlistCount: number;
+  profileImages: string[];
 }
 interface ProgramCardProps {
-  program: Program
-  index: number
+  program: Program;
+  index: number;
 }
 
 // =====================
 // MAIN COMPONENT
 // =====================
 export default function CoursesProgramsSection() {
-  const [activeTab, setActiveTab] = useState<"courses" | "programs">("programs")
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [activeTab, setActiveTab] = useState<"courses" | "programs">(
+    "programs"
+  );
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const coursesData: Course[] = [
     {
-      title: "Virtual Assistant Class",
-      description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
+      title: "Virtual Assistant Masterclass",
+      description:
+        "Learn how to become a high-earning Virtual Assistant with skills in scheduling, email management, content creation, and AI-powered productivity tools.",
       lessons: "40 Lessons",
       duration: "12h 25mins",
       price: "₦100,000",
       image: "/images/explore.jpg",
     },
     {
-      title: "Web Development Class",
-      description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-      lessons: "40 Lessons",
-      duration: "12h 25mins",
+      title: "AI/ML Intermediate Program",
+      description:
+        "Step into the future of work with intermediate-level Artificial Intelligence and Machine Learning skills.",
+      lessons: "5 Live Projects",
+      duration: "3 months",
       price: "₦100,000",
       image: "/images/software.jpg",
     },
     {
-      title: "Data Analysis Class",
-      description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
+      title: "Project Management Essentials ",
+      description:
+        "Learn Agile, Scrum, and digital collaboration platforms while working on real-world case studies.",
       lessons: "40 Lessons",
       duration: "12h 25mins",
       price: "₦100,000",
       image: "/images/data_analysis.jpg",
     },
     {
-      title: "Virtual Assistant Class 2",
-      description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-      lessons: "40 Lessons",
-      duration: "12h 25mins",
+      title: "Web Development Mastery",
+      description:
+        "Build responsive, user-friendly websites from scratch using HTML, CSS, JavaScript, and modern frameworks.",
+      lessons: "5 Live Projects",
+      duration: "3 Months",
       price: "₦100,000",
       image: "/images/two.jpg",
     },
     {
-      title: "AI/ML Intermediate",
-      description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-      lessons: "40 Lessons",
-      duration: "12h 25mins",
+      title: "Data Analysis & Visualization ",
+      description:
+        "Work with real datasets, build dashboards, and develop problem-solving skills that employers seek worldwide.",
+      lessons: "5 Live Projects",
+      duration: "3 Months",
       price: "₦100,000",
       image: "/images/ai.png",
     },
     {
-      title: "Project Management",
-      description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-      lessons: "40 Lessons",
-      duration: "12h 25mins",
+      title: "Product Design & UX/UI ",
+      description:
+        "Master the art of designing intuitive, user-focused digital products with Figma, design systems, and prototyping tools.",
+      lessons: "5 Live Projects",
+      duration: "3 Months",
       price: "₦100,000",
       image: "/images/projectt.jpg",
     },
-  ]
+  ];
 
-const programsData: Program[] = [
-  {
-    title: "Tech Tribe Bootcamp",
-    description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-    duration: "3 Months",
-    projects: "5 Projects",
-    image: "/images/techtribe.png",
-    waitlistCount: 50,
-    profileImages: [
-    "/images/pic.png",
-      "/images/pic.png",
-      "/images/pic.png"
-    ],
-  },
-  {
-    title: "Future Clan Bootcamp",
-    description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-    duration: "3 Months",
-    projects: "5 Projects",
-    image: "/images/futureclan.png",
-    waitlistCount: 32,
-    profileImages: [
-      "/images/pic.png",
-      "/images/pic.png",
-      "/images/pic.png"
-    ],
-  },
-  {
-    title: "Ladies in Tech Bootcamp",
-    description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-    duration: "3 Months",
-    projects: "5 Projects",
-    image: "/images/ladies.png",
-    waitlistCount: 41,
-    profileImages: [
-      "/images/pic.png",
-      "/images/pic.png",
-      "/images/pic.png"
-    ],
-  },
-];
+  const programsData: Program[] = [
+    {
+      title: "Tech Tribe Bootcamp",
+      description:
+        "Master in-demand digital skills and gain hands-on experience that gets you job-ready. Perfect for beginners and career switchers who want to learn tech in Africa and compete on a global stage",
+      duration: "3 Months",
+      projects: "Practical, mentor-led sessions + project-based learning",
+      image: "/images/techtribe.png",
+      waitlistCount: 50,
+      profileImages: ["/images/pic.png", "/images/pic.png", "/images/pic.png"],
+    },
+    {
+      title: "AI NOW Bootcamp",
+      description:
+        "Be part of Africa's biggest push to build world-class tech talent. Through our  Tech Scholarship Drive, you'll gain fully sponsored access to cutting-edge training. Over 4 months, you'll work on real-world projects, collaborate with mentors, and unlock career opportunities in the booming digital economy.",
+      duration: "4 Months",
+      projects: "Scholarship-based, hands-on training with live projects",
+      image: "/images/futureclan.png",
+      waitlistCount: 32,
+      profileImages: ["/images/pic.png", "/images/pic.png", "/images/pic.png"],
+    },
+  ];
 
-
-  const currentData = activeTab === "courses" ? coursesData : programsData
-  const maxSlides = currentData.length
+  const currentData = activeTab === "courses" ? coursesData : programsData;
+  const maxSlides = currentData.length;
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % maxSlides)
-  }
+    setCurrentSlide((prev) => (prev + 1) % maxSlides);
+  };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + maxSlides) % maxSlides)
-  }
+    setCurrentSlide((prev) => (prev - 1 + maxSlides) % maxSlides);
+  };
 
   const handleTabChange = (tab: "courses" | "programs") => {
-    setActiveTab(tab)
-    setCurrentSlide(0)
-  }
+    setActiveTab(tab);
+    setCurrentSlide(0);
+  };
 
   return (
     <section className="py-20 bg-blue-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-20">
         {/* Heading + Toggle */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
           <h2 className="font-bold text-2xl md:text-3xl lg:text-[40px] leading-[120%] text-[#14183E]">
-            {activeTab === "courses" ? "Courses We Offer." : "Interested In Our Programs?"}
+            {activeTab === "courses"
+              ? "Courses We Offer."
+              : "Interested In Our Programs?"}
           </h2>
 
           <div className="flex gap-1 bg-[#DBEAFE] rounded-md p-2 items-center w-full max-w-[320px] h-[72px] mx-auto lg:mx-0">
             <button
               onClick={() => handleTabChange("programs")}
               className={`flex-1 h-[56px] rounded-md px-4 py-4 text-base lg:text-[20px] font-medium text-center leading-[24px] transition ${
-                activeTab === "programs" ? "bg-[#1E40AF] text-white" : "text-[#1E3B8A] hover:bg-blue-100 transiton all"
+                activeTab === "programs"
+                  ? "bg-[#1E40AF] text-white"
+                  : "text-[#1E3B8A] hover:bg-blue-100 transiton all"
               }`}
             >
               Programs
@@ -169,7 +166,9 @@ const programsData: Program[] = [
             <button
               onClick={() => handleTabChange("courses")}
               className={`flex-1 h-[56px] rounded-md px-4 py-4 text-base lg:text-[20px] font-medium text-center leading-[24px] transition ${
-                activeTab === "courses" ? "bg-[#1E40AF] text-white" : "text-[#1E3B8A] hover:bg-blue-100 transiton all"
+                activeTab === "courses"
+                  ? "bg-[#1E40AF] text-white"
+                  : "text-[#1E3B8A] hover:bg-blue-100 transiton all"
               }`}
             >
               Courses
@@ -188,12 +187,14 @@ const programsData: Program[] = [
                   style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
                   {currentData.map((item, index) => (
-                    <div key={index} className="w-full flex-shrink-0 px-2">
+                    <div
+                      key={index}
+                      className="w-full flex-shrink-0 flex items-center justify-center px-2"
+                    >
                       {activeTab === "courses" ? (
                         <CourseCard course={item as Course} />
                       ) : (
                         <ProgramCard program={item as Program} index={index} />
-
                       )}
                     </div>
                   ))}
@@ -223,7 +224,9 @@ const programsData: Program[] = [
                     key={index}
                     onClick={() => setCurrentSlide(index)}
                     className={`w-2 h-2 rounded-full transition-all ${
-                      index === currentSlide ? "bg-[#1E40AF] w-6" : "bg-gray-300"
+                      index === currentSlide
+                        ? "bg-[#1E40AF] w-6"
+                        : "bg-gray-300"
                     }`}
                   />
                 ))}
@@ -240,17 +243,17 @@ const programsData: Program[] = [
                 ))}
               </div>
             ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-               {programsData.map((program, index) => (
-  <ProgramCard key={index} program={program} index={index} />
-))}
+              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                {programsData.map((program, index) => (
+                  <ProgramCard key={index} program={program} index={index} />
+                ))}
               </div>
             )}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // =====================
@@ -271,17 +274,24 @@ function CourseCard({ course }: { course: Course }) {
           <Clock className="h-4 w-4 text-[#52525B]" />
           <span className="text-sm font-medium">Coming Soon</span>
         </div>
-        <Button size="sm" className="absolute top-4 right-4 bg-white text-gray-900 hover:bg-gray-100">
+        <Button
+          size="sm"
+          className="absolute top-4 right-4 bg-white text-gray-900 hover:bg-gray-100"
+        >
           <ExternalLink className="h-4 w-4" />
         </Button>
       </div>
       <div className="p-6">
-        <h3 className="font-bold text-xl lg:text-[28px] text-[#101828] mb-2">{course.title}</h3>
+        <h3 className="font-bold text-xl lg:text-[28px] text-[#101828] mb-2">
+          {course.title}
+        </h3>
         <p className="text-sm text-[#667085] mb-4">{course.description}</p>
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-4">
           <div className="flex items-center gap-2 bg-[#F8FAFC] rounded-full px-4 h-10 hover:bg-zinc-300">
             <Bookmark className="h-4 w-4 text-[#52525B]" />
-            <span className="text-sm text-[#52525B] font-medium">{course.lessons}</span>
+            <span className="text-sm text-[#52525B] font-medium">
+              {course.lessons}
+            </span>
           </div>
           <div className="flex items-center gap-2 bg-[#F8FAFC] rounded-full px-4 h-10 hover:bg-zinc-300">
             <Clock className="h-4 w-4 text-[#52525B]" />
@@ -289,22 +299,24 @@ function CourseCard({ course }: { course: Course }) {
           </div>
         </div>
         <div className="flex items-center justify-between">
-          <div className="text-blue-900 font-bold text-lg lg:text-[20px]">{course.price}</div>
+          <div className="text-blue-900 font-bold text-lg lg:text-[20px]">
+            {course.price}
+          </div>
           <button className="bg-white border-2 border-blue-600 hover:bg-blue-900 text-black hover:text-white text-sm lg:text-[20px] px-4 lg:px-6 py-3 rounded-md transition-all">
             Enroll now
           </button>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // =====================
 // PROGRAM CARD
 // =====================
 function ProgramCard({ program, index }: ProgramCardProps) {
-  return ( 
-    <div className="overflow-hidden hover:shadow-lg transition-shadow bg-white rounded-[16px]"> 
+  return (
+    <div className="overflow-hidden hover:shadow-lg transition-shadow bg-white rounded-[16px]">
       <div className="relative">
         <Image
           src={program.image || "/placeholder.svg"}
@@ -322,19 +334,26 @@ function ProgramCard({ program, index }: ProgramCardProps) {
           </div>
         )}
 
-        <Button size="sm" className="absolute top-4 right-4 bg-white text-gray-900 hover:bg-gray-100">
+        <Button
+          size="sm"
+          className="absolute top-4 right-4 bg-white text-gray-900 hover:bg-gray-100"
+        >
           <ExternalLink className="h-4 w-4" />
         </Button>
       </div>
 
       <div className="p-6">
-        <h3 className="font-bold text-xl lg:text-[28px] text-[#1E3B8A] mb-2">{program.title}</h3>
+        <h3 className="font-bold text-xl lg:text-[28px] text-[#1E3B8A] mb-2">
+          {program.title}
+        </h3>
         <p className="text-sm text-[#667085] mb-4">{program.description}</p>
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-4">
           <div className="flex items-center gap-2 bg-[#F8FAFC] rounded-full px-4 h-10 hover:bg-zinc-300">
             <Bookmark className="h-4 w-4 text-[#52525B]" />
-            <span className="text-sm text-[#52525B] font-medium">{program.projects}</span>
+            <span className="text-sm text-[#52525B] font-medium">
+              {program.projects}
+            </span>
           </div>
           <div className="flex items-center gap-2 bg-[#F8FAFC] rounded-full px-4 h-10 hover:bg-zinc-300">
             <Clock className="h-4 w-4 text-[#52525B]" />
@@ -358,7 +377,9 @@ function ProgramCard({ program, index }: ProgramCardProps) {
                 />
               ))}
             </div>
-            <span className="ml-3 text-sm text-gray-700">{program.waitlistCount} people on waitlist</span>
+            <span className="ml-3 text-sm text-gray-700">
+              {program.waitlistCount} people on waitlist
+            </span>
           </div>
 
           {/* Right side: button */}

@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { NavbarWithDropdown } from "@/components/UI/navigation"
+import Testimonials from "@/components/UI/Testimonials";
 import { Button } from "@/components/UI/button"
 import { Input } from "@/components/UI/input"
-import FlipNumber from "@/components/UI/FlipNumber";
+import Footer from "@/components/UI/Footer";
 import { Search } from "lucide-react"
 import {
   Accordion,
@@ -12,8 +13,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/UI/accordion";
-import Image from "next/image";  // <-- add this import
-// import { Search } from "lucide-react";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/UI/card";
 
 import OverlayPopup from "@/components/UI/OverlayPopup";
@@ -31,15 +31,10 @@ import {
   Folder,
   Globe,
   Briefcase,
-  X,
-  Menu,
-  Instagram,
-  Youtube,
-  Linkedin,
 } from "lucide-react";
 
 export default function Home() {
-   const logos = [
+  const logos = [
     { src: "/images/global.png", alt: "Africa Missions Global" },
     { src: "/images/rccg.png", alt: "RCCG" },
     { src: "/images/incubator.png", alt: "DAF" },
@@ -47,7 +42,7 @@ export default function Home() {
     { src: "/images/global.png", alt: "Tech Company" },
   ];
 
- const texts = ["Career Path", "Employability", "Talent"];
+  const texts = ["Career Path", "Employability", "Talent"];
   const [index, setIndex] = useState<number>(0);
 
   useEffect(() => {
@@ -61,70 +56,14 @@ export default function Home() {
   
   // Duplicate logos for seamless loop
   const doubledLogos = [...logos, ...logos];
-const testimonials = [
-    {
-      id: 1,
-      text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
-      author: "Caroline Moren", 
-      role: "Data Analyst", 
-      avatar: "/placeholder.svg?height=40&width=40", 
-    },
-    {
-      id: 2,
-      text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
-      author: "Caroline Moren",
-      role: "Data Analyst",
-      avatar: "/placeholder.svg?height=40&width=40",
-    },
-    {
-      id: 3,
-      text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
-      author: "Caroline Moren",
-      role: "Data Analyst",
-      avatar: "/placeholder.svg?height=40&width=40",
-    },
-    {
-      id: 4,
-      text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
-      author: "Caroline Moren",
-      role: "Data Analyst",
-      avatar: "/placeholder.svg?height=40&width=40",
-    },
-    {
-      id: 5,
-      text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
-      author: "Caroline Moren",
-      role: "Data Analyst",
-      avatar: "/placeholder.svg?height=40&width=40",
-    },
-    {
-      id: 6,
-      text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
-      author: "Caroline Moren",
-      role: "Data Analyst",
-      avatar: "/placeholder.svg?height=40&width=40",
-    },
-    {
-      id: 7,
-      text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
-      author: "Caroline Moren",
-      role: "Data Analyst",
-      avatar: "/placeholder.svg?height=40&width=40",
-    },
-    {
-      id: 8,
-      text: "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. Add main takeaway pointsAdd main takeaway",
-      author: "Caroline Moren",
-      role: "Data Analyst",
-      avatar: "/placeholder.svg?height=40&width=40",
-    },
-  ]
- 
+
+
   return (
     <div className="min-h-screen relative">
       {/* Navigation Header */}
       <NavbarWithDropdown />
       <OverlayPopup/>
+      
       {/* Hero Section */}
       <div
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
@@ -140,13 +79,13 @@ const testimonials = [
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Up your skills to advance your{" "}
             <span className="text-blue-500 relative transition-all duration-500 ease-in-out">
-      {texts[index]}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-500 rounded-full animate-pulse" />
-    </span>
+              {texts[index]}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-500 rounded-full animate-pulse" />
+            </span>
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            Upskill yourself to thrive in Africa&apos;s digital future today.
           </p>
 
           {/* Search Bar */}
@@ -165,10 +104,12 @@ const testimonials = [
           </div>
         </div>
       </div>
- <section className="py-8 sm:py-12 md:py-16 bg-white overflow-hidden relative">
+
+      {/* Organizations Section */}
+      <section className="py-8 sm:py-12 md:py-16 bg-white overflow-hidden relative">
         <div className="container mx-auto px-4 relative">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-normal text-[#14183E] leading-tight text-center mb-8 sm:mb-12 md:mb-20">
-            Organizations we've worked with
+            Organizations we&apos;ve worked with
           </h2>
 
           <div className="relative">
@@ -211,16 +152,7 @@ const testimonials = [
                       height={64}
                       className="max-w-full max-h-full object-contain transition-all duration-300"
                     />
-                  </div> 
-                  {/* <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
-                    <Image
-                      src="/images/champions.png"
-                      alt="Champions"
-                      width={128}
-                      height={64}
-                      className="max-w-full max-h-full object-contain transition-all duration-300"
-                    />
-                  </div> */}
+                  </div>
                   <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
                     <Image
                       src="/images/incubator.png"
@@ -272,15 +204,6 @@ const testimonials = [
                       className="max-w-full max-h-full object-contain transition-all duration-300"
                     />
                   </div>
-                  {/* <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
-                    <Image
-                      src="/images/champions.png"
-                      alt="Champions"
-                      width={128}
-                      height={64}
-                      className="max-w-full max-h-full object-contain transition-all duration-300"
-                    />
-                  </div> */}
                   <div className="h-12 w-24 sm:h-14 sm:w-28 md:h-16 md:w-32 flex items-center justify-center flex-shrink-0">
                     <Image
                       src="/images/global.png"
@@ -297,6 +220,7 @@ const testimonials = [
         </div>
       </section>
 
+      {/* Why Choose Skillup Section */}
       <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
@@ -329,8 +253,7 @@ const testimonials = [
                 Why Choose Skillup?
               </h2>
               <p className="text-base sm:text-lg text-gray-600 mb-6 md:mb-8">
-                Our AI writing assistant is designed to help you effortlessly craft compelling grant proposals for your
-                success.
+                Our programs are designed to help you gain in-demand digital skills, connect with real job opportunities, and thrive in the global digital economy.
               </p>
 
               <div className="space-y-4 md:space-y-6">
@@ -347,11 +270,10 @@ const testimonials = [
                     </div>
                     <div>
                       <h3 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 group-hover:text-black">
-                        AI-Powered Precision
+                        Industry-Relevant Training
                       </h3>
                       <p className="text-sm md:text-base text-gray-600 group-hover:text-gray-800">
-                        Our platform leverages cutting-edge artificial intelligence to refine and enhance your grant
-                        writing process.
+                        Learn from experts with hands-on experience in top industries, giving you the skills global and African employers actually want.
                       </p>
                     </div>
                   </div>
@@ -374,10 +296,9 @@ const testimonials = [
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg md:text-xl font-semibold mb-2">Collaboration Simplified</h3>
+                    <h3 className="text-lg md:text-xl font-semibold mb-2">Career-Focused Support</h3>
                     <p className="text-sm md:text-base text-gray-600">
-                      Work seamlessly with team members, ensuring that everyone contributes to crafting successful grant
-                      proposals.
+                      From CV makeovers to interview prep, we provide personalised support to help you secure roles in tech locally and globally.
                     </p>
                   </div>
                 </div>
@@ -387,9 +308,9 @@ const testimonials = [
                     <Briefcase className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg md:text-xl font-semibold mb-2">Comprehensive Toolkit</h3>
+                    <h3 className="text-lg md:text-xl font-semibold mb-2">Pan-African Network</h3>
                     <p className="text-sm md:text-base text-gray-600">
-                      We offer more than just a platform; we provide a comprehensive toolkit for grant success
+                      Join a vibrant community of learners, mentors, and employers across Africa, creating opportunities to grow your career and make an impact.
                     </p>
                   </div>
                 </div>
@@ -399,27 +320,28 @@ const testimonials = [
         </div>
       </section>
 
- <div className="nav-white-bg relative w-full h-[400px] md:h-[500px] lg:h-[651px] mt-20">
-      <section className="relative w-full h-full overflow-hidden">
-        {/* Main background image */}
-        <Image
-          src="/images/Become.jpg"
-          alt="Group of professionals walking together"
-          fill
-          className="object-cover object-top z-0"
-          priority
-        />
+      {/* Professional Certificates Section */}
+      <div className="relative w-full h-[400px] md:h-[500px] lg:h-[651px] bg-white">
+        <section className="relative w-full h-full overflow-hidden">
+          {/* Main background image */}
+          <Image
+            src="/images/Become.jpg"
+            alt="Group of professionals walking together"
+            fill
+            className="object-cover object-top z-0"
+            priority
+          />
 
         {/* Dark overlay */}
            <div className="absolute inset-0 bg-[#1018284D] z-10 pointer-events-none" />
 
 
-        {/* Main heading */}
-        <div className="absolute inset-0 z-30 flex items-start justify-center pt-8 md:pt-16 lg:pt-[143px] px-4">
-          <h1 className="w-full max-w-[1200px] text-2xl md:text-4xl lg:text-[56px] leading-tight lg:leading-[1.2] text-center font-jost font-bold text-white">
-            Online Professional Certificate In Different Tech Skills
-          </h1>
-        </div>
+          {/* Main heading */}
+          <div className="absolute inset-0 z-30 flex items-start justify-center pt-8 md:pt-16 lg:pt-[143px] px-4">
+            <h1 className="w-full max-w-[1200px] text-2xl md:text-4xl lg:text-[56px] leading-tight lg:leading-[1.2] text-center font-jost font-bold text-white">
+              Online Professional Certificates in High-Demand Tech Skills
+            </h1>
+          </div>
 
         {/* Bottom section with content and CTA */}
         <div className="absolute bottom-0 left-0 w-full h-[200px] md:h-[240px] lg:h-[282px] z-20">
@@ -427,22 +349,24 @@ const testimonials = [
           {/* Bottom overlay */}
               <div className="absolute inset-0 bg-[#000000]/50 z-10 pointer-events-none" /> 
 
-          {/* Bottom background image */}
-          <Image
-            src="/images/ec3824486a67fdb44f3d77c256717dc00f453974.png"
-            alt="Students collaborating and studying together"
-            fill
-            className="object-cover opacity-60 z-0"
-          />
+            {/* Bottom background image */}
+            <Image
+              src="/images/ec3824486a67fdb44f3d77c256717dc00f453974.png"
+              alt="Students collaborating and studying together"
+              fill
+              className="object-cover opacity-60 z-0"
+            />
 
-          {/* Content container */}
-          
-          <div className="absolute inset-0 z-30 flex flex-col lg:flex-row items-center justify-between px-4 md:px-8 lg:px-[82px] py-6 lg:py-[105px] gap-4 lg:gap-8">
-            {/* Description text */}
-            <p className="flex-1 max-w-[926px] font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed text-white text-center lg:text-left">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam.
-            </p>
+            {/* Content container */}
+            <div className="absolute inset-0 z-30 flex flex-col lg:flex-row items-center justify-between px-4 md:px-8 lg:px-[82px] py-6 lg:py-[105px] gap-4 lg:gap-8">
+              {/* Description text */}
+              <p className="flex-1 max-w-[926px] font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed text-white text-center lg:text-left">
+                Get the skills that employers in Africa and around the world are 
+                looking for. At SkillUp, our digital skills bootcamps and online tech 
+                training are designed to take you from beginner to job-ready professional. 
+                Learn from industry experts, work on real-world projects, and join a growing 
+                network of tech talent in Africa ready to shape the future.
+              </p>
 
             {/* CTA Button */}
              <button
@@ -460,20 +384,21 @@ const testimonials = [
           </div>
         </div>
 
-        {/* Career advancement card */}
-        <div className="hidden lg:block absolute top-[331px] left-[78px] bg-white z-20 w-[362px] h-[95px] p-4 rounded shadow-lg border border-gray-100">
-          <div className="text-[#2E323A] text-center font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed">
-            Advance Your Career
+          {/* Career advancement card */}
+          <div className="hidden lg:block absolute top-[331px] left-[78px] bg-white z-20 w-[362px] h-[95px] p-4 rounded shadow-lg border border-gray-100">
+            <div className="text-[#2E323A] text-center font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed">
+              Advance Your Career
+            </div>
+            <div className="text-[#1E1E1E] text-center font-jost font-bold text-xl md:text-2xl lg:text-[28px] leading-tight">
+              Become A Global Talent
+            </div>
           </div>
-          <div className="text-[#1E1E1E] text-center font-jost font-bold text-xl md:text-2xl lg:text-[28px] leading-tight">
-            Become A Global Talent
-          </div>
-        </div>
-      </section>
-    </div>
- <CoursesProgramsSection />
+        </section>
+      </div>
 
-  {/* Why We Are Good At What We Do Section */}
+      <CoursesProgramsSection />
+
+      {/* Why We Are Good At What We Do Section */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -482,8 +407,7 @@ const testimonials = [
               Why We Are Good At What We Do
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus met, cetur adipiscing elit.
-              Urna, tortor tempus.
+              At SkillUp Global, we are redefining how Africans learn, work, and thrive in the digital age. 
             </p>
           </div>
 
@@ -507,7 +431,9 @@ const testimonials = [
                   <h3 className="text-xl font-jost font-bold " style={{ color: '#1E1E1E' }}>Expert Facilitators</h3>
                 </div>
                 <p className=" leading-relaxed font-montserrat" style={{ color: ' #757575' }}>
-                  Body text for whatever you&apos;d like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.
+                  Our trainers aren&apos;t just teachers, they&apos;re industry veterans who&apos;ve built products, led teams, and solved real business 
+                  challenges across Africa and beyond. They bring hands-on knowledge, mentorship, and 
+                  insider insights to help you learn tech in Africa the right way practical, market-relevant, and future-proof.
                 </p>
               </div>
             </div>
@@ -529,7 +455,8 @@ const testimonials = [
                   <h3 className="text-xl font-jost font-bold "  style={{ color: '#1E1E1E' }}>Vast Online Community</h3>
                 </div>
                 <p className=" leading-relaxed font-montserrat" style={{ color: ' #757575' }}>
-                  Body text for whatever you&apos;d like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.
+                  Learning doesn&apos;t stop at the classroom. Join a pan-African network of thousands of learners, alumni, and employers collaborating, sharing opportunities, and building solutions for the continent. This community is your launchpad into Africa&apos;s thriving tech ecosystem.
+
                 </p>
               </div>
             </div>
@@ -542,10 +469,11 @@ const testimonials = [
                   <h3 className="text-xl font-jost font-bold "  style={{ color: '#1E1E1E' }}>12+ Online Courses</h3>
                 </div>
                 <p className=" leading-relaxed font-montserrat" style={{ color: ' #757575' }}>
-                  Body text for whatever you&apos;d like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.
+                  From software development to data analytics, UX design to digital marketing, our 12+ online programs are designed to take you from beginner to hire-ready. Whether you&apos;re upskilling for your current job or breaking into a new career, our online tech training in Nigeria gives you the tools to compete on a global stage.
+
                 </p>
               </div>
-             <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
                 <Image
                   src="/images/book.jpg"
                   alt="Library with curved bookshelves"
@@ -559,120 +487,16 @@ const testimonials = [
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <Testimonials />
 
-   {/* Testimonials Section */}
-<section className="py-20 bg-[#EFF6FF]">
-  <div className="max-w-7xl mx-auto px-4">
-    {/* Header Section */}
-    <div className="text-center mb-16">
-      <h2 className="text-3xl md:text-4xl font-bold text-[#14183E] mb-4">
-        What Our Alumnis Are Saying
-      </h2>
-      <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus, met, cotur adipiscing elit.
-        Urna, tortor tempus.
-      </p>
-    </div>
-
-    {/* Testimonials Layer 1 (Scroll Left) */}
-    <div className="overflow-hidden py-8">
-      <div className="flex gap-6 animate-scroll-left">
-        {[...testimonials, ...testimonials].map((t, index) => (
-          <Card
-            key={`layer1-${index}`}
-            className="bg-white border border-blue-400 border-b-0  hover:shadow-md transition-shadow flex-shrink-0 w-[280px] md:w-[300px]"
-          >
-            <CardContent className="p-6">
-              <p className="text-gray-700 text-sm mb-6 leading-relaxed">"{t.text}"</p>
-              <div className="flex items-center gap-3">
-                <Avatar className="h-10 w-10">
-                  <AvatarImage src={t.avatar || "/placeholder.svg"} alt={t.author} />
-                  <AvatarFallback>CM</AvatarFallback>
-                </Avatar>
-                <div>
-                  <p className="font-semibold text-gray-900 text-sm">{t.author}</p>
-                  <p className="text-gray-500 text-xs">{t.role}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-
-    {/* Testimonials Layer 2 (Scroll Right) */}
-    <div className="overflow-hidden py-8">
-      <div className="flex gap-6 animate-scroll-right">
-        {[...testimonials, ...testimonials].map((t, index) => (
-          <Card
-            key={`layer2-${index}`}
-            className="bg-white border border-blue-400  border-b-0 hover:shadow-md transition-shadow flex-shrink-0 w-[260px] md:w-[280px]"
-          >
-            <CardContent className="p-6">
-              <p className="text-gray-700 text-sm mb-6 leading-relaxed">"{t.text}"</p>
-              <div className="flex items-center gap-3">
-                <Avatar className="h-8 w-8">
-                  <AvatarImage src={t.avatar || "/placeholder.svg"} alt={t.author} />
-                  <AvatarFallback>CM</AvatarFallback>
-                </Avatar>
-                <div>
-                  <p className="font-semibold text-gray-900 text-sm">{t.author}</p>
-                  <p className="text-gray-500 text-xs">{t.role}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-
-    {/* Stats Section */}
-    <div className="bg-blue-50 rounded-lg p-8 shadow-sm">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        <div className="space-y-2">
-          <p className="text-gray-700">
-            We provide <span className="font-bold text-gray-900">professional tutoring</span> that can help you
-          </p>
-          <p className="text-gray-700">
-            break into <span className="font-bold text-gray-900">tech</span> and make a pact in your industry
-          </p>
-        </div>
-
-        <div className="flex justify-center lg:justify-end">
-          <div className="flex items-center gap-8 md:gap-12">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#14183E] mb-1">
-                <FlipNumber value={1000} />+
-              </div>
-              <div className="text-gray-600 text-sm">Students Reached</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#14183E] mb-1">
-                <FlipNumber value={1000} />+
-              </div>
-              <div className="text-gray-600 text-sm">Graduates</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#14183E] mb-1">
-                <FlipNumber value={1} />+
-              </div>
-              <div className="text-gray-600 text-sm">Tutors</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  {/* FAQ Section */}
+      {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus. met, cotur adipiscing elit.
-              Urna, tortor tempus.
+              Find quick answers about our digital skills bootcamp, tech training, and how we empower tech talent in Africa.
             </p>
           </div>
 
@@ -683,8 +507,7 @@ const testimonials = [
                   What kind of courses are available on this platform?
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 pt-2">
-                  We offer a range of expert-led courses in tech, business, creative skills, and personal
-                  development—tailored for learners at every level.
+                  We offer a range of expert-led courses in tech, business, creative skills, and personal development tailored for learners at every level. From coding bootcamps to UI/UX design, data science, cybersecurity, and digital marketing, our programs are designed to grow tech talent in Africa and provide world-class online tech training in Nigeria.
                 </AccordionContent>
               </AccordionItem>
 
@@ -693,8 +516,7 @@ const testimonials = [
                   Do I get a certificate after completing a course?
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 pt-2">
-                  Yes, you will receive a professional certificate upon successful completion of any course on our
-                  platform.
+                  Yes! Every learner who successfully completes a course receives an industry-recognized certificate. This helps you showcase your skills to employers and stand out in Africa&apos;s competitive digital job market.
                 </AccordionContent>
               </AccordionItem>
 
@@ -703,7 +525,7 @@ const testimonials = [
                   Can I learn at my own pace?
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 pt-2">
-                  All our courses are self-paced, allowing you to learn according to your schedule and availability.
+                  Absolutely. We provide flexible learning options so you can study at a pace that fits your schedule whether you&apos;re a full-time student, working professional, or career changer.
                 </AccordionContent>
               </AccordionItem>
 
@@ -712,8 +534,7 @@ const testimonials = [
                   What payment methods do you accept?
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 pt-2">
-                  We accept various payment methods including credit cards, debit cards, and bank transfers for your
-                  convenience.
+                  We accept payments via debit/credit cards, bank transfers, and popular mobile payment platforms across Africa. For some programs, installment plans are available to make our digital skills bootcamp even more accessible.
                 </AccordionContent>
               </AccordionItem>
 
@@ -722,8 +543,7 @@ const testimonials = [
                   Will I have access to the course after I complete it?
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 pt-2">
-                  Yes, you will have lifetime access to all course materials even after completion, allowing you to
-                  revisit content anytime.
+                  Yes. Once enrolled, you get lifetime access to your course materials, including updates and new resources, so you can revisit and refresh your skills anytime.
                 </AccordionContent>
               </AccordionItem>
 
@@ -732,7 +552,7 @@ const testimonials = [
                   Are the courses mobile-friendly?
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 pt-2">
-                  Yes, our platform is fully optimized for mobile devices, so you can learn on-the-go from any device.
+                  Yes. Our learning platform is fully mobile-optimized, allowing you to access lessons, videos, and assignments on your phone, tablet, or laptop—perfect for learners on the go.
                 </AccordionContent>
               </AccordionItem>
 
@@ -741,14 +561,14 @@ const testimonials = [
                   Can I get a refund if I don&apos;t like a course?
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 pt-2">
-                  We offer a 30-day money-back guarantee if you&apos;re not satisfied with your course purchase.
+                  We offer a satisfaction guarantee. If you&apos;re not happy with your course, you can request a refund within the first 7 days of enrollment, subject to our refund policy.
+
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
           </div>
         </div>
       </section>
-
 
       {/* Blog Section */}
       <section className="py-20 bg-[#EFF6FF]">
@@ -758,10 +578,10 @@ const testimonials = [
               <div>
                 <h2 className="text-4xl font-bold text-gray-900 mb-4">Read. Learn. Grow</h2>
                 <p className="text-lg text-gray-600">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                  Explore expert tips, inspiring stories, and practical strategies to help you succeed in the fast-paced world of technology. 
                 </p>
               </div>
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white">Read More Blogg</Button>
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white">Read More Blogs</Button>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
@@ -778,9 +598,8 @@ const testimonials = [
                     How to Stay Consistent with Learning (Even on Busy Days)
                   </h3>
                   <p className="text-gray-600 mb-4 text-sm">
-                    Life gets busy — but your learning goals don&apos;t have to suffer because of it.With the right strategy,
-                    staying consistent can become second nature, not a struggle.but your learning goals don&apos;t have to
-                    suffer because of it. With the right strategy, staying consistent can become second nat...
+                   Life gets busy but your learning goals don&apos;t have to suffer. With the right strategy, you can stay consistent and make progress every single day. Discover practical methods for balancing work, study, and personal life while thriving in your online tech training journey.
+
                   </p>
                   <Link href="#" className="text-blue-700 hover:text-blue-900 font-medium">
                     Read post »
@@ -799,10 +618,9 @@ const testimonials = [
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-3">How to Choose the Right Course for Your Career Goals</h3>
                   <p className="text-gray-600 mb-4 text-sm">
-                    Picking a course shouldn&apos;t feel like spinning a wheel and hoping for the best. Here&apos;s how to align
-                    your learning path with your future goals — with zero confusion. course shouldnt feel like spinning
-                    a wheel and hoping for the best. course shouldnt feel like spinning a wheel and hoping for the
-                    best.
+                    Picking the right course shouldn&apos;t feel like guesswork. Learn how to align your 
+                    studies with your career ambitions, avoid common mistakes, and choose programs like 
+                    our digital skills bootcamp that open doors in Africa&apos;s growing tech industry.
                   </p>
                   <Link href="#" className="text-blue-700 hover:text-blue-900 font-medium">
                     Read post »
@@ -822,12 +640,13 @@ const testimonials = [
                 />
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-3">
-                    How to Stay Consistent with Learning (Even on Busy Days)
+                    Mastering Remote Work as a Tech Professional in Africa
                   </h3>
                   <p className="text-gray-600 mb-4 text-sm">
-                    Life gets busy — but your learning goals don&apos;t have to suffer because of it.With the right strategy,
-                    staying consistent can become second nature, not a struggle.but your learning goals don&apos;t have to
-                    suffer because of it. With the right strategy, staying consistent can become second nat...
+                    Remote work is now the norm in the tech industry, but excelling at it takes more than just a 
+                    good internet connection. Learn how tech talent in Africa can build productive routines, collaborate 
+                    effectively across time zones, and thrive in global teams after completing our online tech training in Nigeria.
+
                   </p>
                   <Link href="#" className="text-blue-700 hover:text-blue-900 font-medium">
                     Read post »
@@ -844,12 +663,12 @@ const testimonials = [
                   className="w-full h-64 object-cover  fill"
                 />
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-3">How to Choose the Right Course for Your Career Goals</h3>
+                  <h3 className="text-xl font-semibold mb-3">From Beginner to Pro: Your Roadmap to Learning Tech in Africa</h3>
                   <p className="text-gray-600 mb-4 text-sm">
-                    Picking a course shouldn&apos;t feel like spinning a wheel and hoping for the best. Here&apos;s how to align
-                    your learning path with your future goals — with zero confusion. course shouldn&apos;t feel like spinning
-                    a wheel and hoping for the best. course shouldn&apos;t feel like spinning a wheel and hoping for the
-                    best.
+                   Breaking into tech can feel overwhelming but it doesn&apos;t have to be. 
+                   This step-by-step guide walks you through choosing a career path, enrolling in a digital skills bootcamp, 
+                   building your portfolio, and landing your first job in the thriving African tech ecosystem.
+
                   </p>
                   <Link href="#" className="text-blue-700 hover:text-blue-900 font-medium p-3">
                     Read post »
@@ -861,32 +680,31 @@ const testimonials = [
         </div>
       </section>
 
+      {/* Newsletter Section */}
+      <section className="relative w-full max-w-[1454px] h-auto mx-auto mt-5 mb-5 px-4">
+        {/* Background Frame */}
+        <div className="relative w-full max-w-[1296px] h-auto bg-[#1E3A8A] rounded-[16px] flex flex-col items-center justify-center gap-[49px] mx-auto py-16 px-6">
+          
+          {/* Vector Image Positioned */}
+          <Image
+            src="/images/vector.png"
+            alt="Decorative Vector"
+            width={500}
+            height={700}
+            className="absolute right-0 bottom-0 max-w-[100%] max-h-[100%] w-auto h-auto opacity-80 pointer-events-none object-contain rounded-[16px]"
+            style={{ transform: "rotate(0deg)" }}
+          /> 
 
-<section className="relative w-full max-w-[1454px] h-auto mx-auto mt-5 mb-5 px-4">
-  {/* Background Frame */}
-  <div className="relative w-full max-w-[1296px] h-auto bg-[#1E3A8A] rounded-[16px] flex flex-col items-center justify-center gap-[49px] mx-auto py-16 px-6">
-    
-    {/* Vector Image Positioned */}
-  <Image
-  src="/images/vector.png"
-  alt="Decorative Vector"
-  width={500}        // Adjust as needed
-  height={700}
-  className="absolute right-0 bottom-0 max-w-[100%] max-h-[100%] w-auto h-auto opacity-80 pointer-events-none object-contain rounded-[16px]"
-  style={{ transform: "rotate(0deg)" }}
-/> 
-
-
-    {/* Heading */}
-    <h2 className="text-white text-[40px] font-jost font-bold text-center z-10">
-      Stay Updated with us
-    </h2>
-    
-    {/* Paragraph */}
-    <p className="text-[#F4F4F4] text-center font-montserrat text-[18px] max-w-[725px] leading-[140%] z-10">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus.
-      Met, cotur adipiscing elit. Urna, tortor tempus.
-    </p>
+          {/* Heading */}
+          <h2 className="text-white text-[40px] font-jost font-bold text-center z-10">
+            Stay Updated with us
+          </h2>
+          
+          {/* Paragraph */}
+          <p className="text-[#F4F4F4] text-center font-montserrat text-[18px] max-w-[725px] leading-[140%] z-10">
+            Join our learning community and never miss out on the latest opportunities, 
+            tips, and success stories shaping the future of tech talent in Africa.
+          </p>
 
     {/* Input and Button */}
     <div className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-[620px] mt-6 z-10">
@@ -913,115 +731,7 @@ const testimonials = [
 </div>
 
       {/* Footer */}
-                          <footer className="py-16" style={{ backgroundColor: "#DBEAFE" }}>
-                            <div className="container mx-auto px-4">
-                              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                                <div>
-                                  <div className="mb-6 flex items-center">
-                                    <Image
-                                      src="/images/skillUp.png"
-                                      alt="REASTUR"
-                                      width={98}
-                                      height={20}
-                                      className="object-contain text-black"
-                                      style={{ fill: "black" }}
-                                    />
-                                  </div>
-                    
-                                  <div className="flex gap-4">
-                                    <Link href="#" className="text-gray-600 hover:text-gray-900">
-                                      <X className="w-5 h-5" />
-                                    </Link>
-                                    <Link href="#" className="text-gray-600 hover:text-gray-900">
-                                      <Instagram className="w-5 h-5" />
-                                    </Link>
-                                    <Link href="#" className="text-gray-600 hover:text-gray-900">
-                                      <Youtube className="w-5 h-5" />
-                                    </Link>
-                                    <Link href="#" className="text-gray-600 hover:text-gray-900">
-                                      <Linkedin className="w-5 h-5" />
-                                    </Link>
-                                  </div>
-                                </div>
-                    
-                                <div>
-                                  <h3 className="font-semibold text-gray-900 mb-4">Use cases</h3>
-                                  <div className="space-y-2">
-                                    <Link
-                                      href="#"
-                                      className="block text-gray-600 hover:text-gray-900"
-                                    >
-                                      UI design
-                                    </Link>
-                                    <Link
-                                      href="#"
-                                      className="block text-gray-600 hover:text-gray-900"
-                                    >
-                                      UX design
-                                    </Link>
-                                    <Link
-                                      href="#"
-                                      className="block text-gray-600 hover:text-gray-900"
-                                    >
-                                      Wireframing
-                                    </Link>
-                                   
-                                  </div>
-                                </div>
-                    
-                                <div>
-                                  <h3 className="font-semibold text-gray-900 mb-4">Explore</h3>
-                                  <div className="space-y-2">
-                                    <Link
-                                      href="#"
-                                      className="block text-gray-600 hover:text-gray-900"
-                                    >
-                                      Design
-                                    </Link>
-                                    <Link
-                                      href="#"
-                                      className="block text-gray-600 hover:text-gray-900"
-                                    >
-                                      Prototyping
-                                    </Link>
-                                    <Link
-                                      href="#"
-                                      className="block text-gray-600 hover:text-gray-900"
-                                    >
-                                      Development features
-                                    </Link>
-                                   
-                                  </div>
-                                </div>
-                    
-                                <div>
-                                  <h3 className="font-semibold text-gray-900 mb-4">Resources</h3>
-                                  <div className="space-y-2">
-                                    <Link
-                                      href="#"
-                                      className="block text-gray-600 hover:text-gray-900"
-                                    >
-                                      Blog
-                                    </Link>
-                                    <Link
-                                      href="#"
-                                      className="block text-gray-600 hover:text-gray-900"
-                                    >
-                                      Best practices
-                                    </Link>
-                                    <Link
-                                      href="#"
-                                      className="block text-gray-600 hover:text-gray-900"
-                                    >
-                                      Colors
-                                    </Link>
-                                    
-                                  </div> 
-                                </div>
-                              </div>
-                            </div>
-                          </footer>
-   
+      <Footer />
     </div>
-  )
+  );
 }
