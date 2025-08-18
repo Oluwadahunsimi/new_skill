@@ -86,7 +86,7 @@ export default function OverlayPopup() {
               setIsVisible(false);
               window.location.href = "/program-details";
             }}
-            className="bg-[#1E3B8A] text-white font-inter font-medium rounded-full hover:bg-blue-700 transition-all duration-300 w-full max-w-[444px] h-12 sm:h-14 lg:h-[56px] px-6 sm:px-8 text-sm sm:text-base"
+            className="bg-[#1E3B8A] text-white font-inter font-medium rounded-md hover:bg-blue-700 transition-all duration-300 w-full max-w-[444px] h-12 sm:h-14 lg:h-[56px] px-6 sm:px-8 text-sm sm:text-base"
           >
             Start Now
           </button>

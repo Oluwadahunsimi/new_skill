@@ -58,6 +58,7 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [texts.length]);
 
+  
   // Duplicate logos for seamless loop
   const doubledLogos = [...logos, ...logos];
 const testimonials = [
@@ -118,7 +119,7 @@ const testimonials = [
       avatar: "/placeholder.svg?height=40&width=40",
     },
   ]
-
+ 
   return (
     <div className="min-h-screen relative">
       {/* Navigation Header */}
@@ -410,7 +411,8 @@ const testimonials = [
         />
 
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-[#1018284D] z-10" />
+           <div className="absolute inset-0 bg-[#1018284D] z-10 pointer-events-none" />
+
 
         {/* Main heading */}
         <div className="absolute inset-0 z-30 flex items-start justify-center pt-8 md:pt-16 lg:pt-[143px] px-4">
@@ -421,8 +423,9 @@ const testimonials = [
 
         {/* Bottom section with content and CTA */}
         <div className="absolute bottom-0 left-0 w-full h-[200px] md:h-[240px] lg:h-[282px] z-20">
+          
           {/* Bottom overlay */}
-          <div className="absolute inset-0 bg-[#000000]/50 z-10" />
+              <div className="absolute inset-0 bg-[#000000]/50 z-10 pointer-events-none" /> 
 
           {/* Bottom background image */}
           <Image
@@ -433,6 +436,7 @@ const testimonials = [
           />
 
           {/* Content container */}
+          
           <div className="absolute inset-0 z-30 flex flex-col lg:flex-row items-center justify-between px-4 md:px-8 lg:px-[82px] py-6 lg:py-[105px] gap-4 lg:gap-8">
             {/* Description text */}
             <p className="flex-1 max-w-[926px] font-montserrat font-bold text-sm md:text-base lg:text-[18px] leading-relaxed text-white text-center lg:text-left">
@@ -441,7 +445,16 @@ const testimonials = [
             </p>
 
             {/* CTA Button */}
-            <button className="flex-shrink-0 w-full max-w-[221px] h-12 lg:h-[56px] bg-white border-2 border-[#1E3A8A] rounded-[32px] px-6 lg:px-8 py-3 lg:py-4 text-[#1E3A8A] text-sm lg:text-base font-semibold font-montserrat text-center transition-opacity duration-300 ease-in hover:opacity-80">
+             <button
+              // onClick={handleExploreCoursesClick}
+              className="flex-shrink-0 w-full max-w-[221px] h-12 lg:h-[56px] 
+              bg-white border-2 border-[#1E3A8A] rounded-md px-6 lg:px-8 py-3 lg:py-4 
+              text-[#1E3A8A] hover:bg-blue-900 hover:text-white 
+              active:bg-blue-800 active:text-white
+              text-sm lg:text-base font-semibold text-center 
+              transition-all duration-300 ease-in hover:opacity-80 active:scale-95 
+              cursor-pointer pointer-events-auto z-40"
+            >
               Explore Courses
             </button>
           </div>
@@ -882,7 +895,7 @@ const testimonials = [
         placeholder="you@example.com"
         className="w-full sm:w-[434px] h-[48px] px-4 rounded-full border border-[#D9D9D9] bg-white text-gray-500 focus:outline-none"
       />
-      <button className="bg-[#1F2227] text-white font-inter text-[16px] font-medium rounded-full px-6 py-3 hover:bg-black transition w-full sm:w-[174px]">
+      <button className="bg-[#1F2227] text-white font-inter text-[16px] font-medium rounded-md px-6 py-3 hover:bg-black transition w-full sm:w-[174px]">
         Explore Courses 
       </button> 
     </div>
@@ -892,7 +905,7 @@ const testimonials = [
 </section>
 {/* Chatbot Icon */}
 <div className="fixed bottom-6 right-6 w-28 h-28 rounded-[40px] overflow-hidden z-50">
-  <Image
+  <img
     className="w-20 h-20 left-[20px] top-[20px] absolute"
     src="images/chat.png"
     alt="Chatbot"

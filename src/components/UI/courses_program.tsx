@@ -35,7 +35,7 @@ interface ProgramCardProps {
 // MAIN COMPONENT
 // =====================
 export default function CoursesProgramsSection() {
-  const [activeTab, setActiveTab] = useState<"courses" | "programs">("courses")
+  const [activeTab, setActiveTab] = useState<"courses" | "programs">("programs")
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const coursesData: Course[] = [
@@ -157,19 +157,19 @@ const programsData: Program[] = [
             {activeTab === "courses" ? "Courses We Offer." : "Interested In Our Programs?"}
           </h2>
 
-          <div className="flex gap-1 bg-[#DBEAFE] rounded-[24px] p-2 items-center w-full max-w-[320px] h-[72px] mx-auto lg:mx-0">
+          <div className="flex gap-1 bg-[#DBEAFE] rounded-md p-2 items-center w-full max-w-[320px] h-[72px] mx-auto lg:mx-0">
             <button
               onClick={() => handleTabChange("programs")}
-              className={`flex-1 h-[56px] rounded-[32px] px-4 py-4 text-base lg:text-[20px] font-medium text-center leading-[24px] transition ${
-                activeTab === "programs" ? "bg-[#1E40AF] text-white" : "text-[#1E3B8A] hover:bg-blue-100"
+              className={`flex-1 h-[56px] rounded-md px-4 py-4 text-base lg:text-[20px] font-medium text-center leading-[24px] transition ${
+                activeTab === "programs" ? "bg-[#1E40AF] text-white" : "text-[#1E3B8A] hover:bg-blue-100 transiton all"
               }`}
             >
               Programs
             </button>
             <button
               onClick={() => handleTabChange("courses")}
-              className={`flex-1 h-[56px] rounded-[32px] px-4 py-4 text-base lg:text-[20px] font-medium text-center leading-[24px] transition ${
-                activeTab === "courses" ? "bg-[#1E40AF] text-white" : "text-[#1E3B8A] hover:bg-blue-100"
+              className={`flex-1 h-[56px] rounded-md px-4 py-4 text-base lg:text-[20px] font-medium text-center leading-[24px] transition ${
+                activeTab === "courses" ? "bg-[#1E40AF] text-white" : "text-[#1E3B8A] hover:bg-blue-100 transiton all"
               }`}
             >
               Courses
@@ -290,7 +290,7 @@ function CourseCard({ course }: { course: Course }) {
         </div>
         <div className="flex items-center justify-between">
           <div className="text-blue-900 font-bold text-lg lg:text-[20px]">{course.price}</div>
-          <button className="bg-white border-2 border-blue-600 hover:bg-blue-900 text-black hover:text-white text-sm lg:text-[20px] px-4 lg:px-6 py-3 rounded-full transition-all">
+          <button className="bg-white border-2 border-blue-600 hover:bg-blue-900 text-black hover:text-white text-sm lg:text-[20px] px-4 lg:px-6 py-3 rounded-md transition-all">
             Enroll now
           </button>
         </div>
@@ -303,8 +303,8 @@ function CourseCard({ course }: { course: Course }) {
 // PROGRAM CARD
 // =====================
 function ProgramCard({ program, index }: ProgramCardProps) {
-  return (
-    <div className="overflow-hidden hover:shadow-lg transition-shadow bg-white rounded-[16px]">
+  return ( 
+    <div className="overflow-hidden hover:shadow-lg transition-shadow bg-white rounded-[16px]"> 
       <div className="relative">
         <Image
           src={program.image || "/placeholder.svg"}
@@ -362,7 +362,7 @@ function ProgramCard({ program, index }: ProgramCardProps) {
           </div>
 
           {/* Right side: button */}
-          <button className="bg-white border-2 border-blue-600 hover:bg-blue-900 text-black hover:text-white text-sm lg:text-[20px] px-4 lg:px-6 py-3 rounded-full transition-all">
+          <button className="bg-white border-2 border-blue-600 hover:bg-blue-900 text-black hover:text-white text-sm lg:text-[20px] px-4 lg:px-6 py-3 rounded-md transition-all">
             Join Waitlist Now
           </button>
         </div>

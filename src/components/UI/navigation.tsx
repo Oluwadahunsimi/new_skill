@@ -6,7 +6,11 @@ import { ChevronDown, Menu, X } from "lucide-react"
 import { Button } from "@/components/UI/button"
 import Image from "next/image"
 
-export function NavbarWithDropdown() {
+interface NavbarWithDropdownProps {
+  className?: string
+}
+
+export function NavbarWithDropdown({ className = "" }: NavbarWithDropdownProps) {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null)
@@ -24,27 +28,28 @@ export function NavbarWithDropdown() {
   }
 
   return (
-    <nav className="sticky top-0 left-0 right-0 z-20 bg-[#ffffff] border-b border-gray-200">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 ${className}`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
 
           <div className="flex items-center">
             <div className="flex items-center space-x-2">
-             <button
-  onClick={() => window.location.reload()}
-  className="transition-transform duration-200 hover:scale-105"
->
-  <Image
-    src="/images/skillUp.png"
-    alt="SkillUp Logo"
-    width={110}
-    height={24}
-    className="object-contain"
-    priority
-  />
-</button>
-
+              <button
+                onClick={() => window.location.reload()}
+                className="transition-transform duration-200 hover:scale-105"
+              >
+                <Image
+                  src="/images/skillUp.png"
+                  alt="SkillUp Logo"
+                  width={110}
+                  height={24}
+                  className="object-contain"
+                  priority
+                />
+              </button>
             </div>
           </div>
 
@@ -166,14 +171,14 @@ export function NavbarWithDropdown() {
 
             {/* Mobile Action Buttons */}
             <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200">
-             <Button
-                  variant="outline"
-                  className="border-orange-500 text-orange-500 bg-transparent w-full 
+              <Button
+                variant="outline"
+                className="border-orange-500 text-orange-500 bg-transparent w-full 
                   hover:bg-orange-500 hover:text-white hover:scale-105 hover:shadow-lg
                   transition-all duration-300 ease-out"
->
-  Login
-</Button>
+              >
+                Login
+              </Button>
 
               <Button className="text-white bg-blue-900 hover:bg-blue-700 w-full">Apply Now</Button>
             </div>
