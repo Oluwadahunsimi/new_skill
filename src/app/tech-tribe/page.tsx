@@ -1,5 +1,6 @@
 "use client"
-
+import { NavbarWithDropdown } from "@/components/UI/navigation"
+import Footer from "@/components/UI/Footer"
 import { Monitor,Video, Link , CheckCircle, Star, ChevronDown, ChevronUp, Clock, Users, Award, Globe } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
@@ -16,44 +17,42 @@ export default function BootcampPage() {
 
   const courseModules = [
     {
-      id: "html-css",
-      title: "HTML and CSS Fundamentals",
-      duration: "2 weeks",
+      id: "software-development ",
+      title: "Software Development ",
+      duration: "6 weeks",
       lessons: [
-        "HTML Structure and Semantics",
-        "CSS Styling and Layout",
-        "Responsive Design Principles",
-        "CSS Grid and Flexbox",
+        "Build scalable applications and master coding best practices.",
       ],
     },
     {
-      id: "javascript",
-      title: "JavaScript Programming",
-      duration: "3 weeks",
-      lessons: ["JavaScript Basics and Syntax", "DOM Manipulation", "Event Handling", "Asynchronous Programming"],
+      id: "data-science-and-analytics",
+      title: "Data Science & Analytics",
+      duration: "6 weeks",
+      lessons: [" Learn to analyze, visualize, and interpret data for real impact." ],
     },
     {
-      id: "react",
-      title: "React Development",
-      duration: "4 weeks",
-      lessons: ["React Components and JSX", "State Management with Hooks", "React Router", "API Integration"],
+      id: "product-design",
+      title: "Product Design (UI/UX)",
+      duration: "6 weeks",
+      lessons: ["Design user-centered digital products with industry tools.",],
     },
     {
-      id: "python",
-      title: "Python Backend Development",
-      duration: "3 weeks",
-      lessons: ["Python Fundamentals", "Flask/Django Framework", "Database Integration", "API Development"],
+      id: "digital-marketing",
+      title: "Digital Marketing",
+      duration: "6 weeks",
+      lessons: [" Drive growth with digital campaigns and performance strategies.", ],
     },
     {
       id: "projects",
-      title: "Capstone Projects",
-      duration: "4 weeks",
-      lessons: ["Portfolio Website", "Full-Stack Web Application", "Team Collaboration Project", "Final Presentation"],
+      title: "Project Management",
+      duration: "6 weeks",
+      lessons: ["Lead teams, manage sprints, and deliver impactful projects.", ],
     },
   ]
 
   return (
     <div className="min-h-screen bg-white">
+      <NavbarWithDropdown />
       {/* Header */}
       <header className="border-b border-gray-200 px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -63,7 +62,7 @@ export default function BootcampPage() {
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
               ))}
-              <span className="text-sm text-gray-600 ml-2">(4.8)</span>
+              <span className="text-sm text-gray-600 ml-2">(5.0)</span>
             </div>
           </div>
           <div className="flex items-center gap-4 text-sm text-gray-600">
@@ -98,56 +97,43 @@ export default function BootcampPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">About Tech Tribe</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Tech Tribe Bootcamp is an intensive program designed to fast-track your journey in technology. Our
-                comprehensive curriculum covers full-stack web development, from frontend technologies like React to
-                backend development with Python. We combine theoretical knowledge with hands-on projects to ensure
-                you're job-ready upon completion.
+                TechTrybe Bootcamp is a 6-week, fully virtual, instructor-led program designed for graduates, young professionals, and mid-level talent. 
               </p>
               <p className="text-gray-700 leading-relaxed">
-                With over 5 years of experience in tech education, we've helped thousands of students transition into
-                successful tech careers. Our industry-experienced instructors and project-based learning approach ensure
-                you gain practical skills that employers value.
+                Through live classes, mentorship, and career support, you&apos;ll gain job-ready digital skills, build a standout portfolio, and position yourself to upskill, pivot, or accelerate your career in today&apos;s most in-demand digital fields.
               </p>
             </section>
 
             {/* What Will You Gain */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">What Will You Gain?</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">By the end of the bootcamp, you will:</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-gray-700 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">Practical web design, professional web standards and clean code</span>
+                  <span className="text-gray-700">Gain job-ready skills in your chosen track</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-gray-700 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">Real-world projects to build your portfolio and showcase</span>
+                  <span className="text-gray-700">Build mini projects and a capstone project for your portfolio</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-gray-700 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">Industry connections and networking opportunities</span>
+                  <span className="text-gray-700">Access career support, mentorship & job placement partners</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-gray-700 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">In-depth support from mentors and a vibrant alumni network</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-gray-700 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">Career guidance and job placement assistance</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-gray-700 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">Lifetime access to course materials and updates</span>
+                  <span className="text-gray-700">Join a vibrant community of tech talent & industry experts</span>
                 </div>
               </div>
             </section>
 
             {/* Course Curriculum */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Course Curriculum</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Course Tracks</h2>
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-lg font-semibold text-gray-900">All Courses</h3>
-                  <span className="text-sm text-gray-600">{courseModules.length} modules</span>
+                  <h3 className="text-lg font-semibold text-gray-900">Available Tracks</h3>
+                  <span className="text-sm text-gray-600">{courseModules.length} Tracks</span>
                 </div>
 
                 <div className="space-y-4">
@@ -163,7 +149,7 @@ export default function BootcampPage() {
                           </div>
                           <div>
                             <h4 className="font-medium text-gray-900">{module.title}</h4>
-                            <p className="text-sm text-gray-600">{module.duration}</p>
+                            <p className="text-sm text-gray-600"></p>
                           </div>
                         </div>
                         {expandedModules[module.id] ? (
@@ -320,17 +306,18 @@ export default function BootcampPage() {
 
               <div className="space-y-4 text-sm">
                 <div className="flex items-start gap-3">
+                  <Video className="w-5 h-5 text-gray-700 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Fully Online (Live + LMS + Mentorship)</span>
+                </div>                
+                <div className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-gray-700 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700">100% online with hybrid options</span>
+                  <span className="text-gray-700">Commitment: 6 - 10 hours weekly</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Clock className="w-5 h-5 text-gray-700 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700">3 months</span>
+                  <span className="text-gray-700"> 6 Weeks</span>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Video className="w-5 h-5 text-gray-700 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700">Video lessons, Project & live classes</span>
-                </div>
+
                 <div className="flex items-start gap-3">
                   <Link className="w-5 h-5 text-gray-700 mt-0.5 flex-shrink-0" />
                   <span className="text-gray-700">Limited Access</span>
@@ -338,10 +325,6 @@ export default function BootcampPage() {
                 <div className="flex items-start gap-3">
                   <Award className="w-5 h-5 text-gray-700 mt-0.5 flex-shrink-0" />
                   <span className="text-gray-700">Certificate upon completion</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Users className="w-5 h-5 text-gray-700 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700">100 Total Enrolled</span>
                 </div>
               </div>
             </div>
@@ -358,34 +341,42 @@ export default function BootcampPage() {
                   className="rounded-full"
                 />
                 <div>
-                  <p className="font-medium text-gray-900">The Incubator Hub</p>
-                  <p className="text-sm text-gray-600">incubatorhub@gmail.com</p>
+                  <p className="font-medium text-gray-900">SkillUp Global</p>
+                  <p className="text-sm text-gray-600">skilluplimited@gmail.com</p>
                 </div>
               </div>
               <p className="text-sm text-gray-700">
-                10+ years experience in web development with expertise in React, Python, and modern web technologies.
+                Our mission is simple but powerful to bridge Africa&apos;s digital divide and empower individuals to thrive in today&apos;s fast-evolving tech world. Through our intensive, hands-on training, we&apos;ve already impacted nearly 1,000 learners across our flagship programs, helping them pivot into tech, grow their freelance businesses, or advance their careers. At SkillUp Global, we don&apos;t just teach skills we build confidence, portfolios, and pathways to real opportunities.
               </p>
             </div>
 
             {/* Program Schedule */}
             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-              <h3 className="font-semibold text-gray-900 mb-4">Program Schedule</h3>
+              <h3 className="font-semibold text-gray-900 mb-4"> Your 6-Week Journey</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">100% online with hybrid options</span>
+                  <span className="text-gray-700">Week 1: Orientation & Fundamentals Review</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">Video lessons, Projects & live classes</span>
+                  <span className="text-gray-700">Week 2: Core Skill Building & Mini Project 1</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">Lifetime access</span>
+                  <span className="text-gray-700">Week 3: Applied Projects & Guest Masterclass</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">Certificate upon completion</span>
+                  <span className="text-gray-700">Week 4: Advanced Topics & Career Workshops</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Week 5: Capstone Project</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Week 6: Demo Day & Career Launch</span>
                 </div>
               </div>
             </div>
@@ -400,23 +391,15 @@ export default function BootcampPage() {
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">Basic computer literacy</span>
+                  <span className="text-gray-700">Prior knowledge in the chosen course area</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">Prior knowledge in the chosen course area </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">Commitment to attend class or re-watch.</span>
+                  <span className="text-gray-700">Commitment to attend class or re-watch. </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
                   <span className="text-gray-700">Willingness to complete assignments and practical projects.</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">Access to computer and stable internet</span>
                 </div>
               </div>
             </div>
@@ -425,10 +408,13 @@ export default function BootcampPage() {
             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
               <h3 className="font-semibold text-gray-900 mb-4">Tags</h3>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Online Class</span>
-                <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full">Beginner</span>
-                <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full">Certificate</span>
-                <span className="px-3 py-1 bg-purple-100 text-purple-700 text-sm rounded-full">Full-Stack</span>
+                <span className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Product Design</span>
+                <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full">Programs</span>
+                <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full">Professional</span>
+                <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full">Software Development</span>
+                <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full">Data Science & Analytics</span>
+                <span className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Project Management</span>       
+                <span className="px-3 py-1 bg-purple-100 text-purple-700 text-sm rounded-full">Digital Marketing</span>
               </div>
             </div>
 
@@ -438,29 +424,30 @@ export default function BootcampPage() {
               <div className="space-y-3 text-sm">
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">Aspiring web developers looking to switch to tech</span>
+                  <span className="text-gray-700">Working professionals ready to level up.</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">Students seeking practical coding skills</span>
+                  <span className="text-gray-700">Entrepreneurs who want smarter, tech-enabled businesses.</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">Anyone who wants to learn web development</span>
+                  <span className="text-gray-700">Anyone with basic knowledge who wants practical growth.</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">Professionals looking to upskill</span>
+                  <span className="text-gray-700">Freelancers aiming for advanced skills.</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">Anyone who wants to become a planning</span>
+                  <span className="text-gray-700">Anyone who loves organizing & planning</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

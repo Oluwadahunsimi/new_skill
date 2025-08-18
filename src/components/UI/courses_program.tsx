@@ -92,9 +92,9 @@ export default function CoursesProgramsSection() {
 const programsData: Program[] = [
   {
     title: "Tech Tribe Bootcamp",
-    description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
+    description: "Master in-demand digital skills and gain hands-on experience that gets you job-ready. Perfect for beginners and career switchers who want to learn tech in Africa and compete on a global stage",
     duration: "3 Months",
-    projects: "5 Projects",
+    projects: "Practical, mentor-led sessions + project-based learning",
     image: "/images/techtribe.png",
     waitlistCount: 50,
     profileImages: [
@@ -104,25 +104,12 @@ const programsData: Program[] = [
     ],
   },
   {
-    title: "Future Clan Bootcamp",
-    description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-    duration: "3 Months",
-    projects: "5 Projects",
+    title: "AI NOW Bootcamp",
+    description: "Be part of Africa's biggest push to build world-class tech talent. Through our  Tech Scholarship Drive, you'll gain fully sponsored access to cutting-edge training. Over 4 months, you'll work on real-world projects, collaborate with mentors, and unlock career opportunities in the booming digital economy.",
+    duration: "4 Months",
+    projects: "Scholarship-based, hands-on training with live projects",
     image: "/images/futureclan.png",
     waitlistCount: 32,
-    profileImages: [
-      "/images/pic.png",
-      "/images/pic.png",
-      "/images/pic.png"
-    ],
-  },
-  {
-    title: "Ladies in Tech Bootcamp",
-    description: "Use Figma to get a job in UI Design, User Interface, User Experience design.",
-    duration: "3 Months",
-    projects: "5 Projects",
-    image: "/images/ladies.png",
-    waitlistCount: 41,
     profileImages: [
       "/images/pic.png",
       "/images/pic.png",
@@ -151,7 +138,7 @@ const programsData: Program[] = [
 
   return (
     <section className="py-20 bg-blue-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-20">
         {/* Heading + Toggle */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
           <h2 className="font-bold text-2xl md:text-3xl lg:text-[40px] leading-[120%] text-[#14183E]">
@@ -189,7 +176,7 @@ const programsData: Program[] = [
                   style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
                   {currentData.map((item, index) => (
-                    <div key={index} className="w-full flex-shrink-0 px-2">
+                    <div key={index} className="w-full flex-shrink-0 flex items-center justify-center px-2">
                       {activeTab === "courses" ? (
                         <CourseCard course={item as Course} />
                       ) : (
@@ -241,7 +228,7 @@ const programsData: Program[] = [
                 ))}
               </div>
             ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
                {programsData.map((program, index) => (
   <ProgramCard key={index} program={program} index={index} />
 ))}
@@ -305,7 +292,7 @@ function CourseCard({ course }: { course: Course }) {
 // =====================
 function ProgramCard({ program, index }: ProgramCardProps) {
   return (
-    <div className="overflow-hidden hover:shadow-lg transition-shadow bg-white rounded-[16px]">
+    <div className="overflow-hidden hover:shadow-lg  transition-shadow bg-white rounded-[16px]">
       <div className="relative">
         <Image
           src={program.image || "/placeholder.svg"}
