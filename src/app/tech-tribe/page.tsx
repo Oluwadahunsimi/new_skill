@@ -4,6 +4,26 @@ import Footer from "@/components/UI/Footer"
 import { Monitor,Video, Link , CheckCircle, Star, ChevronDown, ChevronUp, Clock, Users, Award, Globe } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
+import { Button } from "@/components/UI/button";
+import {
+  Bookmark,
+  ExternalLink,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+interface Program {
+  title: string;
+  description: string;
+  duration: string;
+  projects: string;
+  image: string;
+  waitlistCount: number;
+  profileImages: string[];
+}
+interface ProgramCardProps {
+  program: Program;
+  index: number;
+}
 
 export default function BootcampPage() {
   const [expandedModules, setExpandedModules] = useState<{ [key: string]: boolean }>({})
@@ -49,6 +69,28 @@ export default function BootcampPage() {
       lessons: ["Lead teams, manage sprints, and deliver impactful projects.", ],
     },
   ]
+  const programsData: Program[] = [
+    {
+      title: "Tech Tribe Bootcamp",
+      description:
+        "Master in-demand digital skills and gain hands-on experience that gets you job-ready. Perfect for beginners and career switchers who want to learn tech in Africa and compete on a global stage",
+      duration: "3 Months",
+      projects: "Practical, mentor-led sessions + project-based learning",
+      image: "/images/techtribe.png",
+      waitlistCount: 50,
+      profileImages: ["/images/pic.png", "/images/pic.png", "/images/pic.png"],
+    },
+    {
+      title: "AI NOW Bootcamp",
+      description:
+        "Be part of Africa's biggest push to build world-class tech talent. Through our  Tech Scholarship Drive, you'll gain fully sponsored access to cutting-edge training. Over 4 months, you'll work on real-world projects, collaborate with mentors, and unlock career opportunities in the booming digital economy.",
+      duration: "4 Months",
+      projects: "Scholarship-based, hands-on training with live projects",
+      image: "/images/futureclan.png",
+      waitlistCount: 32,
+      profileImages: ["/images/pic.png", "/images/pic.png", "/images/pic.png"],
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -180,120 +222,11 @@ export default function BootcampPage() {
             </section>
 
             {/* Related Programs */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Related Programs</h2>
-              <div className="grid md:grid-cols-3 gap-6">
-                {/* New AI Tech Bootcamp */}
-                <div className="bg-gradient-to-br from-teal-600 to-teal-800 rounded-lg overflow-hidden shadow-lg">
-                  <div className="p-6 text-white">
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                        <Monitor className="w-4 h-4" />
-                      </div>
-                      <span className="text-xs font-medium bg-white/20 px-2 py-1 rounded">AI Tech</span>
-                    </div>
-                    <h3 className="text-xl font-bold mb-2">New AI Tech Bootcamp</h3>
-                    <div className="space-y-2 text-sm mb-6">
-                      <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4" />
-                        <span>Live Classes</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Users className="w-4 h-4" />
-                        <span>6 Months</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-2xl font-bold">$100,000</span>
-                    </div>
-                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
-                      Get Started
-                    </button>
-                  </div>
-                </div>
-
-                {/* Future Chat Bootcamp */}
-                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden shadow-lg">
-                  <div className="p-6 text-white">
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                        <Globe className="w-4 h-4" />
-                      </div>
-                      <span className="text-xs font-medium bg-white/20 px-2 py-1 rounded">Chat Tech</span>
-                    </div>
-                    <div className="flex items-center gap-4 mb-4">
-                      <Image
-                        src="/placeholder.svg?height=60&width=60"
-                        alt="Instructor"
-                        width={60}
-                        height={60}
-                        className="rounded-full border-2 border-white/20"
-                      />
-
-                    </div>
-                    <h3 className="text-xl font-bold mb-2">Future Chan Bootcamp</h3>
-                    <div className="space-y-2 text-sm mb-6">
-                      <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4" />
-                        <span>Live Classes</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Users className="w-4 h-4" />
-                        <span>6 Months</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-2xl font-bold">$100,000</span>
-                    </div>
-                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
-                      Get Started
-                    </button>
-                  </div>
-                </div>
-
-                {/* LadiesInTech Bootcamp */}
-                <div className="bg-gradient-to-br from-pink-500 to-pink-700 rounded-lg overflow-hidden shadow-lg">
-                  <div className="p-6 text-white">
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                        <Award className="w-4 h-4" />
-                      </div>
-                      <span className="text-xs font-medium bg-white/20 px-2 py-1 rounded">Ladies Only</span>
-                    </div>
-                    <div className="flex items-center gap-4 mb-4">
-                      <Image
-                        src="/placeholder.svg?height=60&width=60"
-                        alt="Female Instructor"
-                        width={60}
-                        height={60}
-                        className="rounded-full border-2 border-white/20"
-                      />
-                      <div className="text-right">
-                        <div className="text-lg font-bold">CAREER</div>
-                        <div className="text-lg font-bold">REALITY</div>
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-bold mb-2">LadiesInTech Bootcamp</h3>
-                    <div className="space-y-2 text-sm mb-6">
-                      <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4" />
-                        <span>Live Classes</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Users className="w-4 h-4" />
-                        <span>6 Months</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-2xl font-bold">$100,000</span>
-                    </div>
-                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
-                      Get Started
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </section>
+            <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+              {programsData.map((program, index) => (
+                <ProgramCard key={index} program={program} index={index} />
+              ))}
+            </div>
           </div>
 
           {/* Sidebar */}
@@ -450,5 +383,82 @@ export default function BootcampPage() {
       <Footer />
     </div>
   )
+}
+function ProgramCard({ program, index }: ProgramCardProps) {
+  return (
+    <div className="overflow-hidden hover:shadow-lg transition-shadow bg-white rounded-[16px]">
+      <div className="relative">
+        <Image
+          src={program.image || "/placeholder.svg"}
+          alt={program.title}
+          width={402}
+          height={300} // Increased image height
+          className="w-full h-72 object-cover rounded-t-[16px] text-[#14183E]"
+        />
+
+        {/* Show "Coming Soon" only if NOT the first card */}
+        {index !== 0 && (
+          <div className="absolute bottom-4 left-4 bg-white text-[#52525B] flex items-center gap-2 px-3 py-1 rounded-full shadow-md">
+            <Clock className="h-4 w-4 text-[#52525B]" />
+            <span className="text-sm font-medium">Coming Soon</span>
+          </div>
+        )}
+
+        <Button
+          size="sm"
+          className="absolute top-4 right-4 bg-white text-gray-900 hover:bg-gray-100"
+        >
+          <ExternalLink className="h-4 w-4" />
+        </Button>
+      </div>
+
+      <div className="p-6">
+        <h3 className="font-bold text-xl lg:text-[28px] text-[#1E3B8A] mb-2">
+          {program.title}
+        </h3>
+        <p className="text-sm text-[#667085] mb-4">{program.description}</p>
+
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-4">
+          <div className="flex items-center gap-2 bg-[#F8FAFC] rounded-full px-4 h-10 hover:bg-zinc-300">
+            <Bookmark className="h-4 w-4 text-[#52525B]" />
+            <span className="text-sm text-[#52525B] font-medium">
+              {program.projects}
+            </span>
+          </div>
+          <div className="flex items-center gap-2 bg-[#F8FAFC] rounded-full px-4 h-10 hover:bg-zinc-300">
+            <Clock className="h-4 w-4 text-[#52525B]" />
+            <span className="text-sm text-[#52525B]">{program.duration}</span>
+          </div>
+        </div>
+
+        {/* Waitlist + Button in same row */}
+        <div className="flex items-center justify-between mt-4">
+          {/* Left side: profile images + count */}
+          <div className="flex items-center">
+            <div className="flex -space-x-2">
+              {program.profileImages?.map((img, i) => (
+                <Image
+                  key={i}
+                  src={img}
+                  alt={`Profile ${i + 1}`}
+                  width={32}
+                  height={32}
+                  className="rounded-full border-2 border-white"
+                />
+              ))}
+            </div>
+            <span className="ml-3 text-sm text-gray-700">
+              {program.waitlistCount} people on waitlist
+            </span>
+          </div>
+
+          {/* Right side: button */}
+          <button className="bg-white border-2 border-blue-600 hover:bg-blue-900 text-black hover:text-white text-sm lg:text-[20px] px-4 lg:px-6 py-3 rounded-md transition-all">
+            Join Waitlist Now
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
  
