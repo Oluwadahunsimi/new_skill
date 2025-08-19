@@ -54,34 +54,44 @@ export function NavbarWithDropdown({ className = "" }: NavbarWithDropdownProps) 
           </div>
 
           {/* Desktop Navigation Menu */}
-          <div className="hidden lg:flex items-center space-x-8">
-            <button
-              onClick={() => toggleDropdown("individuals")}
-              className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              <span>Individuals</span>
-              <ChevronDown
-                className={`w-4 h-4 transition-transform ${activeDropdown === "individuals" ? "rotate-180" : ""}`}
-              />
-            </button>
-            <button
-              onClick={() => toggleDropdown("corporates")}
-              className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              <span>Corporates</span>
-              <ChevronDown
-                className={`w-4 h-4 transition-transform ${activeDropdown === "corporates" ? "rotate-180" : ""}`}
-              />
-            </button>
-            <button
-              onClick={() => toggleDropdown("company")}
-              className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              <span>Company</span>
-              <ChevronDown
-                className={`w-4 h-4 transition-transform ${activeDropdown === "company" ? "rotate-180" : ""}`}
-              />
-            </button>
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="/">
+              <button
+                onClick={() => toggleDropdown("individuals")}
+                className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                <span>Home</span>
+
+              </button>            
+            </a>
+
+            <a href="/about">
+              <button
+                onClick={() => toggleDropdown("corporates")}
+                className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                <span>About Us</span>
+
+              </button>            
+            </a>
+            <a href="/tech-tribe">
+              <button
+                onClick={() => toggleDropdown("company")}
+                className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                <span>Tech Trybe</span>
+              </button>
+            </a>
+
+            <a href="/contact">
+              <button
+                onClick={() => toggleDropdown("company")}
+                className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                <span>Contact us</span>
+              </button>
+            </a>
+
           </div>
 
           {/* Desktop Action Buttons */}
@@ -126,49 +136,38 @@ export function NavbarWithDropdown({ className = "" }: NavbarWithDropdownProps) 
               onClick={() => toggleMobileDropdown("individuals")}
               className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
             >
-              <span>Individuals</span>
-              <ChevronDown
-                className={`w-4 h-4 transition-transform ${activeMobileDropdown === "individuals" ? "rotate-180" : ""}`}
-              />
+              <span>Home</span>
             </button>
-            {activeMobileDropdown === "individuals" && (
-              <div className="pl-4 pr-2 py-3 bg-white border-l border-gray-200">
-                <NavigationDropdown type="individuals" />
-              </div>
-            )}
 
             {/* Corporates */}
-            <button
-              onClick={() => toggleMobileDropdown("corporates")}
-              className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
-            >
-              <span>Corporates</span>
-              <ChevronDown
-                className={`w-4 h-4 transition-transform ${activeMobileDropdown === "corporates" ? "rotate-180" : ""}`}
-              />
-            </button>
-            {activeMobileDropdown === "corporates" && (
-              <div className="pl-4 pr-2 py-3 bg-white border-l border-gray-200">
-                <NavigationDropdown type="corporates" />
-              </div>
-            )}
+            <a href="/about">
+              <button
+                onClick={() => toggleMobileDropdown("corporates")}
+                className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
+              >
+                <span>About Us</span>
+              </button>
+            </a>
+
 
             {/* Company */}
-            <button
-              onClick={() => toggleMobileDropdown("company")}
-              className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
-            >
-              <span>Company</span>
-              <ChevronDown
-                className={`w-4 h-4 transition-transform ${activeMobileDropdown === "company" ? "rotate-180" : ""}`}
-              />
-            </button>
-            {activeMobileDropdown === "company" && (
-              <div className="pl-4 pr-2 py-3 bg-white border-l border-gray-200">
-                <NavigationDropdown type="company" />
-              </div>
-            )}
-
+            <a href="/tech-tribe">
+              <button
+                onClick={() => toggleMobileDropdown("company")}
+                className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
+              >
+                <span>Tech Trybe</span>
+              </button>
+            </a>
+            <a href="/contact">
+              <button
+                onClick={() => toggleMobileDropdown("company")}
+                className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
+              >
+                <span>Contact us</span>
+              </button>              
+            </a>
+          
             {/* Mobile Action Buttons */}
             <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200">
               <Button

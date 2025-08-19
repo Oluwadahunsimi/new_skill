@@ -61,7 +61,7 @@ export default function CoursesProgramsSection() {
         "Step into the future of work with intermediate-level Artificial Intelligence and Machine Learning skills.",
       lessons: "5 Live Projects",
       duration: "3 months",
-      price: "₦100,000",
+      price: "₦200,000",
       image: "/images/software.jpg",
     },
     {
@@ -70,7 +70,7 @@ export default function CoursesProgramsSection() {
         "Learn Agile, Scrum, and digital collaboration platforms while working on real-world case studies.",
       lessons: "40 Lessons",
       duration: "12h 25mins",
-      price: "₦100,000",
+      price: "₦200,000",
       image: "/images/data_analysis.jpg",
     },
     {
@@ -79,7 +79,7 @@ export default function CoursesProgramsSection() {
         "Build responsive, user-friendly websites from scratch using HTML, CSS, JavaScript, and modern frameworks.",
       lessons: "5 Live Projects",
       duration: "3 Months",
-      price: "₦100,000",
+      price: "₦150,000",
       image: "/images/two.jpg",
     },
     {
@@ -88,7 +88,7 @@ export default function CoursesProgramsSection() {
         "Work with real datasets, build dashboards, and develop problem-solving skills that employers seek worldwide.",
       lessons: "5 Live Projects",
       duration: "3 Months",
-      price: "₦100,000",
+      price: "₦200,000",
       image: "/images/ai.png",
     },
     {
@@ -97,7 +97,7 @@ export default function CoursesProgramsSection() {
         "Master the art of designing intuitive, user-focused digital products with Figma, design systems, and prototyping tools.",
       lessons: "5 Live Projects",
       duration: "3 Months",
-      price: "₦100,000",
+      price: "₦200,000",
       image: "/images/projectt.jpg",
     },
   ];
