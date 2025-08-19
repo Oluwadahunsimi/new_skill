@@ -330,7 +330,6 @@ export default function AboutPage() {
           <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
             Be part of Africa&apos;s digital transformation. Whether you&apos;re a learner, partner, or supporter, there&apos;s a place for you in our mission. From digital skills bootcamps to online tech training in Nigeria, we are building the next generation of tech talent in Africa. Together, we can empower communities, close the digital divide, and create opportunities for all.
           </p>
-
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="px-8 py-4 border border-white text-white rounded-lg hover:bg-gray-300 transition-colors duration-200">
               Join A Program

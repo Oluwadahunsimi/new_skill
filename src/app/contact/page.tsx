@@ -2,16 +2,12 @@
 
 import type React from "react"
 
-import { Button } from "@/components/UI/button"
-import { Input } from "@/components/UI/input"
-import { NavbarWithDropdown } from "@/components/UI/navigation"
+import { Button } from "@/components/UI/button";
+import { Input } from "@/components/UI/input";
+import { NavbarWithDropdown } from "@/components/UI/navigation";
+import Footer from "@/components/UI/Footer";
+import Faq from "@/components/UI/Faq";
 import Link from "next/link";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/UI/accordion";
 import Image from "next/image";
 import { Mail, Phone, MapPin,X, Facebook, Twitter, Linkedin, Instagram, Dribbble,Youtube } from "lucide-react"
 import { useState } from "react"
@@ -56,10 +52,9 @@ export default function ContactSection() {
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-5xl font-bold text-gray-900 mb-4">Have Question? Reach Out To Us Here</h2>
+          <h2 className="text-5xl font-bold text-gray-900 mb-4">Have Question? Let&apos;s Connect.</h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-2xl">
-            Got a project? Drop me a line if you want to work together on something exciting. Or do you need our help?
-            Feel free to contact us.
+            We&apos;d love to hear from you. Whether you&apos;re interested in our digital skills bootcamps, exploring online tech training in Nigeria, or looking to partner in building tech talent in Africa. Share your ideas, projects, or inquiries, and our team will get back to you promptly.
           </p>
         </div>
       
@@ -80,15 +75,18 @@ export default function ContactSection() {
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Get in touch</h2>
 
               <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                    <Mail className="w-5 h-5 text-gray-700" />
+                <a href="mailto:skilluplimited@gmail.com">
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                      <Mail className="w-5 h-5 text-gray-700" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-700 uppercase tracking-wide">EMAIL US</p>
+                      <p className="text-gray-900 font-medium">skilluplimited@gmail.com</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm font-medium text-gray-700 uppercase tracking-wide">EMAIL US</p>
-                    <p className="text-gray-900 font-medium">info@golio.com</p>
-                  </div>
-                </div>
+                </a>
+
 
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
@@ -96,7 +94,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-700 uppercase tracking-wide">PHONE NUMBER</p>
-                    <p className="text-gray-900 font-medium">+1-202-555-0138</p>
+                    <p className="text-gray-900 font-medium"> +2347040309594</p>
                   </div>
                 </div>
 
@@ -105,8 +103,8 @@ export default function ContactSection() {
                     <MapPin className="w-5 h-5 text-gray-700" />
                   </div>
                   <div>
-                    <p className="text-gray-900 font-medium">901 N Pitt Str., Suite 170</p>
-                    <p className="text-gray-900 font-medium">Alexandria, VA 22314, USA</p>
+                    <p className="text-gray-900 font-medium">Dare Adeboye Innovation Hub, 2, Abiona road, Behind House of Favour, </p>
+                    <p className="text-gray-900 font-medium">Redemption City, Mowe, Ogun State</p>
                   </div>
                 </div>
               </div>
@@ -127,9 +125,6 @@ export default function ContactSection() {
                 </div>
                 <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center hover:bg-gray-50 cursor-pointer transition-colors">
                   <Instagram className="w-5 h-5 text-gray-700" />
-                </div>
-                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center hover:bg-gray-50 cursor-pointer transition-colors">
-                  <Dribbble className="w-5 h-5 text-gray-700" />
                 </div>
               </div>
             </div>
@@ -229,200 +224,11 @@ export default function ContactSection() {
 
 
 
-  {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus. met, cotur adipiscing elit.
-              Urna, tortor tempus.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-4">
-              <AccordionItem value="item-1" className="bg-blue-50 border border-blue-200 rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                  What kind of courses are available on this platform?
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-600 pt-2">
-                  We offer a range of expert-led courses in tech, business, creative skills, and personal
-                  development—tailored for learners at every level.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-2" className="bg-gray-50 border border-gray-200 rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                  Do I get a certificate after completing a course?
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-600 pt-2">
-                  Yes, you will receive a professional certificate upon successful completion of any course on our
-                  platform.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-3" className="bg-gray-50 border border-gray-200 rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                  Can I learn at my own pace?
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-600 pt-2">
-                  All our courses are self-paced, allowing you to learn according to your schedule and availability.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-4" className="bg-gray-50 border border-gray-200 rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                  What payment methods do you accept?
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-600 pt-2">
-                  We accept various payment methods including credit cards, debit cards, and bank transfers for your
-                  convenience.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-5" className="bg-gray-50 border border-gray-200 rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                  Will I have access to the course after I complete it?
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-600 pt-2">
-                  Yes, you will have lifetime access to all course materials even after completion, allowing you to
-                  revisit content anytime.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-6" className="bg-gray-50 border border-gray-200 rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                  Are the courses mobile-friendly?
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-600 pt-2">
-                  Yes, our platform is fully optimized for mobile devices, so you can learn on-the-go from any device.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-7" className="bg-gray-50 border border-gray-200 rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                  Can I get a refund if I don&apos;t like a course?
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-600 pt-2">
-                  We offer a 30-day money-back guarantee if you&apos;re not satisfied with your course purchase.
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </div>
-      </section>
+      {/* FAQ Section */}
+    <Faq/>
 
       {/* Footer */}
-                      <footer className="py-16" style={{ backgroundColor: "#DBEAFE" }}>
-                                  <div className="container mx-auto px-4">
-                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                                      <div>
-                                        <div className="mb-6 flex items-center">
-                                          <Image
-                                            src="/images/skillUp.png"
-                                            alt="REASTUR"
-                                            width={98}
-                                            height={20}
-                                            className="object-contain text-black"
-                                            style={{ fill: "black" }}
-                                          />
-                                        </div>
-                          
-                                        <div className="flex gap-4">
-                                          <Link href="#" className="text-gray-600 hover:text-gray-900">
-                                            <X className="w-5 h-5" />
-                                          </Link>
-                                          <Link href="#" className="text-gray-600 hover:text-gray-900">
-                                            <Instagram className="w-5 h-5" />
-                                          </Link>
-                                          <Link href="#" className="text-gray-600 hover:text-gray-900">
-                                            <Youtube className="w-5 h-5" />
-                                          </Link>
-                                          <Link href="#" className="text-gray-600 hover:text-gray-900">
-                                            <Linkedin className="w-5 h-5" />
-                                          </Link>
-                                        </div>
-                                      </div>
-                          
-                                      <div>
-                                        <h3 className="font-semibold text-gray-900 mb-4">Use cases</h3>
-                                        <div className="space-y-2">
-                                          <Link
-                                            href="#"
-                                            className="block text-gray-600 hover:text-gray-900"
-                                          >
-                                            UI design
-                                          </Link>
-                                          <Link
-                                            href="#"
-                                            className="block text-gray-600 hover:text-gray-900"
-                                          >
-                                            UX design
-                                          </Link>
-                                          <Link
-                                            href="#"
-                                            className="block text-gray-600 hover:text-gray-900"
-                                          >
-                                            Wireframing
-                                          </Link>
-                                         
-                                        </div>
-                                      </div>
-                          
-                                      <div>
-                                        <h3 className="font-semibold text-gray-900 mb-4">Explore</h3>
-                                        <div className="space-y-2">
-                                          <Link
-                                            href="#"
-                                            className="block text-gray-600 hover:text-gray-900"
-                                          >
-                                            Design
-                                          </Link>
-                                          <Link
-                                            href="#"
-                                            className="block text-gray-600 hover:text-gray-900"
-                                          >
-                                            Prototyping
-                                          </Link>
-                                          <Link
-                                            href="#"
-                                            className="block text-gray-600 hover:text-gray-900"
-                                          >
-                                            Development features
-                                          </Link>
-                                         
-                                        </div>
-                                      </div>
-                          
-                                      <div>
-                                        <h3 className="font-semibold text-gray-900 mb-4">Resources</h3>
-                                        <div className="space-y-2">
-                                          <Link
-                                            href="#"
-                                            className="block text-gray-600 hover:text-gray-900"
-                                          >
-                                            Blog
-                                          </Link>
-                                          <Link
-                                            href="#"
-                                            className="block text-gray-600 hover:text-gray-900"
-                                          >
-                                            Best practices
-                                          </Link>
-                                          <Link
-                                            href="#"
-                                            className="block text-gray-600 hover:text-gray-900"
-                                          >
-                                            Colors
-                                          </Link>
-                                          
-                                        </div> 
-                                      </div>
-                                    </div>
-                                  </div>
-                                </footer>
-
+    <Footer/>
     </div>
   )
 }
