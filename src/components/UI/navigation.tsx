@@ -5,6 +5,8 @@ import { NavigationDropdown } from "./navigation-dropdown"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { Button } from "@/components/UI/button"
 import Image from "next/image"
+import Link from "next/link"
+
 
 interface NavbarWithDropdownProps {
   className?: string
@@ -55,7 +57,7 @@ export function NavbarWithDropdown({ className = "" }: NavbarWithDropdownProps) 
 
           {/* Desktop Navigation Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <link href="/">
+            <Link href="/">
               <button
                 onClick={() => toggleDropdown("individuals")}
                 className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors"
@@ -63,9 +65,9 @@ export function NavbarWithDropdown({ className = "" }: NavbarWithDropdownProps) 
                 <span>Home</span>
 
               </button>            
-            </link>
+            </Link>
 
-            <link href="/about">
+            <Link href="/about">
               <button
                 onClick={() => toggleDropdown("corporates")}
                 className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors"
@@ -73,24 +75,24 @@ export function NavbarWithDropdown({ className = "" }: NavbarWithDropdownProps) 
                 <span>About Us</span>
 
               </button>            
-            </link>
-            <link href="/tech-tribe">
+            </Link>
+            <Link href="/tech-tribe">
               <button
                 onClick={() => toggleDropdown("company")}
                 className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors"
               >
                 <span>Tech Trybe</span>
               </button>
-            </link>
+            </Link>
 
-            <link href="/contact">
+            <Link href="/contact">
               <button
                 onClick={() => toggleDropdown("company")}
                 className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors"
               >
                 <span>Contact us</span>
               </button>
-            </link>
+            </Link>
 
           </div>
 
@@ -140,33 +142,33 @@ export function NavbarWithDropdown({ className = "" }: NavbarWithDropdownProps) 
             </button>
 
             {/* Corporates */}
-            <link href="/about">
+            <Link href="/about">
               <button
                 onClick={() => toggleMobileDropdown("corporates")}
                 className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
               >
                 <span>About Us</span>
               </button>
-            </link>
+            </Link>
 
 
             {/* Company */}
-            <link href="/tech-tribe">
+            <Link href="/tech-tribe">
               <button
                 onClick={() => toggleMobileDropdown("company")}
                 className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
               >
                 <span>Tech Trybe</span>
               </button>
-            </link>
-            <link href="/contact">
+            </Link>
+            <Link href="/contact">
               <button
                 onClick={() => toggleMobileDropdown("company")}
                 className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
               >
                 <span>Contact us</span>
               </button>              
-            </link>
+            </Link>
           
             {/* Mobile Action Buttons */}
             <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200">

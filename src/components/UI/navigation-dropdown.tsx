@@ -1,5 +1,7 @@
 import { Button } from "@/components/UI/button"
 import { GraduationCap, Wrench, Globe, Users, Building, Phone, MapPin, Mail, Award } from "lucide-react"
+import Link from "next/link"
+
 
 interface NavigationDropdownProps {
   type: "individuals" | "corporates" | "company"
@@ -152,9 +154,9 @@ export function NavigationDropdown({ type }: NavigationDropdownProps) {
                 <ul className="space-y-3">
                   {section.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
-                      <link href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
+                      <Link href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
                         {link}
-                      </link>
+                      </Link>
                     </li>
                   ))}
                 </ul>
