@@ -641,7 +641,7 @@ export default function Home() {
 </section>
 {/* Chatbot Icon */}
 <div className="fixed bottom-6 right-6 w-28 h-28 rounded-[40px] overflow-hidden z-50"> 
-  <img
+  <Image
     className="w-20 h-20 left-[20px] top-[20px] absolute" 
     src="images/chat.png" 
     alt="Chatbot"
