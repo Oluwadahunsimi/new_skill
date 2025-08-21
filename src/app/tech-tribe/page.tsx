@@ -13,7 +13,7 @@ export default function BootcampPage() {
       ...prev,
       [moduleId]: !prev[moduleId],
     }))
-  }
+  } 
 
   const courseModules = [
     {
@@ -25,7 +25,7 @@ export default function BootcampPage() {
       ],
     },
     {
-      id: "data-science-and-analytics",
+      id: "data-science-and-analytics", 
       title: "Data Science & Analytics",
       duration: "6 weeks",
       lessons: [" Learn to analyze, visualize, and interpret data for real impact." ],

@@ -37,8 +37,8 @@ export default function ContactSection() {
   }
   return (
     <div className="min-h-screen relative">
-      <NavbarWithDropdown className="fixed top-0 left-0 w-full z-50 bg-white shadow-md" />
-
+      <NavbarWithDropdown className="fixed top-0 left-0 w-full z-50 bg-white shadow-md" />  
+           
       {/* Header Section */}
       <div className="bg-gradient-to-r from-blue-900 to-blue-800 py-16 px-6 pt-32">
         <div className="max-w-4xl pl-12">
@@ -48,13 +48,13 @@ export default function ContactSection() {
             <p className="text-white text-sm font-medium tracking-wider uppercase">CONTACT US</p>
           </div>
 
-          {/* Heading */}
-          <h1 className="text-white text-4xl md:text-5xl font-bold">Reach Out To Us</h1>
-        </div>
-      </div>
+          {/* Heading */} 
+          <h1 className="text-white text-4xl md:text-5xl font-bold">Reach Out To Us</h1>    
+        </div>   
+      </div>           
 
-      {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      {/* Main Content */} 
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16"> 
         <div className="text-center mb-12">
           <h2 className="text-5xl font-bold text-gray-900 mb-4">Have Question? Reach Out To Us Here</h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-2xl">

@@ -3,17 +3,17 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/UI/button";
-import {
+import { 
   Clock,
   Bookmark,
-  ExternalLink,
+  ExternalLink, 
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-
+    
 // =====================
 // TYPE DEFINITIONS
-// =====================
+// ===================== 
 interface Course {
   title: string;
   description: string;
@@ -42,7 +42,7 @@ interface ProgramCardProps {
 export default function CoursesProgramsSection() {
   const [activeTab, setActiveTab] = useState<"courses" | "programs">(
     "programs"
-  );
+  ); 
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const coursesData: Course[] = [

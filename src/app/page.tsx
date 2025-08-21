@@ -1,21 +1,19 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import { NavbarWithDropdown } from "@/components/UI/navigation"
-import Testimonials from "@/components/UI/Testimonials";
-import { Button } from "@/components/UI/button"
-import { Input } from "@/components/UI/input"
-import Footer from "@/components/UI/Footer";
-import { Search } from "lucide-react"
-import {
-  Accordion,
+"use client"; 
+import { useState, useEffect } from "react";  
+import { NavbarWithDropdown } from "@/components/UI/navigation"  
+import Testimonials from "@/components/UI/Testimonials";    
+import { Button } from "@/components/UI/button"   
+import { Input } from "@/components/UI/input" 
+import Footer from "@/components/UI/Footer";                                                                                                                                                                                                                    
+import { Search } from "lucide-react"   
+import {   
+  Accordion, 
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
-} from "@/components/UI/accordion";
-import Image from "next/image";
-import { Card, CardContent } from "@/components/UI/card";
-
+  AccordionTrigger, 
+} from "@/components/UI/accordion"; 
+import Image from "next/image"; 
+import { Card, CardContent } from "@/components/UI/card"; 
 import OverlayPopup from "@/components/UI/OverlayPopup";
 import Link from "next/link";
 
@@ -61,7 +59,7 @@ export default function Home() {
   return (
     <div className="min-h-screen relative">
       {/* Navigation Header */}
-      <NavbarWithDropdown />
+      <NavbarWithDropdown /> 
       <OverlayPopup/>
       
       {/* Hero Section */}
@@ -722,10 +720,10 @@ export default function Home() {
   
 </section>
 {/* Chatbot Icon */}
-<div className="fixed bottom-6 right-6 w-28 h-28 rounded-[40px] overflow-hidden z-50">
+<div className="fixed bottom-6 right-6 w-28 h-28 rounded-[40px] overflow-hidden z-50"> 
   <img
-    className="w-20 h-20 left-[20px] top-[20px] absolute"
-    src="images/chat.png"
+    className="w-20 h-20 left-[20px] top-[20px] absolute" 
+    src="images/chat.png" 
     alt="Chatbot"
   />
 </div>

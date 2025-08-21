@@ -17,7 +17,7 @@ export default function FlipNumber({ value, duration = 1000 }: FlipNumberProps) 
     const step = (timestamp: number) => {
       if (!startTime) startTime = timestamp
       const progress = Math.min((timestamp - startTime) / duration, 1)
-      setDisplayValue(Math.floor(progress * (end - start) + start))
+      setDisplayValue(Math.floor(progress * (end - start) + start)) 
       if (progress < 1) requestAnimationFrame(step)
     }
 
