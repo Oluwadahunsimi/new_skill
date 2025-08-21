@@ -1,5 +1,5 @@
 "use client"
-import { NavbarWithDropdown } from "@/components/UI/navigation"
+import { NavbarWithDropdown } from "@/components/UI/navigation" 
 import Footer from "@/components/UI/Footer"
 import { Monitor, Video, Link, CheckCircle, Star, ChevronDown, ChevronUp, Clock, Users, Award, Globe } from "lucide-react"
 import Image from "next/image"
@@ -206,8 +206,6 @@ export default function BootcampPage() {
       image: "/images/data_analysis.jpg",
     },
   ];
-    }))
-  } 
 
   const courseModules = [
     {
@@ -306,7 +304,7 @@ export default function BootcampPage() {
         </div>
       </div>
 
-      <section className=" mx-auto px-4 sm:px-6 py-6 sm:py-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6 sm:space-y-8">
