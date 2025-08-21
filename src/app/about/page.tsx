@@ -93,12 +93,19 @@ export default function AboutPage() {
     <div className="min-h-screen bg-white">
       <NavbarWithDropdown />
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-16 px-6">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-sm font-medium mb-4 tracking-wider">ABOUT US</p>
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">Discover how we improve lives through technology and skills.</h1>
+      <div className="bg-gradient-to-r from-blue-900 to-blue-800 py-16 px-6 pt-32">
+        <div className="max-w-4xl pl-12">
+          {/* Line + Text */}
+          <div className="flex items-center space-x-3 mb-2">
+            <span className="w-12 h-[1px] bg-white"></span>
+            <p className="text-white text-sm font-medium tracking-wider uppercase">ABOUT US</p>
+          </div>
+
+          {/* Heading */}
+          <h1 className="text-white text-4xl md:text-5xl font-bold">Discover how we improve lives through technology and skills.</h1>
         </div>
-      </section>
+      </div>
+
 
       {/* Main Content Section */}
       <section className="py-16 px-6">
@@ -330,7 +337,6 @@ export default function AboutPage() {
           <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
             Be part of Africa&apos;s digital transformation. Whether you&apos;re a learner, partner, or supporter, there&apos;s a place for you in our mission. From digital skills bootcamps to online tech training in Nigeria, we are building the next generation of tech talent in Africa. Together, we can empower communities, close the digital divide, and create opportunities for all.
           </p>
-
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="px-8 py-4 border border-white text-white rounded-lg hover:bg-gray-300 transition-colors duration-200">
               Join A Program
